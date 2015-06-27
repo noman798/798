@@ -1,0 +1,33 @@
+#//发布打包，o表示压缩，m表示采用md5作为版本号，p代表打包，D表示修改cdn全路径，d表示发布到dist路径下
+#fis release -ompDd dist
+
+PREFIX=$(cd "$(dirname "$0")"; pwd)/..
+
+cd $PREFIX/cli
+hg fe
+chmod +x _prepare 
+./_prepare
+
+
+cd $PREFIX/docs
+make html
+
+
+cd $PREFIX
+compass compile
+./cli/monitor -once
+coffee -b -o $PREFIX/pure/modules/ -c $PREFIX/coffee
+
+cd $PREFIX/pure
+deltmp
+pure release -D --optimize --pack --md5 -d ../build
+
+
+cd $PREFIX/build
+cp $PREFIX/pure/lib/particles.js $PREFIX/build/static/lib/particles.js
+
+python $PREFIX/cli/htmlmini
+
+# 为了防止在htmlmini css过程中产生CDN缓存
+mkdir -p $PREFIX/release
+cp $PREFIX/build/* $PREFIX/release/ -R

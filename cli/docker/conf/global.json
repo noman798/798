@@ -1,0 +1,8 @@
+{
+    "applicationName" : "${CONFIG.LEANCLOUD.NAME}",
+    "applicationId": "${CONFIG.LEANCLOUD.ID}",
+    "applicationKey": "${CONFIG.LEANCLOUD.KEY}",
+    "global": {
+        "avVersion": "0.3.1"
+    }
+}

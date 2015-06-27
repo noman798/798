@@ -1,0 +1,18 @@
+-inherit _base.plim
+
+.field
+    input spellcheck="false" autocomplete="off" ms-duplex="o.username" name="username"
+    label 昵称
+.field
+    input spellcheck="false" autocomplete="off" ms-duplex="o.mobilePhoneNumber" name="mobilePhoneNumber"
+    label 手机
+.field
+    input spellcheck="false" autocomplete="off" ms-duplex="o.email" name="email"
+    label 邮箱
+.field
+    input autocomplete="off" ms-duplex="o.password" type="password" ms-duplex="o.password" name="password"
+    label 密码
+.one.fluid.ui.inverted.buttons
+    button.ui.green.ok.basic.inverted.button type="submit" 创建账号 
+.login 已经注册 ？ 
+    a href="javascript:URL('-SSO/auth.login');void(0)" 点此登录

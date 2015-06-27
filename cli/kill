@@ -1,0 +1,7 @@
+PREFIX=$(cd "$(dirname "$0")"; pwd)
+ps x -u $USER|ack 'compass'|awk  '{print $1}'|xargs kill -9 > /dev/null 2>&1
+ps x -u $USER|ack 'fis release'|awk  '{print $1}'|xargs kill -9 > /dev/null 2>&1
+ps x -u $USER|ack '/bin/coffee'|awk  '{print $1}'|xargs kill -9 > /dev/null 2>&1
+ps x -u $USER|ack 'cli/monitor'|awk  '{print $1}'|xargs kill -9 > /dev/null 2>&1
+
+

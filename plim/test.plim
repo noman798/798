@@ -1,0 +1,17 @@
+-inherit /_base/page.plim
+---
+    from random import randint
+
+-scss
+    .v2{
+        width:50%;
+        margin:auto;
+    }
+
+
+.v2
+    .v1
+        .v0
+            -for i in xrange(randint(1,5))
+                p tewt 
+

@@ -1,0 +1,13 @@
+div
+    link rel="stylesheet" href="/css/minisite/cropper.css?__inline"
+    h1 请您选择上传的头像
+    .cropper.editable
+        img src="/css/img/low_contrast_linen.png" alt=""
+    div.slide
+        i.iconfont.icon-zoomout
+        input type="range" max="2" min="1" step="0.02" 
+        i.iconfont.icon-zoomin 
+    div.upload.C
+        input#test type="file" value=""
+        i.iconfont.icon-upload
+        input.sure type="submit" value="确认"

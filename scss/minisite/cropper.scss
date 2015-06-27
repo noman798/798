@@ -1,0 +1,41 @@
+h1{
+    text-align:center;
+}
+.cropper{
+    .cropper-bg{
+        background:url(/css/img/bgpaper.png);
+    }
+    div.cropper-container.cropper-bg:last-child{
+    }
+    .cropper-dashed{
+        border:none;
+    }
+}
+.slide{
+    text-align:center;
+    margin-top:50px;
+    input[type="range"]{
+        width:205px;
+    }
+    i.icon-zoomout,i.icon-zoomin{
+        font-size:32px;
+        color:#999;
+    }
+}
+.upload{
+    width: 269px;
+    margin: 0 auto;
+    margin-top: 51px;
+    input#test{
+        display:none;
+    }
+    .icon-upload{
+        font-size:22px;
+        cursor:pointer;
+        float:left;
+    }
+}
+.sure{
+    border:none;
+    float:right;
+}

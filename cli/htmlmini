@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+#coding:utf-8
+import _env
+from single_process import single_process
+from os import walk
+from os.path import join, islink, abspath
+import envoy
+
+def htmlmini(path):
+    for (dirpath, dirnames, filenames) in walk(abspath(join(_env.PREFIX, path))):
+        for i in filenames:
+            cmd = 0
+            path = join(dirpath, i)
+            if i.endswith(".css"):
+                cmd = "cleancss %s --s0 -o %s"%(path, path)
+            elif i.endswith(".html"):
+                if not islink(path):
+                    cmd = 'html-minifier --config-file %s/cli/htmlmini.conf %s -o %s'%(_env.PREFIX,path, path)
+            if cmd:
+                print cmd
+                envoy.run(cmd)
+
+@single_process
+def main():
+    htmlmini("build")
+
+if __name__ == "__main__":
+    main()

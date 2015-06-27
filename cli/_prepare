@@ -1,0 +1,10 @@
+
+PREFIX=$(cd "$(dirname "$0")"; pwd)/..
+cd $PREFIX/cli
+chmod +x kill 
+sh $PREFIX/cli/kill
+/bin/rm $PREFIX/pure/modules -rf
+/bin/rm $PREFIX/pure/html -rf
+/bin/rm $PREFIX/build/html -rf
+/bin/rm $PREFIX/build/static -rf
+

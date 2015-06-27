@@ -1,0 +1,80 @@
+.overlay
+    .searchbar ms-view="search"
+        .wrap
+            span
+            a.iconfont.icon-search href="javascipt:void(0)"
+        .query
+            input placeholder="输入关键词搜索" ms-duplex="keyWords"
+        a.iconfont.icon-close href="javascipt:void(0)"
+        .suggest-wrap
+            span.result-tip
+                搜索"{{keyWords}}"的相关文章
+        
+-scss
+
+    @media only screen and (max-width: 1012px){
+        .overlay .searchbar .wrap{
+            width:100px;
+        }
+    }
+    .overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 999; 
+        background:rgba(0,0,0,0.2);
+        .searchbar{
+            height:66px;
+            background: #111122;
+            .wrap{
+                float:left;
+                height:100%;
+                line-height:100%;
+                span{
+                    color:#fff;
+                    float:left;
+                    margin-left:25px;
+                    margin-top:25px;
+                }
+                a{
+                    float:right;
+                    margin-right:25px;
+                    margin-top:25px;
+                    color:rgba(255,255,255,0.5);
+                }
+            }
+            .query{
+                float:left;
+                height:100%;
+                line-height:100%;
+                width:40%;
+                input{
+                    margin-top:15px;
+                    margin-left:25px;
+                    width:100%;
+                    background:transparent;
+                    border:none;
+                    color:#fff;
+                    padding:5px 10px;
+                    outline:none;
+                }
+            }
+            .icon-close{
+                float:right;
+                height:100%;
+                font-size:25px;
+                margin-top:10px;
+                margin-right:10px;
+                color:rgba(255,255,255,0.5);
+            }
+            .suggest-wrap{
+                position: absolute;
+                top: 66px;
+                text-align: center;
+                width: 100%;
+                background: #eee;
+            }
+        }
+    }

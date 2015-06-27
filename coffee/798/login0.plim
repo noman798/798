@@ -1,0 +1,20 @@
+
+---!
+    from config import HOST 
+
+link rel="stylesheet" href="/css/_base/typed.css?__inline"
+link rel="stylesheet" href="/css/798/login0.css?__inline"
+
+#particles-js
+#_798 style="display:none"
+    .head.vc2
+        .vc1
+            .vc0 
+                h1 =HOST 
+                h2 打造你自己的垂直社区
+                h3
+                    span &nbsp; 
+                .bar
+                    a.ui.primary.button.wow.bounceInRight data-wow-delay="1s" href="javascript:URL('-SSO/auth.new');void(0)" 注册
+                    a.ui.basic.button.wow.bounceInLeft data-wow-delay="1s"  href="javascript:URL('-SSO/auth.login');void(0)" 登录
+

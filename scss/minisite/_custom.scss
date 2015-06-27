@@ -1,0 +1,25 @@
+
+@keyframes filterblur {
+  14% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(42px);
+  }
+}
+
+#BODY{
+    .Rbar > .cover{
+        background-image:url(//dn-s798.qbox.me/static/css/img/low_contrast_linen_012acbe.png);
+        opacity:.4;
+    }
+    .Rbar > .bg{
+        filter: blur(42px);
+        animation:filterblur 30s;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-size:cover;
+        background-color:#5B9EF4;
+        background-image:url(//dn-ac88.qbox.me/223_mini.jpg);
+    }
+}

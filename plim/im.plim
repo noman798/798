@@ -1,0 +1,354 @@
+-inherit /_base/page.plim
+
+link rel="stylesheet" href="/css/im.css?__inline"
+link rel="stylesheet" href="/css/chat.css?__inline"
+<!-- @require /lib/jquery.js -->
+<!-- @require /lib/TweenMax.min.js -->
+<!-- @require /lib/chat.js -->
+-scss
+    #IM{
+        #chat-list{
+            width: 350px;
+            position:  absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #333 url("/static/css/img/low_contrast_linen.png");
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            .user-box{
+                background: #329AD6;
+                font-size: 23px;
+                border: none;
+                color: #fff;
+                margin-top: 0;
+                padding: 19px 0;
+                height: 66px;
+                line-height: 26px;
+                position: relative; 
+                z-index: 10;
+                .user{
+                    margin-left: 30px;
+                    cursor: pointer;   
+                    span.triangle{
+                        vertical-align: middle;
+                    }
+                }
+                a{
+                    color: rgba(255, 255, 255, 0.4);                    
+                    font-size: 30px;
+                    float: right;
+                    cursor: pointer;
+                    margin-top: -1px;
+                    margin-right: 20px;
+                } 
+                a:hover{    
+                    color: #fff;
+                }
+            }
+            .search-box{
+                height: 66px;
+                background-color: #FFFFFF;
+                padding: 13px 30px;
+                box-sizing: border-box;
+                font-size: 20px;
+                color: #8596A8;
+                position: relative;
+                z-index: 10;
+                input{
+                    outline: none;
+                    border: none;
+                    height: 40px;
+                    font-size: 20px;
+                    color: #333;
+                }
+                input::-webkit-input-placeholder{
+                    color: #8596A8;
+                }
+                span{
+                    font-size: 18px;
+                    position: absolute;
+                    right: 26px;
+                    top: 17px;
+                }       
+            }
+            .list-box{
+                position: relative;
+                height: 100%;
+                display: block;
+                margin-top: -132px;
+                z-index: 9; 
+                .user-list{
+                    position: absolute;
+                    top: 132px;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    .user-item{
+                        height: 90px;
+                        position: relative;
+                        cursor: pointer;
+                        background: rgba(0, 0, 0, 0.3);
+                        border-bottom: 1px solid #222;
+                        box-shadow: 0px 1px 1px #222;
+                        overflow: hidden;
+                        .user-status{
+                            float: left;
+                            line-height: 23px;
+                            text-align: left;
+                            color: #BFBFBF;
+                            padding: 6px 12px;
+                            width: 228px;
+                            letter-spacing: 0.5px;
+                            .date{  
+                                float: right;
+                            }
+                            .name{
+                                font-weight: bold;
+                                padding: 6px 0;
+                                color: #fff;
+                            }
+                            .msg{
+                                font-size: 13px;
+                                font-weight: bold;
+                                width: 85%;
+                            }
+                            .cur-state{
+                                font-size: 14px;
+                                color: #666;
+                            }
+                            .unread{
+                                position: absolute;
+                                bottom: 9px;
+                                right: 18px;
+                                font-size: 14px;
+                                border: 1px dashed;
+                                border-radius: 7px;
+                                padding: 3px 5px;
+                                color: rgba(255, 255, 255, 0.5);
+                                transform-origin: 100% 100%;
+                                transform: rotate(17deg);
+                                transition: font-size 0.3s cubic-bezier(0.61, 0.01, 0, 1.72);    
+                            }
+                        }
+                        img{
+                            width: 90px;
+                            height: 90px;
+                            box-sizing: content-box;
+                            float: left;
+                        }
+                        .colorful-border-1{
+                            border-right: 8px solid #EC407A;
+                        }
+                        .colorful-border-2{
+                            border-right: 8px solid #7E57C2;
+                        }
+                        .colorful-border-3{
+                            border-right: 8px solid #42A5F5;
+                        }
+                        .colorful-border-4{
+                            border-right: 8px solid #26C6DA;
+                        }
+                        .colorful-border-5{
+                            border-right: 8px solid #66BB6A;
+                        }
+                        .colorful-border-6{
+                            border-right: 8px solid #D4E157;
+                        }
+                        .colorful-border-7{
+                            border-right: 8px solid #FFCA28;
+                        }
+                        .colorful-border-8{
+                            border-right: 8px solid #FF7043;
+                        }
+                        .colorful-border-9{
+                            border-right: 8px solid #BDBDBD;
+                        }
+                        .colorful-border-10{
+                            border-right: 8px solid #42A5F5;
+                        }
+                    }
+                    .user-item:hover{   
+                        border-color: #222;
+                        background: rgba(0, 0, 0, 0.5);
+                        .unread{
+                            font-size: 28px;
+                            color: rgba(255,0,0,0.85);
+                        }
+                    }
+                }
+                .scroll-content{
+                   top: 0;
+                }
+            }
+        }
+        #chat-box{
+            width: 500px;
+            height: 100%;
+            position: absolute;
+            right: 350px;
+            bottom: 0;
+            overflow: hidden;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+            border-left: 1px solid #ccc;
+            .inner-box{
+                width: 100%;
+                height: 100%;
+                background-color: #ECEDF1;
+                position: relative;
+                .icon-camera:before{
+                    font-size:24px;
+                }
+                .icon-fly:before{
+                    font-size:24px;
+                    color:#fff;
+                }
+                .trans-bg{
+                    height: 8px;
+                    width: 100%;
+                    background-color: #329AD6;
+                    background:-moz-linear-gradient(left, #0083FF, #329AD6); 
+                    background:-webkit-gradient(linear, left 0, right 0, from(#0083FF), to(#329AD6)); 
+                }
+                .user{
+                    position: relative;
+                    height: 94px;
+                    background-color: #333;
+                    span.triangle{
+                        vertical-align: -5px;
+                    }
+                    .cur-state{
+                        color: #A8A8A8;
+                        font-size: 15px;
+                        padding: 3px 6px;
+                        border: 1px solid rgba(50, 154, 214, 0.53);
+                    }
+                    img{
+                        height: 100%;
+                        float: left;
+                    }
+                    .status{
+                        float: left;
+                        color: #fff;
+                        line-height: 36px;
+                        padding-top: 8px;
+                        padding-left: 30px;
+                        position: relative;
+                        width: 403px;
+                        a{
+                            cursor: pointer;
+                            position: absolute;
+                            right: 30px;
+                            top: 28px;
+                            color: rgba(255, 255, 255, 0.4);
+                            font-size: 30px;
+                        }
+                        a:hover{
+                            color: #fff;
+                        }
+                    }
+                    .name{
+                        font-weight: bold;
+                    }
+                }
+                .content{
+                    position: absolute;
+                    top: 102px;
+                    bottom: 0;
+                }
+                .scroll-content{
+                   top: 0;
+                }
+            }
+        }
+        span.triangle{
+            width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            border: 6px solid;
+            margin-left: 10px;
+            border-color: rgba(255, 255, 255, 0.4) transparent transparent; 
+        } 
+    }
+
+#IM
+    div#chat-list
+        div.user-box
+            span.user data-html="<div class='ui divided  list'><div class='item'><a href='#'><span class='iconfont icon-clock'></span>发起群聊</a></div><div class='item'>添加好友</div><div class='item'>联系客服</div></div>" 张少瑞
+                span.triangle
+            a.iconfont.icon-clock
+        div.search-box
+            input placeholder="标签/名字"
+            span.iconfont.icon-search
+        div.list-box
+            div.user-list.C.scrollbar-macosx
+                div.user-item
+                    img.colorful-border-1 src="https://randomuser.me/api/portraits/med/women/36.jpg"
+                    div.user-status
+                        div.cur-state 投资人
+                            span.date 12:20
+                        div.name 张三
+                        div.msg 看什么看你有我的眼睛大么？
+                        div.unread +99
+                div.user-item
+                    img.colorful-border-2 src="https://randomuser.me/api/portraits/med/men/36.jpg"
+                    div.user-status
+                        div.cur-state 创业者 
+                            span.date 12:20
+                        div.name 李狗蛋
+                        div.msg What the fuck, 就看你了，怎么滴
+                        div.unread +3
+                div.user-item
+                    img.colorful-border-3 src="https://randomuser.me/api/portraits/med/women/10.jpg"
+                    div.user-status
+                        div.cur-state 创业者
+                            span.date 9:10
+                        div.name Smile Woman 
+                        div.msg 嘿嘿嘿，嘿嘿嘿，嘿嘿嘿
+                        div.unread +10
+                div.user-item
+                    img.colorful-border-4 src="https://randomuser.me/api/portraits/med/men/10.jpg"
+                    div.user-status
+                        div.cur-state 投资人
+                            span.date 9:10
+                        div.name 欧阳妹夫
+                        div.msg 呵呵，呵呵，呵呵
+                        div.unread +20
+    div#chat-box
+        div.inner-box
+            div.trans-bg
+            div.user
+                img src="https://randomuser.me/api/portraits/med/women/93.jpg"
+                div.status
+                    div.name Miss Smile 
+                        span.triangle
+                    span.cur-state 天使汇认证投资人
+                    a.iconfont.icon-clock
+            div.content.chat-window  
+                div.chat-messages.scrollbar-macosx
+                    ol.chat-messages-list
+                        li.chat-message.chat-message-friend 
+                            div.chat-message-bubble 建立符合职业特点的司法人员管理制度，在深化司法体制改革中Essie nail polish collection and you’ll be greeted with names like “the night and “spun in luxe.”
+            div.chat-send-box
+                 div.chat-input-bar
+                    div.chat-info-container
+                    div.chat-effect-container
+                        div.chat-effect-bar
+                    div.chat-input-wrapper
+                        button.chat-input-tool
+                            i.iconfont.icon-camera
+                        div.chat-input contenteditable="true"
+                        button.chat-send
+                            i.iconfont.icon-fly
+                svg xmln="http://www.w3.org/2000/svg" version="1.1" width="900"
+                    defs
+                        filter#goo
+                            feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"
+                            feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"
+                            feComposite in="SourceGraphic" in2="goo"
+
+-coffee
+    $("#chat-list .user-list").scrollbar()
+    $("#chat-box .chat-messages").scrollbar()
+

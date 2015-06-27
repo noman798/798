@@ -1,0 +1,10 @@
+
+.sideshare 分<br/>享
+    .shareIcon
+        i.iconfont.icon-weixin
+        a href="javascript:void(0);" data="weibo" 
+            i.iconfont.icon-weibo
+        a href="javascript:void(0);" data="qq"
+            i.iconfont.icon-qq
+        a href="javascript:void(0);" data="douban"
+            i.iconfont.icon-douban

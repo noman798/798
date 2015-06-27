@@ -1,0 +1,81 @@
+
+#BODY{
+    min-width:375px;
+    height: 100%;
+    overflow:hidden;
+    position:static!important;
+    &>.main{
+        box-sizing: border-box;
+        z-index:10;
+        box-shadow:-3px 0 5px rgba(0,0,0,.5);
+        height:100%;
+        overflow:auto;
+        overflow-x:hidden;
+    }
+    .headroom{
+        width:100%;
+        transition: width 350ms ease-in-out;
+    }
+    &>.pusher{
+        position:absolute;
+        right:0;
+        left:0;
+        top:0;
+        transition:left 350ms ease-in-out;
+    }
+    &>.main.pusher{
+        position : fixed!important;
+        transform:none!important;
+    }
+    .Rbar.visible.uncover ~ .pusher{
+        left:30%!important;
+        .headroom{width:70%;}
+    }
+}
+#BODY > .Rbar{
+    box-sizing: border-box;
+    position: fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width: 30%;
+    transition: all 0.35s ease-in-out;
+}
+#BODY > .main .inner{
+    margin-top: -63px;
+    padding-top: 130px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1012px){
+    #BODY > .main .inner{
+        padding-top:172px;
+    }
+}
+@media only screen and (max-width: 1012px){
+    #BODY > .Rbar{
+        width:445px;
+    }
+}
+
+@media only screen and (max-width: 450px){
+    #BODY > .Rbar{
+        width:100%;
+    }
+    #ssoSetting{
+        width:100%;
+    }
+    #BODY {
+        .visible ~ .pusher{
+            display:none!important;
+        }
+        .headroom{
+            .user{
+                width:66px;box-sizing:border-box;text-align:center;
+                .triangle{margin:0}
+                .ico,.name{display:none;}
+            }
+        }
+    }
+
+}

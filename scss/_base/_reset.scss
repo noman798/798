@@ -1,0 +1,11 @@
+[ms_view], [ms_important] {
+  visibility: hidden;
+}
+html,body,button,input,select,textarea,.ui-button, pre, p{
+    line-height:1.875;
+    -webkit-font-smoothing:antialiased;
+    font-size:16px;
+}
+a{
+outline:0;
+}

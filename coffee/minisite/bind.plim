@@ -1,0 +1,45 @@
+.scrollbar-macosx
+    link rel="stylesheet" href="/css/minisite/bind.css?__inline"
+    .body
+        h1 我们重新定义了极简！
+        p 借助
+            a.m06 href="https://www.yinxiang.com/" target="_blank" 印象笔记
+            ，你就可以随时随地创作，发布文章。
+        p 首先，请在本站绑定帐号。
+        hr
+        div.button.C
+            .L
+                span.dropdown
+                    select ms-duplex="o.app"
+                        option value="yinxiang" 印象笔记
+                        option value="evernote" Evernote
+                a.bind ms-if="!binding" href="javascript:void(0)" ms-click="bind" 点此绑定
+                .binding ms-if="binding"
+                    .syncing
+                        span
+            span.notice 账号绑定的有效期最长为一年。过期失效后，请来此页面重新授权。
+        div ms-if="li.length"
+            hr
+            table
+                tr ms-repeat="li"
+                
+                    td 
+                        i.iconfont.icon-evernote
+                        span.name {{el.name}} 
+                    td
+                        span.time ms-if="el.binded" 绑定成功。
+                        span.time ms-if="el.syncing" 已更新
+                            span.m06 {{el.syncing_count}}
+                            篇文章
+                        span.time ms-if="el.finish" 同步已完成
+                        span.time ms-if="!el.syncing && !el.finish && !el.binded" 同步于 {{el.update}}
+                        
+                    td.tr
+                        i.iconfont ms-class-1="icon-refresh:!el.syncing" ms-class-2="syncing:el.syncing" ms-click="sync(el)"
+                            span
+                        i.iconfont.icon-trash ms-click="rm(el)"
+        hr
+        p.later 之后，写作如常。当您需要发布的时候。
+        p 只需在需要发布笔记上添加标签「TECH2IPO」即可自动向 TECH2IPO 投稿。
+        p 一篇投稿向 TECH2IPO 的印象笔记文章应当如下图所示：
+        img src="//dn-acac.qbox.me/tech2ipoQQ图片20150619171819.jpg"

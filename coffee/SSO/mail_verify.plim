@@ -1,0 +1,4 @@
+-inherit _base.plim
+
+div.container
+    h3.tip

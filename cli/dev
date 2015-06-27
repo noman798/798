@@ -1,0 +1,17 @@
+PREFIX=$(cd "$(dirname "$0")"; pwd)/..
+cd $PREFIX/cli
+chmod +x monitor 
+chmod +x _prepare 
+./_prepare
+cd $PREFIX/pure
+pure release --watch --live -d ../build &
+
+
+cd $PREFIX
+coffee -b -o $PREFIX/pure/modules/ -cmw $PREFIX/coffee&
+compass watch&
+
+./cli/monitor
+./cli/kill
+
+

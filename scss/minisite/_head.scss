@@ -1,0 +1,179 @@
+.animated{
+    animation-duration: 300ms;
+}
+.headroom{
+    height: 66px;
+    line-height: 66px;
+    background:#112;
+    .wrapper{
+        width:100%;
+        .left{
+            float:left;
+            padding-left:28px;
+            .iconfont{
+                margin-right:20px;
+                &:hover{
+                    background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.1);
+                }
+                .icon-write{
+                    font-size: 17px;
+                    margin-top: 18px;
+                }
+            }
+        }
+        div{
+            float:right;
+            span.tips {
+                margin-right:27px;
+                color:#A3A5A6;
+                b{
+                font-weight:normal
+                }
+                a{
+                    border-bottom:1px solid;
+                    margin:0px 3px;
+                    font-size:16px;
+                }
+                .txt .message{
+                    float:none;
+                    display:inline;
+                }
+            }
+            a.login,a.new{
+                outline:none;
+                display:inline-block;
+                width: 90px;
+                color: #fff;
+                text-align: center;
+            }
+            a.login{
+                background:#AC3200;
+            }
+            a.new{
+                background:#2AAC01;
+            }
+            a.user {
+                background:#123;
+                color:rgba(255, 255, 255, 0.5);
+                display:block;
+                float:right;
+                height:66px;
+                cursor:pointer;
+                line-height:66px;
+                padding:0 14px 0 19px;
+                right: 0;
+                top: 0;
+                .ico{
+                    box-shadow:0px 0px 12px rgba(0, 0, 0, 0.5) inset;
+                    display:inline-block;
+                    height:42px;
+                    margin-right:11px;
+                    margin-top:0px;
+                    vertical-align:-16px;
+                    width:42px;
+                }
+                .triangle { 
+                    width: 0px;
+                    height: 0px;
+                    border-style: solid dashed dashed;
+                    position: relative; 
+                    vertical-align: -13px; 
+                    margin-left: 10px; 
+                    border-width: 5px; 
+                    color: rgba(255, 255, 255, 0.5); 
+                    border-color: rgba(255, 255, 255, 0.5) transparent transparent;
+                }
+            }
+        }
+    }
+    .wrapper .left .icon-talk12{
+        margin-right:26px;
+        display:none;
+    }
+    a.icon-talk12 .unread{
+        background:none repeat scroll 0px 0px rgba(150, 0, 0, 0.9);
+        border-radius:12px;
+        border:1px solid;
+        font-size:12px;
+        font-weight:bold;
+        line-height:21px;
+        margin-left:-7px;
+        margin-top:-3px;
+        padding:0px 7px;
+        position:absolute;
+        transform:scale(0.8);
+    }
+    .iconfont{
+        font-family: "iconfont" ! important;
+        font-size: 16px;
+        font-style: normal;
+        -moz-osx-font-smoothing: grayscale;
+        display: inline-block;
+        float: left;
+        height: 32px;
+        line-height: 32px;
+        margin-top: 17px;
+        padding: 0px;
+        text-align: center;
+        vertical-align: middle;
+        width: 32px;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .rbarOpen{
+        float:left;
+        display: block;
+        font-weight:bold;
+        height: 66px;
+        display:none;
+        float: left;
+        margin-top: 0;
+        line-height: 66px;
+        width: 55px;
+        background: #454;
+        &:hover{
+            color:#fff;
+            background:#7AB007;
+        }
+    }
+    .iconnow { 
+        background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.2); 
+    }
+
+    .icon-earth:before { 
+        font-size: 18px;
+    }
+    .icon-earth{
+        display:none;
+    }
+    .icon-search:before {
+        font-size: 17px;
+    }
+}
+@media only screen and (max-width: 1012px){
+    .headroom div span.tips{
+        position: absolute;
+        width: 100%;
+        top: 66px;
+        text-align: center;
+        left: 0;
+        background: #8C0505;
+        color: #fff;
+        line-height: 41px;
+        .iconfont{
+            color:#fff;
+            float:none;
+            margin-top:-1px;
+        }
+        a{
+            color: #9cf;
+            font-size: 16px;
+        }
+    }
+    .headroom{
+        .wrapper{
+            .left{
+                padding-left:18px;
+            }
+        }
+    }
+}

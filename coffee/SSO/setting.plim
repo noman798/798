@@ -1,0 +1,71 @@
+-scss
+    #ssoSetting{
+        background:#333 url("/css/img/low_contrast_linen.png");
+        box-shadow:0 0 4px rgba(0,0,0,.2);
+        border-left:1px solid #555;
+        &>span,&>a{
+            outline:0;
+            background:rgba(0, 0, 0, 0.3);;
+            display: block;
+            height: 66px;
+            line-height: 66px;
+            width: 100%;
+            text-align:left;
+            color:#BFBFBF;
+            padding-left:30px;
+            margin-bottom:1px;
+            box-shadow: 0px 1px 1px #222;
+            border-bottom: 1px solid #333;
+            i{
+                font-style:normal;
+                padding-left:10px;
+                float: right;
+                margin-right: 31px;
+                font-size: 26px;
+                font-weight: normal;
+                margin-top: 1px;
+            }
+            &:hover{
+                color:#fff;
+                border-color:#222;
+                background: rgba(0,0,0,.5);
+            }
+        }
+        span.user{
+            background:rgba(50,180,255,.8);
+            font-size:23px;
+            border:none;
+            color: #eee;
+            margin-top:0;
+            a{
+                color: #eee;
+                font-size:30px;
+                &:hover{
+                    color: #fff;
+                }
+                float: right;
+                margin-top:-1px;
+                margin-right: 28px;
+            }
+        }
+        a.logout{
+            border:none;
+            box-shadow: 0 -1px 1px #222;
+            border-top:1px solid #333;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            padding-left:0;
+            cursor:pointer;
+        }
+    }
+    
+ 
+span.user
+    span.name
+    a.icon-close.iconfont href="javascript:void(0)" 
+a href="javascript:URL('-SSO/auth.info_update');void(0)" 基本信息
+    i.iconfont &#xe60d;
+a href="javascript:URL('-SSO/auth.password_update');void(0)" 修改密码 
+    i.iconfont &#xe60e;
+a.logout href="javascript:AV.User.logOut();URL();location.reload();void(0)" 退出登录

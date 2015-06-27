@@ -1,0 +1,34 @@
+-scss
+
+    #SsoAuth .login{
+        margin-top:3em;
+        color:#9C847F
+    }
+    #SsoAuth .login a{
+        color:#9C847F
+    }
+
+    #SsoAuth{
+        height:100%;
+    }
+    #SsoAuth .login a:hover{
+        color:#fff;
+        padding-bottom:5px;
+        border-bottom:2px solid #fff;
+    }
+    #SsoAuth .content{
+        max-width:600px;margin:auto
+    }
+
+
+form#SsoAuth ms-submit="submit"
+    .vc2
+        .vc1
+            .content
+                .description.ui.form
+                    =next.body()
+
+    input type="submit" class="hideSubmit"
+
+
+

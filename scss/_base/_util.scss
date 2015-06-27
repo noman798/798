@@ -1,0 +1,32 @@
+// 垂直居中 v2 > vc1 > vc0
+.vc2{
+    height:100%;
+    width:100%;
+    display:table;
+
+} 
+.vc1{display:table-cell; vertical-align:middle;
+}
+
+
+// 清除浮动
+.C{ *zoom: 1; }
+.C:before,
+.C:after { content: ""; display: table; }
+.C:after { clear: both; }
+
+/* 基本样式 */
+.R{
+    float: right;
+}
+.L{
+    float: left;
+}
+
+.m06{
+margin:0 6px;
+}
+
+.tr{
+text-align:right;
+}

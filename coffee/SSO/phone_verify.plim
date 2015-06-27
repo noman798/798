@@ -1,0 +1,53 @@
+-inherit _base.plim
+-scss
+    #SsoAuth{
+        h1{
+            text-align:left;
+            p{
+                margin-bottom:10px;
+            }
+            p.check{
+                font-size:22px;
+                margin-bottom:0;
+                a{
+                    color:#999;
+                    span.timer{
+                        display:inline-block;
+                        text-align:center;
+                        span.count{
+                            display:inline-block;
+                            width:30px;
+                        }
+                    }
+                }
+            }
+        }
+        .field{
+            label{
+                width:104px;
+            }
+            input{
+                padding-left:114px;
+            }
+        }
+    }
+h1 
+    p 账号创建成功!
+    p.check 验证码已经发送到您的手机，请查收
+    p.check 没有收到短信？
+        a.resend href="javascipt:void(0)"
+            span.timer
+                span.count
+                秒后
+            点此重新发送
+.field
+    input spellcheck="false" autocomplete="off" ms-duplex="o.code" name="code" placeholder="请输入您的手机验证码"
+    label 手机验证码
+.one.fluid.ui.inverted.buttons
+    button.ui.green.ok.basic.inverted.button type="submit" 确认提交 
+
+.login 您录入的手机是
+    span {{o.phone}}
+    。 
+    号码有误？
+    a href="javascript:URL('-SSO/auth.info_update');void(0)" 点此修改

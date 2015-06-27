@@ -1,0 +1,57 @@
+
+.sideshare{
+    z-index:1100;
+    position: fixed;
+    right: 0;
+    bottom: 24px;
+    border-radius: 0;
+    color: #fff;
+    opacity: .9;
+    line-height: 24px;
+    padding: 20px 10px;
+    transition: all .3s ease-in;
+    background: #fff;
+    color: rgba(0,70,0,.6);
+    border: 1px solid rgba(0,70,0,.6);
+    border-right: 0;
+    background: rgba(0,150,0,.05);    
+    cursor:normal;
+    .shareIcon{
+        position:absolute;
+        right:-400px;
+        transition:all .3s ease-in 0.05s;
+        height:60px;
+        top:31px;
+        i.iconfont{
+            transition:all .25s ease-in ;
+            cursor:pointer;
+            color:rgba(255,255,255,0.9);
+            background:rgba(0,70,0,.6);
+            font-size:28px;
+            border-radius:44px;
+            padding:20px;
+            border:1px solid rgba(0,70,0,.6);
+            margin:0 8px;
+            position:relative;
+            &:hover{
+                background:rgba(0,150,0,.05);
+                color:rgba(0,70,0,.6);
+            }
+            canvas, img{
+                  position: absolute;
+                  top: -120px;
+                  right: -14px;
+                  height:100px!important;
+                  width:100px!important;
+            }
+        }
+        
+    }
+    &:hover {
+        .shareIcon{
+            right:45px;
+        }
+        right:-37px;
+        opacity:1;
+    }
+} 

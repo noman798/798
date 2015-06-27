@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+#coding:utf-8
+import _env
+from single_process import single_process
+from monitor_plim import monitor_plim_init
+from monitor_fake_rpc import monitor_fake_rpc_init
+from monitor import MONITOR 
+
+@single_process
+def main():
+    monitor_plim_init()
+    monitor_fake_rpc_init()
+
+if __name__ == '__main__':
+    main()
+    import sys
+    if sys.argv[1:] and sys.argv[1] == '-once':
+        pass
+    else:
+        MONITOR.run() 
+

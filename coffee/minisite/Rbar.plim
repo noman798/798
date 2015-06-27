@@ -1,0 +1,43 @@
+.scrollbar-macosx
+    .vc2
+        .vc1
+            .vc0
+                .body
+                    .profile 
+                        a.logo href="#"
+                            b.bg
+                                b.svg style="background-image:url(https://dn-xpure.qbox.me/iconfont-shandian.svg);"
+                        h1 
+                            a.header href="http://kolumn-demo.rockermarket.com/" 798.SPACE 
+                        p.header 创新改变世界 , 我们见证未来  
+                    nav.social 
+                        ul 
+                            li
+                                a.ico-facebook href="http://facebook.com/ludwiczakpawel" target="_top" title="微信" &#xe609;
+                            li
+                                a.ico-twitter href="http://twitter.com/ludwiczakpawel" target="_top" title="Twitter" &#xe607;
+                            li
+                                a.ico-dribbble href="http://dribbble.com/ludwiczakpawel" target="_top" title="新浪微博" &#xe606;
+                            li
+                                a.ico-linkedin href="http://pl.linkedin.com/in/ludwiczakpawel" target="_top" title="雪球" &#xe601;
+                            li
+                                a.ico-email href="mailto:support@rockermarket.com" target="_top" title="Email"  &#xe608;
+                    nav.social.channel 
+                        div
+                            a href="#" 新闻资讯
+                                span.plus +
+                        div
+                            a href="#" 极客社区
+                                span.plus +
+                        div
+                            a href="#" 小道消息
+                        div
+                            a href="#"
+                                span.focus 苹果发布会
+                                    span.number 23
+                        div
+                            a href="#"
+                                span.focus 微软XBOX
+                                    span.number 9
+                        div
+                            a href="#" 小站  

@@ -1,0 +1,9 @@
+-inherit /_base/page.plim
+
+-block head
+    link rel="alternate" type="application/rss+xml" href="http://host.avosapps.com/rss/_NGINX_HOST_"
+
+
+-block script
+    script
+        require('minisite')

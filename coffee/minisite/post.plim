@@ -1,0 +1,15 @@
+div
+    link rel="stylesheet" href="/css/minisite/post.css?__inline"
+    form#postModal.scrollbar-macosx
+        .vc2
+            .vc1
+                .content
+                    .description.ui.form
+                        h1
+                            a.iconfont.star href="javascipt:void(0)"
+                            span
+
+                        .body
+
+                        .replyLi
+

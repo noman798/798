@@ -1,0 +1,307 @@
+798.space 目录导读
+=======================================
+
+我们先来看一下项目的目录结构, 常用的目录和文件如下
+
+首先是最重要的启动开发环境脚本，我们在这个脚本中启动了FIS，PLIM，CoffeeScript，Scss的自动编译进程 
+
+    cli
+        dev 
+   
+然后是rpc目录 。
+
+    rpc 
+        root.json.py 
+
+            
+写静态页面时，可以先与后端约定好交互数据数据结构。
+
+在后端接口完成之前，在此按约定好的结构定义一些假的json数据，以实现并行开发 。
+
+rpc 目前中是存放的是python脚本，以 .json.py 结尾，文件内容类似 ::
+
+    class FAKE:
+        index = [
+            "昵称",
+            32, #未读消息数
+            ...
+        ]
+
+启动开发环境后，当你修改.json.py文件是，会自动编译生成对应的json数据的静态文件到build目录下（生成的文件于.json.py的文件名，以及FAKE中的函数名相对应）。
+
+同时build目录也是FIS发布项目时候生成静态文件的部署目录。
+
+我们可以通过访问诸如 http://你的域名/rpc/root.index 来看到生成的内容。
+
+这样我们就可以在javascript中很方便使用 /rpc/root.index 这个地址来获取数据（这与后端真正实现接口后的数据获取路径是一致的，区别只是域名不同）。
+
+
+    *  build 
+        *  rpc 
+            *  root.index 由root.json.py生成
+
+
+leancloud云代码,该目录内容相当于用js写的后端代码
+
+    *  leancloud 
+
+        *  cloud 后台由coffee编译的js代码
+
+        *  coffee 后台coffee代码
+
+        *  config 配置文件目录
+
+        *  public 
+
+        *  deploy 将本地源码推送到 LeanCloud 云代码平台运行 ./deploy
+
+
+
+其它目录 
+
+    *  pure 
+
+        *  fis-conf.js fis配置文件 
+      
+        *  css css通常由scss生成,一般不会直接修改
+
+        *  html html通常由plim生成,一般不会直接修改
+        
+        *  modules 由coffee生成的js文件存放目录,一般不会直接修改
+
+        *  lib 库文件存放目录,库文件例如semantic等,包含css和js
+
+    *  plim plim文件存放目录
+
+    *  coffee coffee文件存放目录
+
+    *  scss scss文件存放目录
+
+    *  docs 文档
+
+    *  config.rb compass配置文件 
+
+    *  replace_line.py 用于替换文件中字符串的脚本,FROM_STRING是原来的字符串,TO_STRING是替换后的字符串,修改完之后F12运行一下完成文件中的替换
+
+coffee目录中的plim
+---------------------------------------
+
+在我们写网站的时候，经常会有写弹出框的需求.这时通常我们会在coffee文件中引入plim文件，为了解决查找麻烦的问题，我们将会用到的plim文件写在coffee的目录下,这样当引用plim文件时将会更加方便。
+
+
+我们用到了下列技术
+
+FIS
+---------------------------------------
+
+798.space 使用基于 FIS 的 `PURE <https://github.com/fex-team/fis-pure>`_ 作为我们纯前端开发框架的基础框架。
+
+我们运行 ./cli/dev 脚本启动开发环境的时候，就启动了pure （PURE是FIS的一个定制版）。
+ 
+FIS是专为解决前端开发中自动化工具、性能优化、模块化框架、开发规范、代码部署、开发流程等问题的工具框架。
+
+它提供了很多实用的特性来提供我们的开发效率。比如，修改保存之后html或脚本文件之后，浏览器会自动刷新网页。
+ 
+详情参阅 * `FIS前端工具框架 <http://fis.baidu.com/docs/beginning/getting-started.html>`_
+
+我们特别强调几点。
+
+FIS可以通过pack来进行资源文件的合并，比如我们需要将DEMO中的公共库文件打包在一起，可以修改fis-conf.js配置，加入pack配置::
+
+    fis.config.set('pack', {
+        'pkg/lib.js': [
+                '/lib/mod.js',
+                '/modules/underscore/**.js',
+                '/modules/backbone/**.js',
+                '/modules/jquery/**.js',
+                '/modules/vendor/**.js',
+                '/modules/common/**.js'
+        ]
+    });
+
+FIS可以在javascript脚本中对于声明其关于javascript和css的依赖关系，输出时，会自动在生产的HTML静态文件中引用相关的样式和脚本。
+
+也可以在javascript通过 __inline 引用html文件， 这对于编写单页面全动态的网站（类似Gmail这种）帮助巨大。
+
+详情参见 `三种语言能力 <http://fis.baidu.com/docs/more/fis-standard.html>`_
+
+
+leancloud
+---------------------------------------
+
+LeanCloud 提供一站式后端云服务，从数据存储、实时聊天、消息推送到移动统计，涵盖应用开发的多方面后端需求。
+
+以后再也不用租服务器，也不用写后端代码了。
+
+
+js数据存储开发相关链接 ： 
+
+   * `leancloud javascript数据存储文档 <https://leancloud.cn/docs/js_guide.html>`_
+   * `云代码 <https://leancloud.cn/docs/cloud_code_guide.html>`_
+
+
+leancloud云代码命令行工具
+----------------------------------------
+
+leancloud云代码命令行工具是用来管理、部署云代码项目的命令行工具，称之为avoscloud-code项目。通过它，你可以部署、发布、回滚云代码，并且可以对同一个云代码项目做多应用管理，还可以查看云代码日志，批量上传文件到LeanCloud平台上等
+
+安装avoscloud命令行工具::
+
+    sudo cnpm install -g avoscloud-code 
+
+在你开发和本地测试云代码项目通过后，你可以直接将本地源码推送到 LeanCloud 云代码平台运行，只要执行 deploy 命令::
+
+    ./deploy
+
+
+PLIM模板
+----------------------------------------
+
+plim 是 MAKO模板 的一种简便写法。
+
+所以，你需要先了解什么是Mako。
+
+请先仔细阅读相关文档 
+
+    * `Mako 中文文档 <http://zzk.cnblogs.com/s?w=blog%3ARChen%20mako>`_
+    * `Mako 官方文档 <http://docs.makotemplates.org/en/latest/>`_
+    * `Plim 官方文档 <http://plim.readthedocs.org/en/latest/index.html>`_
+    
+用plim模板写html有一些好处。
+
+* 比写html更加简单，代码量更加少
+* 再也不用担心html标签的闭合问题
+* 简单的缩进表示嵌套让代码看起来更整洁
+
+通常的页面，我们通过继承简化代码结构，比如继承基模板(基模板是所有页面都要继承的模板) ::
+    
+    -inherit /_base/page.plim
+
+基模板将html分成head，body，script 三部分(mako中的block)，三部可以分别被重载.
+
+比如，继承基模板的head(head部分一般引用css文件)::
+
+    -block head
+        = parent.head()
+        <!-- @require /css/index.css -->
+
+如果是直接继承/_base/page.plim，parent.head可以省略，下同。 
+
+继承基模板的script(一般位于模板结尾，引用js文件)::
+
+    -block script
+        = parent.script()
+        scrpit
+            require('798') 
+
+            
+其他部分将自动插入基模板的next.body()部分
+
+
+SASS
+---------------------------------------
+
+Sass是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护。
+
+Sass的使用方法使你的css的扩展和维护工作变的更加容易
+
+相关链接 ： 
+
+   * `Sass用法指南 <http://www.ruanyifeng.com/blog/2012/06/sass.html>`_
+   * `Sass教程 <http://www.sass.hk/sass-course.html>`_
+
+通常情况下SCSS分成三个等级来引用:全局级，模块级，页面级
+
+全局级和模块级的SCSS文件名用下划线开头，如_base.scss,_head.scss等
+
+其中head部分，sidebar部分一般作为一个模块被引用。
+
+当页面级的SCSS需要被其他SCSS引用时，请用@import
+
+所有的SCSS导入文件都可以忽略后缀名.scss。
+
+不被直接引用的css样式组件，我们以 _ 作为文件名的开头，如 _mixin.scss 。
+
+这种文件在导入的时候可以不写下划线，可写成 ::
+    
+    @import "mixin"。
+
+Compass
+---------------------------------------
+
+简单说，Compass是Sass的工具库（toolkit）。 
+
+Sass本身只是一个编译器，Compass在它的基础上，封装了一系列有用的模块和模板，补充Sass的功能。它们之间的关系，有点像Javascript和jQuery、Ruby和Rails、python和Django的关系。
+
+我们使用compass来编译我们的scss脚本。
+
+相关链接 ： 
+
+   * `Compass用法指南 <http://www.ruanyifeng.com/blog/2012/11/compass.html>`_
+
+Coffeescript
+---------------------------------------
+
+CoffeeScript，是一种更好的JavaScript。
+
+使用Coffeescript可以避免书写JavaScript时候遇到的许多问题，同时也能简化我们的代码书写。
+
+比如，忘记用var定义变量，导致局部变量成为全局变量，进而导致名字空间的污染。
+
+比如，可以用 for ... in , 而不用 for(var i=0;i<arr.length;++i) 如此麻烦的写法。
+
+我们在项目中禁止书写原生JavaScript，所有的脚本都请用Coffeescript编写。
+
+如果你在网上找到一些JavaScript脚本，希望copy&paste加以使用，请先通过 `js2.coffee <http://js2.coffee/>`_ 将其转换。
+
+相关链接 :
+
+    * `Coffeescript中文站 <http://coffee-script.org/>`_
+    * `CoffeeScript小书 <http://vdisk.weibo.com/s/CeFLYiTngI9wb>`_
+
+Semantic UI
+---------------------------------------
+
+Semantic UI—完全语义化的前端界面开发框架
+
+跟 Bootstrap 和 Foundation 比起来，还是有些不同的，在功能特性上、布局设计上、用户体验上均存在很多差异。
+
+Semantic UI 比Bootstrap更语义化，使用了更容易理解的标签名称：导航的是nav，主要内容的是main，class名也很明确，而且不像Bootstrap需要套很多层。Bootstrap很通用，兼容性很好，甚至能兼容低版本的IE，Semantic-UI则更Geek，有不少CSS3的特性，比如Shape和Reveal就很有趣。从界面设计风格来说，Semantic比Bootstrap(2)更扁平化.
+
+我们在基模板中引用Semantic UI，编写代码时，注意复用Semantic UI中已有的功能组件
+
+相关链接 :
+
+    * `Semantic UI中文网 <http://www.semantic-ui.com.cn/>`_
+    * `Semantic UI官网 <http://semantic-ui.com/>`_
+
+avalon
+---------------------------------------
+
+avalon是一个简单易用迷你的MVVM框架，为解决同一业务逻辑存在各种视图呈现而开发出来的。
+
+MVVM将所有前端代码彻底分成两部分，视图的处理通过绑定实现， 业务逻辑则集中在一个个叫VM的对象中处理。我们只要操作VM的数据，它就自然而然地同步到视图。
+
+相关链接 :
+
+    * `迷你MVVM框架avalonjs入门教程 <http://www.cnblogs.com/rubylouvre/p/3181291.html/>`_
+
+View
+---------------------------------------
+
+View是对avalon中avalon.define的改写
+
+定义一个View可以写成::
+    
+   View(id,o,view) 
+
+改写文件coffee/lib/avalon_ext.coffee
+
+avalon.nextTick
+---------------------------------------
+
+avalon.nextTick类似于Node.js里的process.nextTick()
+
+相关链接 :
+    
+    * `理解Node.js里的process.nextTick() <http://www.oschina.net/translate/understanding-process-next-tick?print/>`_

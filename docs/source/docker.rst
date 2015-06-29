@@ -83,7 +83,7 @@
     hg clone git+ssh://git@github.com:noman798/798.git
     rm -rf /home/798/.hg
     cd /home/798/
-    hg clone https://bitbucket.org/798space/798
+    hg clone git+ssh://git@github.com:noman798/798.git
 
 最后启动docker ::
 

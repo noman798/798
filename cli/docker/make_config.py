@@ -16,7 +16,6 @@ def make_config(filepath):
         ('fis-conf.js', "pure"),
         ('config.py', "."),
         ('config.js', "pure/lib"),
-        ('global.json', "leancloud/config"),
     ):
         with open(join(CONFIG_DIR, name)) as conf:
             tmpl = conf.read()

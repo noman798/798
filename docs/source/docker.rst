@@ -80,7 +80,7 @@
 
     mkdir -p /home/
     cd /home/
-    hg clone git+ssh://git@github.com:noman798/798.git
+    hg clone git+ssh://git@github.com:noman798/home_798.git 798
     rm -rf /home/798/.hg
     cd /home/798/
     hg clone git+ssh://git@github.com:noman798/798.git

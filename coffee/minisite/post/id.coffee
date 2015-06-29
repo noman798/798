@@ -38,7 +38,6 @@ _quote = (txt)->
 
 _reply_bind = (elem, post) ->
 
-    console.log post
     elem.find('.icon-reply').click ->
         self = $ @
         li = self.parents('.li')
@@ -84,6 +83,7 @@ _render_reply = (reply)->
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
+    console.log post
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")
@@ -91,7 +91,7 @@ _render = (post, scroll_to_reply)->
     html.find('.ui.form>.body').html post.html
     html.find('.ui.form>h1 span').text post.title
     html.find('.ui.form a.iconfont').addClass("star#{!!post.is_star-0}").attr('rel',post.ID)
-
+    html.find('.ui.form>.body').append("""<p class="author C"><i class="iconfont icon-edit" rel="#{post.objectId}"></i><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
 
     $.modal(
         html.html()
@@ -121,6 +121,10 @@ _render = (post, scroll_to_reply)->
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")
             replyLi.before textarea
+            $('.icon-edit').click ->
+                rel=$(this).attr('rel')
+                URL '-minisite/manage',rel
+
             AV.Cloud.run(
                 "PostTxt.by_post"
                 {

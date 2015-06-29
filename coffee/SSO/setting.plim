@@ -48,6 +48,12 @@
                 margin-right: 28px;
             }
         }
+        .check{
+            right: 2px;
+            position: absolute;
+            font-size: 5px;
+            top: 7px;
+        }
         a.logout{
             border:none;
             box-shadow: 0 -1px 1px #222;
@@ -68,4 +74,11 @@ a href="javascript:URL('-SSO/auth.info_update');void(0)" 基本信息
     i.iconfont &#xe60d;
 a href="javascript:URL('-SSO/auth.password_update');void(0)" 修改密码 
     i.iconfont &#xe60e;
+a href="javascript:URL('-minisite/manage');void(0)" 文章管理 
+    i.iconfont &#xe61f;
+a.root href="javascript:URL('-minisite/member');void(0)" 团队管理 
+    i.iconfont &#xe626;
+a.editor href="javascript:URL('-minisite/manage');void(0)" 文章审核 
+    i.iconfont &#xe61f;
+    i.iconfont.check &#xe627;
 a.logout href="javascript:AV.User.logOut();URL();location.reload();void(0)" 退出登录

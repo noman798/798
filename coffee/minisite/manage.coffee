@@ -1,4 +1,4 @@
-$.minisite.manage = ->
+$.minisite.manage = (rel)->
 
     html = $ __inline("/html/coffee/minisite/postmanage.html")
 
@@ -35,12 +35,23 @@ $.minisite.manage = ->
                         "Space.post_by_tag"
                         {tag:"",site_id:SITE.id}
                         success:(r)->
+                            console.log r
                             [li, since] = r
                             
                             _ = $.html()
                             if li.length
+
                                 _ """<h1>#{li.length} 篇文章</h1>"""
-                                $("#PostManage .rightside .content").append("""<h1><span>#{li[0].title}</span></h1>""").append(li[0].html)
+                                if rel
+
+                                    for i in li
+                                        if rel==i.objectId
+                                            $("#PostManage .rightside .content").append("""<h1><span>#{i.title}</span></h1>""").append(i.html)
+                                            $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
+                                else
+                                    $("#PostManage .rightside .content").append("""<h1><span>#{li[0].title}</span></h1>""").append(li[0].html)
+                                    $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{li[0].author} · #{$.timeago  li[0].createdAt}</span>""")
+
                                 toggle=0
                                 $('.rightside #ribbon').click ->
                                     if toggle==0
@@ -51,11 +62,20 @@ $.minisite.manage = ->
                                         toggle=0
 
                                 for post,num in li
-                                    if num==0
+                                    if rel
+                                        if rel==post.objectId
+                                            _ """<p class="focus" rel="#{post.objectId}">#{post.title}</p>"""
+                                        else
 
-                                        _ """<p class="focus" rel="#{num}">#{post.title}</p>"""
+                                            _ """<p rel="#{post.objectId}">#{post.title}</p>"""
+
                                     else
-                                        _ """<p rel="#{num}">#{post.title}</p>"""
+                                        if num==0
+
+                                            _ """<p class="focus" rel="#{post.objectId}">#{post.title}</p>"""
+                                        else
+                                            _ """<p rel="#{post.objectId}">#{post.title}</p>"""
+
 
                             else
                                 _ """<h1 class="none">当前站点没有文章</h1>"""
@@ -65,8 +85,11 @@ $.minisite.manage = ->
 
                             $("#PostManage .leftside").find("p").click ->
                                 $(this).addClass("focus").siblings().removeClass("focus")
-                                $("#PostManage .rightside .content").html("""<h1><span>#{li[$(this).attr("rel")].title}</span></h1>""").append(li[$(this).attr("rel")].html)
-                            
+                                for i in li
+
+                                    if $(this).attr("rel")==i.objectId
+
+                                        $("#PostManage .rightside .content").html("""<h1><span>#{i.title}</span></h1>""").append(i.html).append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
                     )
             )
             {}

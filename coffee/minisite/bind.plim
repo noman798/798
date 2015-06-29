@@ -40,6 +40,10 @@
                         i.iconfont.icon-trash ms-click="rm(el)"
         hr
         p.later 之后，写作如常。当您需要发布的时候。
-        p 只需在需要发布笔记上添加标签「TECH2IPO」即可自动向 TECH2IPO 投稿。
+        p 只需在需要发布笔记上添加标签「@TECH2IPO」即可自动向 TECH2IPO 投稿。
         p 一篇投稿向 TECH2IPO 的印象笔记文章应当如下图所示：
         img src="//dn-acac.qbox.me/tech2ipoQQ图片20150619171819.jpg"
+        p 想用Markdown写作的话，不妨试试
+            a.m06 href="http://maxiang.info/#/?id=readme" target="_blank" 马克飞象
+          ，专为印象笔记打造的Markdown编辑器。
+

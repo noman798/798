@@ -26,6 +26,30 @@
             }
         }
     }
+    .body .author .icon-edit{
+      float: left;
+      cursor: pointer;
+      border: 1px solid;
+      color: #4C93CB;
+      height: 40px;
+      font-size: 21px;
+      width: 40px;
+      border-radius: 40px;
+      text-align: center;
+      line-height: 40px;   
+      &:hover{
+        background:#4C93CB;
+        color:#fff;
+      } 
+    }
+    .body .author .name span{
+        display: inline-block;
+        width: 28px;
+        border-bottom: 1px solid #000;
+        height: 17px;
+        vertical-align: 6px;
+        margin-right: 12px;
+    }
     hr{
         margin:46px 0;
         border:0;

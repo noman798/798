@@ -3,7 +3,8 @@
 @require /lib/avalon.modern.shim.js
 @require /lib/semantic/semantic.js
 ###
-
+#$.fn.modal =(parameters)->
+#    )
 
 $.modal_alert = (html, option={}) ->
     if html.indexOf("<") == -1
@@ -23,6 +24,9 @@ $.modal_alert = (html, option={}) ->
 
 #_COUNT = 0
 $.modal = (html,  option, id,  callback)->
+    
+    
+
     if id
         html = $ """<div class="ui basic modal" id="#{id}" style="height:100%;">#{html}</div>"""
         html.attr("ms-view",id)
@@ -51,6 +55,11 @@ $.modal = (html,  option, id,  callback)->
         if not ("closable" of option)
             option.closable = false
         elem.modal(option).modal('show')
+        elem.modal('internal',"event").keyboard = (event)->
+            if 27 == event.which #ESC
+                elem.modal('hide')
+                event.preventDefault()
+
         if (not ('closeicon' of option)) or option.closeicon
             closeicon = $ '<i class="close icon">'
             elem.before closeicon

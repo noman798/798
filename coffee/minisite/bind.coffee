@@ -52,7 +52,7 @@ $.minisite.bind = AV.User.logined (bind_id)->
                                 count =(el)->
                                     setTimeout(
                                         ->
-                                            AV.Cloud.run(
+                                            AV.Cloud._run(
                                                 "EvernoteSync.count"
                                                 {id:el.id}
                                                 success:(num)->

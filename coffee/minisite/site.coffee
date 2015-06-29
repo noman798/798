@@ -18,7 +18,9 @@ $ ->
                 SITE.logo
                 SITE.slogo
                 SITE.social
+                SITE.user_level
             ] = site
+
             require.async(
                 [
                     'minisite/init'
@@ -36,6 +38,7 @@ $ ->
             window.SITE = {
                 ID : SITE.id
                 TAG_LIST:SITE.tag_list
+                SITE_USER_LEVEL:SITE.user_level
             }
             document.title = SITE.name+" · "+SITE.name_cn
     )

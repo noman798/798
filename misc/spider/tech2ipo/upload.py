@@ -227,6 +227,7 @@ def upload_file(file_set):
             query = Query(Post)
             query.equal_to('ID', int(post_obj.get('ID')))
             query_obj = query.first()
+            print "finded", query_obj
         except:
             import traceback
             traceback.print_exc()

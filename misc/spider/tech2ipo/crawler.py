@@ -116,6 +116,7 @@ def parse_page(page_url):
         article_tag = soup.find('article')
         article['tag'] = unicode(article_tag.find_next('a').string)   # tag
         article['title'] = article_tag.find_next('h1').string    # title
+        print article['title']
         article['id'] = article_tag.find_next('h1').get('id').split('_')[2]    # id
         try:
             author = article_tag.find_next('a', class_='author').string    # author
@@ -154,19 +155,18 @@ class ThreadingParse(threading.Thread):
 def get_three_page_url_set():
     """Get three pages articles url set."""
     all_url_set = set()
-    for i in range(1, 4): 
+    for i in range(1, 2): 
         url = BASE_URL +"all/"+ str(i)
-        print url 
         url_set = get_articleurl_from_allpage(url)
         all_url_set |= url_set
-    return url_set
+    return all_url_set
 
 def write_three_article_brief(fresh_artcile_url_set):
     """Write article brief information."""
     fresh_article_id_set = [int(each_url.split('/')[3])
                             for each_url in fresh_artcile_url_set]    # to int
 
-    for i in range(1, 4):
+    for i in range(1, 2):
         all_url = BASE_URL + 'all/' + str(i)
         print all_url
         html_origin = requests.get(all_url,timeout=30).text
@@ -210,7 +210,6 @@ def main():
         t.start()
 
     fresh_article_url_set = get_three_page_url_set()
-
     for url in fresh_article_url_set:
         q.put(url)
 

@@ -74,11 +74,13 @@
 
 如果出现问题可以重新pull一下，多尝试几次也许就好了。
 
+
+
 接下来我们用hg clone下我们开发环境的home目录 ，并且启动docker ::
 
     mkdir -p /home/
     cd /home/
-    hg clone https://bitbucket.org/798space/docker_home 798
+    hg clone git+ssh://git@github.com:noman798/798.git
     rm -rf /home/798/.hg
     cd /home/798/
     hg clone https://bitbucket.org/798space/798
@@ -194,6 +196,8 @@ OK，大功告成。
 
 然后运行 ./cli/publish 更新发布的html即可。
 
+参考文献
+-------------------
 
-
+#. `用Hg操作GitHub <http://www.worldhello.net/gotgithub/06-side-projects/hg-git.html>`_
 

@@ -1,7 +1,7 @@
-
 ###
-@require minisite/url 
+@require minisite/url
 @require minisite/init
+@require minisite/const
 @require /lib/AV.realtime.js
 @require minisite/im
 ###

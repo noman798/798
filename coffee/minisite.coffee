@@ -12,6 +12,7 @@ if current_user
     current_user.fetch()
 
 require [
+    "minisite/const"
     "minisite/url",
     "minisite/init"
     "minisite/im"

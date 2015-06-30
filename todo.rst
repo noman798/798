@@ -5,11 +5,20 @@
     ->
         {
             channel:222
-            www:121
+            username:121
         }
 
     #用户加入channel
     #只告诉用户有更新
+
+_messageReceived
+    ->
+        手工调用api推送
+
+
+
+
+
 
 
 

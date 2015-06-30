@@ -39,8 +39,6 @@ _messageReceived
                 已经发布
                 退回稿件
 
-                
-        
         底部是ICON
 
     红色代表待审核
@@ -57,7 +55,13 @@ _messageReceived
 
         如果被退回，会重置为默认状态（并发退回提醒通知，等消息系统）
 
+        投稿state
+            没有
+            submit
+            publish
 
+        删除 -> 标记rmer
+            
     编辑和撰稿人
         自己的文章管理
             会显示 【】发布到首页

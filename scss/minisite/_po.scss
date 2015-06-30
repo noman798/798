@@ -178,7 +178,7 @@
             margin-bottom:3px;
         }
     }
-    .bg1, .bg2{
+    .bg1{
         height:100%;
         width:100%;
         background-size:cover;
@@ -187,11 +187,6 @@
         position:absolute;
         top:0;
         left:0;
-    }
-    .bg2{
-        z-index:-20; 
-        background:url(/css/img/white_texture.jpg) #F7F4EF;
-        opacity:.98;
     }
     .post{ 
         max-width: 680px;

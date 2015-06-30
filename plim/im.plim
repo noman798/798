@@ -1,7 +1,7 @@
 -inherit /_base/page.plim
 
-link rel="stylesheet" href="/css/im.css?__inline"
-link rel="stylesheet" href="/css/chat.css?__inline"
+##link rel="stylesheet" href="/css/im.css?__inline"
+##link rel="stylesheet" href="/css/chat.css?__inline"
 <!-- @require /lib/jquery.js -->
 <!-- @require /lib/TweenMax.min.js -->
 <!-- @require /lib/chat.js -->

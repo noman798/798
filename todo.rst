@@ -8,11 +8,13 @@
 关闭按钮的提示和localStorage alertify.js
 侧栏导航
 文章审核页面
+右上角 x 的动画
 首页文章显示简介支持markdown
 
 反向代理 webhook
 自动识别用户绑定的站点名称，然后进行同步
 
+√evernote 与 印象笔记的区隔
 
 ------
 

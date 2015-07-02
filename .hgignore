@@ -16,5 +16,5 @@ pure/html
 config.py
 start.sh
 npm-debug.log
-node_modules
 release
+node_modules

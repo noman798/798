@@ -4,7 +4,7 @@ $.SSO.setting = AV.User.logined ->
     console.log SITE.SITE_USER_LEVEL
 
     if SITE.SITE_USER_LEVEL>=CONST.SITE_USER_LEVEL.EDITOR
-        _ """<a class="editor" href="javascript:URL('-minisite/manage');void(0)">文章审核<i class=iconfont>&#xe61f;</a><i class=iconfont>&#xe627;</a>"""
+        _ """<a class="editor" href="javascript:URL('-minisite/manage');void(0)">文章审核<i class=iconfont>&#xe61f;</i><i class=iconfont>&#xe627;</i></a>"""
     if SITE.SITE_USER_LEVEL==CONST.SITE_USER_LEVEL.ROOT
         _ """<a class="root" href="javascript:URL('-minisite/member');void(0)">团队管理<i class=iconfont>&#xe626;</i></a>"""
 

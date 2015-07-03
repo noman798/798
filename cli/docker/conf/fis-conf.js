@@ -47,7 +47,7 @@ fis.config.set('settings.lint.jshint.ignored', [ 'components/**', 'lib/**', /jqu
 fis.config.set('livereload.port', ${CONFIG.LIVERELOAD.PORT});
 
 //fis-conf.js
-fis.config.set('livereload.hostname', '${CONFIG.HOST}');
+fis.config.set('livereload.hostname', '${CONFIG.LIVERELOAD.HOST}');
 //fis.config.set('settings.postpackager.simple.autoCombine', true);
 
 

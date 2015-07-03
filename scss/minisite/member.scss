@@ -37,8 +37,29 @@
     .dropdown{
         position:relative;
     }
-    .button .submit{
-        margin-bottom:30px;
+    .button{
+    
+        .add{
+            background: #0af;
+            height: 42px;
+            display: inline-block;
+            width: 42px;
+            text-align: center;
+            color: #fff;
+            font-size: 27px;
+            line-height: 38px;
+            vertical-align: top;
+            border: 1px solid #000;
+            border-left:0;
+            box-shadow: 0 0 3px #01f inset;
+            &:hover{
+            
+                background:#00f;
+            }
+        }
+        .submit{
+            margin-bottom:30px;
+        }
     }
     .button .member{
         font-weight: bold;
@@ -124,11 +145,6 @@
             top:15px;
         }
         width:65px;
-    }
-    .icon-search{
-        position: relative;
-        right: 28px;
-        color: #4a8df8;
     }
     input[type=text]{
         height: 42px;

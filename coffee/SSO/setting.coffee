@@ -1,5 +1,4 @@
 $.SSO.setting = AV.User.logined ->
-    alert 1
     _ = $.html()
     _ """<div id="ssoSetting" class="ui right sidebar">#{__inline("/html/coffee/SSO/setting.html")}"""
 
@@ -8,12 +7,13 @@ $.SSO.setting = AV.User.logined ->
     else if window.SITE.SITE_USER_LEVEL>=CONST.SITE_USER_LEVEL.EDITOR
         _ """<a class="editor" href="javascript:URL('-minisite/manage');void(0)">文章审核</a>"""
         #    i.iconfont &#xe626;
-        #a.editor href="javascript:URL('-minisite/manage');void(0)" 文章审核 
+        #a.editor href="javascript:URL('-minisite/manage');void(0)" 文章审核
         #    i.iconfont &#xe61f;
         #    i.iconfont.check &#xe627;
 
     _ """<a class="logout" href="javascript:AV.User.logOut();URL();location.reload();void(0)">退出登录</a></div>"""
-    bar = $.html()
+
+    bar = $ _.html()
 
     $('body').append(bar)
     

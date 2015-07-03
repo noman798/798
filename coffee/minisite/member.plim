@@ -2,7 +2,7 @@
     link rel="stylesheet" href="/css/minisite/member.css?__inline"
     .body
         h1 团队成员 
-        div.button
+        form.button
             p.submit.field
                 span.dropdown
                     select ms-duplex-number="add.title"
@@ -10,7 +10,7 @@
                         option value='1000' 管理员
                         option value='800' 撰稿人
                 input type="text" placeholder="请输入对方的昵称、邮箱或手机号" ms-duplex="add.name" name="username" autocomplete="off"
-                a.add href="javascript:void(0)" +
+                input.add type="submit" value="+"
         hr
         div.member ms-each="li"
             div.C.mb25

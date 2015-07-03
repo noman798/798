@@ -38,6 +38,29 @@
         position:relative;
     }
     .button{
+        input[type=text]{
+            height: 42px;
+            padding:0 14px;
+            line-height:42px;
+            width: 565px;
+            padding-right: 30px;
+            outline:0;
+            border: 1px solid #000;
+            background:transparent;
+        }
+        input[type=submit]{
+            margin-left:-16px;
+            outline:0;
+            vertical-align:top;
+            background-color: #0af;
+            height: 42px;
+            line-height: 27px;
+            color: #fff;
+            width: 125px;
+            text-align: center;
+            border:none;
+            display: inline-block;
+        }
     
         .add{
             background: #0af;
@@ -60,6 +83,21 @@
         .submit{
             margin-bottom:30px;
         }
+        .dropdown{
+            select{
+                height:42px;
+                width:125px;
+                background:#000;
+                &:after{
+                    content:"\e61e";
+                    color:#fff;
+                    font-family: 'iconfont';
+                }
+            }
+            &:after{
+                top:7px;
+            }
+        }
     }
     .button .member{
         font-weight: bold;
@@ -68,20 +106,6 @@
     }
     .member div.L{
         margin-left:20px;
-    }
-    .button .dropdown{
-        select{
-            height:42px;
-            background:#000;
-            &:after{
-                content:"\e61e";
-                color:#fff;
-                font-family: 'iconfont';
-            }
-        }
-        &:after{
-            top:7px;
-        }
     }
     p.list{
         font-weight: bold;
@@ -145,29 +169,6 @@
             top:15px;
         }
         width:65px;
-    }
-    input[type=text]{
-        height: 42px;
-        padding:0 14px;
-        line-height:42px;
-        width: 455px;
-        padding-right: 30px;
-        outline:0;
-        border: 1px solid #000;
-        background:transparent;
-    }
-    input[type=submit]{
-        margin-left:-16px;
-        outline:0;
-        vertical-align:top;
-        background-color: #0af;
-        height: 42px;
-        line-height: 42px;
-        color: #fff;
-        width: 135px;
-        text-align: center;
-        border:none;
-        display: inline-block;
     }
     span.L{
         line-height:42px;

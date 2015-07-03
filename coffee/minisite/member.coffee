@@ -21,15 +21,23 @@ $.minisite.member = AV.User.logined ->
                 "Member"
                 (elem)->
                     elem.find('.scrollbar-macosx').scrollbar()
-                    error_tip = $.error_tip(elem)
-                    [
-                        {
-                            add:{
-                                    title:1000
-                                    name:""
-                                }
+                    error_tip = $.error_tip(elem.find('form.button'))
+                    {
+                        add:{
+                            level:800
+                            username:""
                         }
-                    ]
+                        add_submit:->
+                            AV.Cloud.run "SiteUserLevel.set", $.extend {site_id:SITE.ID},V.Member.add.$model, {
+                                fail: (error) ->
+                                    console.log error
+                                    error_tip.set error
+
+                            }
+                            V.Member.add.username = ''
+                            V.Member.add.level = 800
+                            false
+                    }
                     #[
                     #    {
                     #        click:->

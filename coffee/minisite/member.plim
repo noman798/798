@@ -1,0 +1,27 @@
+.scrollbar-macosx
+    link rel="stylesheet" href="/css/minisite/member.css?__inline"
+    .body
+        h1 成员管理
+ 
+        div.button
+            p.submit.field
+                span.dropdown
+                    select ms-duplex-number="add.title"
+                        option value='900' 编辑
+                        option value='1000' 管理员
+                        option value='800' 撰稿人
+                input type="text" placeholder="请输入对方的昵称、邮箱或手机号"ms-duplex="add.name" name="username"
+                i.iconfont.icon-search
+                input type="submit" ms-click="click" value="添加"
+        hr
+        div.member ms-each="li"
+            div.C.mb25
+                span.L {{el.name}}
+                .L
+                    span.dropdown
+                        select ms-duplex-number="el.title"
+                            option value='900' 编辑
+                            option value='1000' 管理员
+                            option value='800' 撰稿人 
+                i.R.iconfont.icon-trash ms-click="rm(el)"
+            hr

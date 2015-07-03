@@ -142,6 +142,7 @@
     }
     input[type=submit]{
         margin-left:-16px;
+        outline:0;
         vertical-align:top;
         background-color: #0af;
         height: 42px;
@@ -159,7 +160,6 @@
         font-size:22px;
     }
     i.R.iconfont{
-        margin-right: 60px;
         margin-top: 4px;
         font-size: 23px;
         cursor:pointer;

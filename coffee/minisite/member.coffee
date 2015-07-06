@@ -39,12 +39,11 @@ $.minisite.member = AV.User.logined ->
                                             if i.id == user_id
                                                 i.level = level
                                                 return
-                                        V.Member.li.unshift {
+                                        V.Member.li.$add {
                                             user_id
                                             name
                                             level
                                         }
-
                                 }
                                 V.Member.add.username = ''
                                 V.Member.add.level = 800
@@ -57,16 +56,23 @@ $.minisite.member = AV.User.logined ->
                         (v)->
                             current = AV.User.current()
                             current_id = current.id
-
-                            for i in v.li
+                            v.li.$add = (el) ->
+                                v.li.unshift el
+                                _watch v.li[0]
+                            _watch = (i)->
                                 i.$watch 'level', (nv, ov)->
+                                    if @_changing
+                                        @_changing = 0
+                                        return
                                     count = 0
                                     for _i in v.li
                                         if _i.level == CONST.SITE_USER_LEVEL.ROOT
                                             count+=1
                                     if ov == CONST.SITE_USER_LEVEL.ROOT
                                         if count <= 1
+                                            @_changing = 1
                                             @level = ov
+
                                             alertify.alert("至少有一个管理员")
                                             return
                                         if @id == current_id
@@ -74,6 +80,7 @@ $.minisite.member = AV.User.logined ->
                                                 if ok
                                                     elem.modal('hide')
                                                 else
+                                                    @_changing = 1
                                                     @level = ov
                                                     nv = ov
                                     if nv == ov
@@ -81,10 +88,12 @@ $.minisite.member = AV.User.logined ->
                                     if @id == current_id
                                         SITE.SITE_USER_LEVEL = nv
                                     AV.Cloud.run "SiteUserLevel.set_by_user_id", {
-                                        user_id:i.id
+                                        user_id:@id
                                         site_id:SITE.ID
-                                        level:i.level
+                                        level:@level
                                     }
+                            for i in v.li
+                                _watch i
                     ]
                     #[
                     #    {

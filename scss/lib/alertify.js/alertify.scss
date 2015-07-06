@@ -1,4 +1,12 @@
 @import "includes/_core";
+.alertify-message{
+padding:25px;
+}
+.alertify-buttons{
+padding:25px;
+background:#f0f0f0;
+border-top:1px solid #ddd;
+}
 
 /**
  * Default Look and Feel
@@ -15,7 +23,9 @@
   box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
   background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
-
+.alertify-button-ok{
+margin-left:114px;
+}
 .alertify-text {
   border: 1px solid #CCC;
   padding: 10px;

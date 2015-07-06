@@ -43,7 +43,7 @@ var Alertify = (function(global, undefined) {
                 cancel: "<button class=\"alertify-button alertify-button-cancel\" id=\"alertify-cancel\">{{cancel}}</button>"
             },
             input: "<div class=\"alertify-text-wrapper\"><input type=\"text\" class=\"alertify-text\" id=\"alertify-text\"></div>",
-            message: "<p class=\"alertify-message\">{{message}}</p>",
+            message: "<div class=\"alertify-message\">{{message}}</div>",
             log: "<article class=\"alertify-log{{class}}\">{{message}}</article>"
         };
 
@@ -100,7 +100,7 @@ var Alertify = (function(global, undefined) {
              * @type {Object}
              */
             labels: {
-                ok: "确定",
+                ok: "好的",
                 cancel: "取消"
             },
 

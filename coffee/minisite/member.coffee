@@ -9,7 +9,6 @@ $.minisite.member = AV.User.logined ->
                     level
                     name
                 }
-                console.log level
             li=_li
 
             $.modal(
@@ -43,10 +42,14 @@ $.minisite.member = AV.User.logined ->
                             for i in v.li
                                 i.$watch 'level', (nv, ov)->
                                     count = 0
-                                    for [name, level] in v.li
-                                        if level == CONST.SITE_USER_LEVEL.ROOT
+                                    for _i in v.li
+                                        if _i.level == CONST.SITE_USER_LEVEL.ROOT
                                             count+=1
-
+                                    console.log count, ov,"----", typeof ov,  ov == CONST.SITE_USER_LEVEL.ROOT
+                                    if count <= 1 and ov == CONST.SITE_USER_LEVEL.ROOT
+                                        alert "至少有一个管理员"
+                                        i.level = ov
+                                        return
                     ]
                     #[
                     #    {

@@ -61,6 +61,14 @@ $.minisite.member = AV.User.logined ->
                                 _watch v.li[0]
                             _watch = (i)->
                                 i.$watch 'level', (nv, ov)->
+                                    _set = =>
+                                        if @id == current_id
+                                            SITE.SITE_USER_LEVEL = nv
+                                        AV.Cloud.run "SiteUserLevel.set_by_user_id", {
+                                            user_id:@id
+                                            site_id:SITE.ID
+                                            level:@level
+                                        }
                                     if @_changing
                                         @_changing = 0
                                         return
@@ -79,19 +87,12 @@ $.minisite.member = AV.User.logined ->
                                             alertify.confirm "<p>真的要删除自己的管理员权限？</p><p>删除后，您将不能再修改团队成员！</p>",(ok)=>
                                                 if ok
                                                     elem.modal('hide')
+                                                    _set()
                                                 else
                                                     @_changing = 1
                                                     @level = ov
-                                                    nv = ov
-                                    if nv == ov
-                                        return
-                                    if @id == current_id
-                                        SITE.SITE_USER_LEVEL = nv
-                                    AV.Cloud.run "SiteUserLevel.set_by_user_id", {
-                                        user_id:@id
-                                        site_id:SITE.ID
-                                        level:@level
-                                    }
+                                            return
+                                    _set()
                             for i in v.li
                                 _watch i
                     ]

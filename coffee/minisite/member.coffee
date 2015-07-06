@@ -69,10 +69,9 @@ $.minisite.member = AV.User.logined ->
                                         if _i.level == CONST.SITE_USER_LEVEL.ROOT
                                             count+=1
                                     if ov == CONST.SITE_USER_LEVEL.ROOT
-                                        if count <= 1
+                                        if count == 0
                                             @_changing = 1
                                             @level = ov
-
                                             alertify.alert("至少有一个管理员")
                                             return
                                         if @id == current_id

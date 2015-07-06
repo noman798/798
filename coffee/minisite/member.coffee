@@ -28,11 +28,10 @@ $.minisite.member = AV.User.logined ->
                             username:""
                         }
                         add_submit:->
-                            AV.Cloud.run "SiteUserLevel.set", $.extend {site_id:SITE.ID},V.Member.add.$model, {
+                            AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
                                 fail: (error) ->
                                     console.log error
                                     error_tip.set error
-
                             }
                             V.Member.add.username = ''
                             V.Member.add.level = 800

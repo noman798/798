@@ -48,8 +48,8 @@
             height: 42px;
             padding:0 14px;
             line-height:42px;
-            width: 290px;
-            padding-right: 30px;
+            width: 100%;
+            padding-right:0 137px;
             outline:0;
             border: 1px solid #000;
             background:transparent;
@@ -57,6 +57,7 @@
             box-sizing:border-box;
         }
         input[type=submit]{
+            margin-left:-125px;
             box-sizing:border-box;
             outline:0;
             vertical-align:top;
@@ -92,6 +93,7 @@
             margin-bottom:30px;
         }
         .dropdown{
+            margin-right:-125px;
             select{
                 box-sizing:border-box;
                 height:42px;

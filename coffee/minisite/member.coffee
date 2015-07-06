@@ -8,6 +8,7 @@ $.minisite.member = AV.User.logined ->
                 _li.push {
                     level
                     name
+                    id
                 }
             li=_li
 
@@ -31,7 +32,6 @@ $.minisite.member = AV.User.logined ->
                             add_submit:->
                                 AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
                                     fail: (error) ->
-                                        console.log error
                                         error_tip.set error
                                 }
                                 V.Member.add.username = ''
@@ -39,17 +39,29 @@ $.minisite.member = AV.User.logined ->
                                 false
                         }
                         (v)->
+                            current = AV.User.current()
+                            current_id = current.id
+
                             for i in v.li
                                 i.$watch 'level', (nv, ov)->
                                     count = 0
                                     for _i in v.li
                                         if _i.level == CONST.SITE_USER_LEVEL.ROOT
                                             count+=1
-                                    console.log count, ov,"----", typeof ov,  ov == CONST.SITE_USER_LEVEL.ROOT
-                                    if count <= 1 and ov == CONST.SITE_USER_LEVEL.ROOT
-                                        alert "至少有一个管理员"
-                                        i.level = ov
-                                        return
+                                    if ov == CONST.SITE_USER_LEVEL.ROOT
+                                        #if count <= 1
+                                        #    @level = ov
+                                        #    alertify.alert("至少有一个管理员")
+                                        #    return
+                                        if @id == current_id
+                                            alertify.confirm "<p>真的要取消自己的管理员权限？</p><p>取消后，您将不能再修改团队成员！</p>",(ok)->
+                                                if not ok
+                                                    @level = ov
+                                                    return
+                                                else
+                                                    elem.modal('hide')
+
+
                     ]
                     #[
                     #    {

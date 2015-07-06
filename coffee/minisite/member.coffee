@@ -33,11 +33,27 @@ $.minisite.member = AV.User.logined ->
                                 AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
                                     fail: (error) ->
                                         error_tip.set error
+                                    success: ([user_id,name])->
+                                        level = V.Member.add.level
+                                        for i in V.Member.li
+                                            if i.id == user_id
+                                                i.level = level
+                                                return
+                                        V.Member.li.unshift {
+                                            user_id
+                                            name
+                                            level
+                                        }
+
                                 }
                                 V.Member.add.username = ''
                                 V.Member.add.level = 800
                                 false
-                        }
+                            rm:(el)->
+                                alertify.confirm "真的要移除 #{$.escape el.name} 的所有权限？",(ok)->
+                                    if ok
+                                        el.level = 0
+                        },
                         (v)->
                             current = AV.User.current()
                             current_id = current.id
@@ -59,15 +75,16 @@ $.minisite.member = AV.User.logined ->
                                                     elem.modal('hide')
                                                 else
                                                     @level = ov
-                                                    return
+                                                    nv = ov
+                                    if nv == ov
+                                        return
                                     if @id == current_id
                                         SITE.SITE_USER_LEVEL = nv
-                                    AV.Cloud.run "SiteUserLevel.set", {
+                                    AV.Cloud.run "SiteUserLevel.set_by_user_id", {
                                         user_id:i.id
+                                        site_id:SITE.ID
                                         level:i.level
                                     }
-
-
                     ]
                     #[
                     #    {

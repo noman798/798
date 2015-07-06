@@ -36,7 +36,7 @@ _messageReceived
         手工调用api推送
 
 
-
+添加管理员时通过消息系统告知用户
 
 
 

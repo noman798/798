@@ -76,7 +76,7 @@ $.minisite.member = AV.User.logined ->
                                             alertify.alert("至少有一个管理员")
                                             return
                                         if @id == current_id
-                                            alertify.confirm "<p>真的要取消自己的管理员权限？</p><p>取消后，您将不能再修改团队成员！</p>",(ok)=>
+                                            alertify.confirm "<p>真的要删除自己的管理员权限？</p><p>删除后，您将不能再修改团队成员！</p>",(ok)=>
                                                 if ok
                                                     elem.modal('hide')
                                                 else

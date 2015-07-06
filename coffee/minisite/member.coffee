@@ -6,10 +6,10 @@ $.minisite.member = AV.User.logined ->
             _li=[]
             for [id,name,level] in member
                 _li.push {
-                    title:level
+                    level
                     name
                 }
-
+                console.log level
             li=_li
 
             $.modal(
@@ -22,22 +22,28 @@ $.minisite.member = AV.User.logined ->
                 (elem)->
                     elem.find('.scrollbar-macosx').scrollbar()
                     error_tip = $.error_tip(elem.find('form.button'))
-                    {
-                        li
-                        add:{
-                            level:800
-                            username:""
-                        }
-                        add_submit:->
-                            AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
-                                fail: (error) ->
-                                    console.log error
-                                    error_tip.set error
+                    [
+                        {
+                            li
+                            add:{
+                                level:800
+                                username:""
                             }
-                            V.Member.add.username = ''
-                            V.Member.add.level = 800
-                            false
-                    }
+                            add_submit:->
+                                AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
+                                    fail: (error) ->
+                                        console.log error
+                                        error_tip.set error
+                                }
+                                V.Member.add.username = ''
+                                V.Member.add.level = 800
+                                false
+                        }
+                        (v)->
+                            for i in v.li
+                                i.$watch 'level', (ov,nv)->
+                                    console.log ov,nv
+                    ]
                     #[
                     #    {
                     #        click:->

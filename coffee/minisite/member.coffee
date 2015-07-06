@@ -67,7 +67,8 @@ $.minisite.member = AV.User.logined ->
                                     count = 0
                                     for _i in v.li
                                         if _i.level == CONST.SITE_USER_LEVEL.ROOT
-                                            count+=1
+                                            count=1
+                                            break
                                     if ov == CONST.SITE_USER_LEVEL.ROOT
                                         if count == 0
                                             @_changing = 1

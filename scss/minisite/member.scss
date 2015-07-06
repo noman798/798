@@ -53,9 +53,11 @@
             outline:0;
             border: 1px solid #000;
             background:transparent;
+            border-right:0;
+            box-sizing:border-box;
         }
         input[type=submit]{
-            margin-left:-16px;
+            box-sizing:border-box;
             outline:0;
             vertical-align:top;
             background-color: #0af;
@@ -91,6 +93,7 @@
         }
         .dropdown{
             select{
+                box-sizing:border-box;
                 height:42px;
                 padding-left: 12px;
                 width:125px;

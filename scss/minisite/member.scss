@@ -1,4 +1,8 @@
 #Member{
+    form{
+        padding-bottom: 1px;
+        margin-bottom: -6px;
+    }
     overflow:auto;
     background:url(/css/img/bgpaper.png) #F3F3F3;
     .scrollbar-macosx{
@@ -23,7 +27,7 @@
         padding-left:0;
     }
     hr{
-        margin:46px 0;
+        margin:24px 0;
         border:0;
         border-bottom:1px dashed rgba(160,160,160,.4);
     }
@@ -88,8 +92,10 @@
         .dropdown{
             select{
                 height:42px;
+                padding-left: 12px;
                 width:125px;
                 background:#000;
+                color: #fff;
                 &:after{
                     content:"\e61e";
                     color:#fff;
@@ -98,6 +104,7 @@
             }
             &:after{
                 top:7px;
+                right:9px;
             }
         }
     }
@@ -132,9 +139,7 @@
     .dropdown{
         select{
             background:transparent;
-            padding-left: 12px;
             text-align: center;
-            color: #fff;
             border: 1px solid #000;
             outline:0;
             border-radius:0;
@@ -149,7 +154,6 @@
         }
         &:after{
             position:absolute;
-            right:-18px;
             font-family:"iconfont";
             pointer-events:none;
             color:#fff;
@@ -167,14 +171,16 @@
             font-size: 12px;
             line-height: 32px;
             padding-left:0;
+            padding-right:14px;
         }
         &:after{
+            right:-4px;
             color:#446E2E;
             top:15px;
         }
     }
     span.L{
-        line-height:42px;
+        line-height:45px;
         display: inline-block;
         width: 85px;
         font-size:22px;

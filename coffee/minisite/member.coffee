@@ -23,6 +23,7 @@ $.minisite.member = AV.User.logined ->
                     elem.find('.scrollbar-macosx').scrollbar()
                     error_tip = $.error_tip(elem.find('form.button'))
                     {
+                        li
                         add:{
                             level:800
                             username:""

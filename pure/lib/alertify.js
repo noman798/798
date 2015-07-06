@@ -100,8 +100,8 @@ var Alertify = (function(global, undefined) {
              * @type {Object}
              */
             labels: {
-                ok: "OK",
-                cancel: "Cancel"
+                ok: "确定",
+                cancel: "取消"
             },
 
             /**

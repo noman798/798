@@ -49,17 +49,23 @@ $.minisite.member = AV.User.logined ->
                                         if _i.level == CONST.SITE_USER_LEVEL.ROOT
                                             count+=1
                                     if ov == CONST.SITE_USER_LEVEL.ROOT
-                                        #if count <= 1
-                                        #    @level = ov
-                                        #    alertify.alert("至少有一个管理员")
-                                        #    return
+                                        if count <= 1
+                                            @level = ov
+                                            alertify.alert("至少有一个管理员")
+                                            return
                                         if @id == current_id
-                                            alertify.confirm "<p>真的要取消自己的管理员权限？</p><p>取消后，您将不能再修改团队成员！</p>",(ok)->
-                                                if not ok
+                                            alertify.confirm "<p>真的要取消自己的管理员权限？</p><p>取消后，您将不能再修改团队成员！</p>",(ok)=>
+                                                if ok
+                                                    elem.modal('hide')
+                                                else
                                                     @level = ov
                                                     return
-                                                else
-                                                    elem.modal('hide')
+                                    if @id == current_id
+                                        SITE.SITE_USER_LEVEL = nv
+                                    AV.Cloud.run "SiteUserLevel.set", {
+                                        user_id:i.id
+                                        level:i.level
+                                    }
 
 
                     ]

@@ -41,8 +41,12 @@ $.minisite.member = AV.User.logined ->
                         }
                         (v)->
                             for i in v.li
-                                i.$watch 'level', (ov,nv)->
-                                    console.log ov,nv
+                                i.$watch 'level', (nv, ov)->
+                                    count = 0
+                                    for [name, level] in v.li
+                                        if level == CONST.SITE_USER_LEVEL.ROOT
+                                            count+=1
+
                     ]
                     #[
                     #    {

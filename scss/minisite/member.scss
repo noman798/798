@@ -34,10 +34,12 @@
         position:relative;
         
     }
-    .dropdown{
-        position:relative;
-    }
     .button{
+        .message{
+            margin-left:140px;
+            color:#f00;
+            margin-top:3px;
+        }
         input[type=text]{
             height: 42px;
             padding:0 14px;
@@ -99,6 +101,9 @@
             }
         }
     }
+    .dropdown{
+        position:relative;
+    }
     .button .member{
         font-weight: bold;
         font-size: 20px;
@@ -106,6 +111,7 @@
     }
     .member div.L{
         margin-left:20px;
+        margin-top:9px;
     }
     p.list{
         font-weight: bold;
@@ -125,10 +131,9 @@
     }
     .dropdown{
         select{
-            height: 42px;
+            background:transparent;
             padding-left: 12px;
             text-align: center;
-            width: 85px;
             color: #fff;
             border: 1px solid #000;
             outline:0;
@@ -144,13 +149,13 @@
         }
         &:after{
             position:absolute;
+            right:-18px;
             font-family:"iconfont";
             pointer-events:none;
             color:#fff;
             content: "\e61e";
             cursor: pointer;
             pointer-events: none;
-            right: 6px;
             margin-top: -11px;
         }
     }
@@ -160,15 +165,13 @@
             border-bottom:1px solid #446E2E;
             color:#446E2E;
             font-size: 12px;
-            line-height: 45px;
+            line-height: 32px;
             padding-left:0;
-            width:43px;
         }
         &:after{
             color:#446E2E;
             top:15px;
         }
-        width:65px;
     }
     span.L{
         line-height:42px;

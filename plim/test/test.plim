@@ -1,8 +1,41 @@
 
 -inherit /_base/page.plim
+#PostManage ms-view="test"
 
-h2 3223
-    p h33
-    p 3232
+    .manage
+        link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+        .lsidebg0
+        .lsidebg1
+        .lside.scrollbar-macosx
+            h1 
+                span.title {{lside.title}}
+                span.m06 -
+                span.num
+                    span {{lside.num}}
+                    篇
+                 
+            p.now 啊啊
+            -for i in xrange(1000)
+                p =i
 
+        .rside.scrollbar-macosx
+            -for i in xrange(1000)
+                p =i
 
+-coffee
+    $ ->
+        View(
+            "test"
+            {
+                lside:{
+                    num:1563
+                    title:"最近文章" 
+                    li : [
+                        {
+                            id:"333"
+                        } 
+                    ]
+                }
+            }
+        )
+        

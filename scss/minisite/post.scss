@@ -1,10 +1,17 @@
 .scrollbar-macosx{
     height:100%;
 }
+
 #PostModal{
     z-index:0;
     overflow:auto;
     background:url(/css/img/furley_bg.png) #F3F3F3;
+}
+.close.icon:before{
+    transition:all 1s ease-in 1s;
+} 
+.close.animate:before{
+    font-size:50px !important;
 }
 #postModal{
     .description.ui.form>h1{

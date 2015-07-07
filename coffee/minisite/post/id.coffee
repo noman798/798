@@ -83,7 +83,6 @@ _render_reply = (reply)->
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
-    console.log post
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")
@@ -91,8 +90,11 @@ _render = (post, scroll_to_reply)->
     html.find('.ui.form>.body').html post.html
     html.find('.ui.form>h1 span').text post.title
     html.find('.ui.form a.iconfont').addClass("star#{!!post.is_star-0}").attr('rel',post.ID)
-    html.find('.ui.form>.body').append("""<p class="author C"><i class="iconfont icon-edit" rel="#{post.objectId}"></i><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
 
+    if window.SITE.SITE_USER_LEVEL > 850
+        html.find('.ui.form>.body').append("""<p class="author C"><i class="iconfont icon-edit" rel="#{post.objectId}"></i><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
+    else
+        html.find('.ui.form>.body').append("""<p class="author C"><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
     $.modal(
         html.html()
         {
@@ -206,6 +208,12 @@ _textarea_bind = (reply_div, post)->
                         last_reply.offset().top-postModal.offset().top
                     )
             })
+
+    toggle=()->
+        $('.close.icon').toggleClass('animate')
+
+    setTimeout(toggle,800)
+    setTimeout(toggle,3000)
+
     reply.ctrl_enter send
     reply_div.find('.send').click send
-

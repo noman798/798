@@ -47,10 +47,18 @@ $.minisite.manage = (rel)->
                                     for i in li
                                         if rel==i.objectId
                                             $("#PostManage .rightside .content").append("""<h1><span>#{i.title}</span></h1>""").append(i.html)
-                                            $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
+                                            
+                                            if window.SITE.SITE_USER_LEVEL > 850
+                                                $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
+                                            else
+                                                $("#PostManage .rightside .content").append("""<p class="author C"><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
                                 else
                                     $("#PostManage .rightside .content").append("""<h1><span>#{li[0].title}</span></h1>""").append(li[0].html)
-                                    $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{li[0].author} · #{$.timeago  li[0].createdAt}</span>""")
+
+                                    if window.SITE.SITE_USER_LEVEL > 850
+                                        $("#PostManage .rightside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{li[0].author} · #{$.timeago  li[0].createdAt}</span>""")
+                                    else
+                                        $("#PostManage .rightside .content").append("""<p class="author C"><span class="name"><span></span>#{li[0].author} · #{$.timeago  li[0].createdAt}</span>""")
 
                                 toggle=0
                                 $('.rightside #ribbon').click ->
@@ -88,8 +96,11 @@ $.minisite.manage = (rel)->
                                 for i in li
 
                                     if $(this).attr("rel")==i.objectId
-
-                                        $("#PostManage .rightside .content").html("""<h1><span>#{i.title}</span></h1>""").append(i.html).append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
+                                        
+                                        if window.SITE.SITE_USER_LEVEL > 850
+                                            $("#PostManage .rightside .content").html("""<h1><span>#{i.title}</span></h1>""").append(i.html).append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
+                                        else
+                                            $("#PostManage .rightside .content").html("""<h1><span>#{i.title}</span></h1>""").append(i.html).append("""<p class="author C"><span class="name"><span></span>#{i.author} · #{$.timeago  i.createdAt}</span>""")
                     )
             )
             {}

@@ -16,5 +16,6 @@ div.manage
                     div.check
                         input.checkbox type="checkbox" value="index" id="agree"
                         label.check-box for="agree" 
-                        label for="agree" 发布到首页
+                        label for="agree"  投稿到首页
+                            a href="javascript:void(0);" ?
                     a.ui.button.blue href="javascript:void(0)" 确定

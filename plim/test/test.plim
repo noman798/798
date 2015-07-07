@@ -8,7 +8,11 @@
         .lsidebg1
         .lside.scrollbar-macosx
             h1 
-                span.title {{lside.title}}
+                span.dropdown
+                    select ms-duplex="lside.title"
+                        option value="最新文章" 最新文章 
+                        option value="已经发布" 已经发布 
+
                 span.m06 -
                 span.num
                     span {{lside.num}}
@@ -29,7 +33,7 @@
             {
                 lside:{
                     num:1563
-                    title:"最近文章" 
+                    title:"最新文章" 
                     li : [
                         {
                             id:"333"

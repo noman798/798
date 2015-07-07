@@ -1,6 +1,6 @@
 $.minisite.manage = (rel)->
 
-    html = $ __inline("/html/coffee/minisite/postmanage.html")
+    html = $ __inline("/html/coffee/minisite/manage.html")
 
     $.modal(
         html.html()

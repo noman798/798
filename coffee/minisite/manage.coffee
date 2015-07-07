@@ -37,6 +37,7 @@ $.minisite.manage = ->
     )
     _label([
     ])
+
 _manage = (lside_nav)->
 
     for [title,get_func] in lside_nav

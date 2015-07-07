@@ -7,11 +7,44 @@
     overflow:auto;
     background:url(/css/img/furley_bg.png) #F3F3F3;
 }
-.close.icon:before{
-    transition:all 1s ease-in 1s;
+@keyframes closebtni {
+  0% {
+      right:-128px;
+      opacity:0;
+      top:128px;
+  }
+  50%{
+     right:20%;
+     opacity:.5;
+  }
+  100% {
+      top:0;
+      right:4px;
+      opacity:1;
+  }
+}
+@keyframes closebtn {
+  0% {
+      color:#000;
+      font-size:128px;
+      font-weight:bold;
+  }
+
+  100% {
+      font-size:30px;
+      font-weight:normal;
+      color:rgba(155, 155, 155, 0.7);
+  }
+}
+.modals>.close.icon:before, .modals>.close.icon{
+  animation-duration: 1s;
+  animation-fill-mode: both;
 } 
-.close.animate:before{
-    font-size:50px !important;
+.modals>.close.icon:before{
+  animation-name: closebtn;
+}
+.modals>.close.icon{
+  animation-name: closebtni;
 }
 #postModal{
     .description.ui.form>h1{

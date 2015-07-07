@@ -209,11 +209,5 @@ _textarea_bind = (reply_div, post)->
                     )
             })
 
-    toggle=()->
-        $('.close.icon').toggleClass('animate')
-
-    setTimeout(toggle,800)
-    setTimeout(toggle,3000)
-
     reply.ctrl_enter send
     reply_div.find('.send').click send

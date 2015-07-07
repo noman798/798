@@ -83,7 +83,6 @@ _render_reply = (reply)->
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
-    console.log post
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")

@@ -1,3 +1,84 @@
+#PostManage{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    .manage{
+        height:100%;
+    }
+    .lside{
+        color:rgba(255,255,255,.8);
+        padding-top:50px;
+        padding-left:80px;
+        padding-right:50px;
+        h1,p {
+            text-align:right;
+        }
+        h1{
+            .num span{
+                margin-right:6px;
+            }
+            font-size:32px;
+            font-family:caecilia, times, serif;
+            margin-bottom:40px;
+        }
+        p{
+            font-size:21px;
+            font-weight:bold;
+            line-height:30px;
+            margin:0;
+            padding:8px 0;
+            font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
+            position:relative;
+            &:hover{
+                color:#fff;
+                cursor:pointer;
+                &:after{
+                    display:block;
+                    color:#fff;
+                }
+            }
+            &:after{
+                display:none;
+                font-family:'iconfont';
+                content:"\e61c";
+                position: absolute;
+                top: 50%;
+                right:-30px;
+                margin-top: -16px;
+                font-size: 28px;
+            }
+            &.now{
+                color:#fff;
+                &:after{
+                    display:block;
+                }
+            }
+        }
+    }
+    .lside, .lsidebg0,.lsidebg1, .rside{
+        overflow:auto;
+        height:100%;
+        position:fixed;
+        width:40%;
+    }
+    .rside{
+        width:60%; 
+        left:40%;
+    }
+    .lsidebg0,.lsidebg1{
+        position:fixed;
+        left:0;
+        height:100%;
+    }
+    .lsidebg0{
+        background:url(//dn-acac.qbox.me/tech2ipo7041875-red-rider-winter.jpg) -160px 0 / cover no-repeat #1E303D;
+    }
+    .lsidebg1{
+        background:#000;
+        opacity:.5;
+    }
+}
+/*
 $ribbon-bg:#d20;
 $ribbon-h1:#e00;
 $ribbon-w:40px;
@@ -62,55 +143,6 @@ $ribbon-tail:10px;
     height:100%;
     background:url(//dn-acac.qbox.me/tech2ipo7041875-red-rider-winter.jpg) 1152px -150px / cover;
     color:#AFB6B9;
-    .leftside{
-        float:left;
-        width:600px;
-        height:100%;
-        background:rgba(0,0,0,0.5);
-        padding-right:50px;
-        padding-top:50px;
-        padding-left:80px;
-        h1,p{
-            text-align:right;
-        }
-        h1{
-            font-size:32px;
-            font-family:caecilia, times, serif;
-            margin-bottom:40px;
-        }
-        p{
-            font-size:21px;
-            line-height:30px;
-            margin:0;
-            padding:8px 0;
-            font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
-            position:relative;
-            &:hover{
-                color:#fff;
-                cursor:pointer;
-                &:after{
-                    display:block;
-                    color:#fff;
-                }
-            }
-            &:after{
-                display:none;
-                font-family:'iconfont';
-                content:"\e61c";
-                position: absolute;
-                top: 50%;
-                right:-30px;
-                margin-top: -16px;
-                font-size: 28px;
-            }
-        }
-        .focus{
-            color:#fff;
-            &:after{
-                display:block;
-            }
-        }
-    }   
     .rightside{
         font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
         font-size:21px;
@@ -328,4 +360,4 @@ $ribbon-tail:10px;
     }
 }
 
-
+*/

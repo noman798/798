@@ -41,6 +41,7 @@ $ ->
                 SITE_USER_LEVEL:SITE.user_level
             }
             document.title = SITE.name+" · "+SITE.name_cn
+            console.log window.SITE
     )
 
 

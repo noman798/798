@@ -26,7 +26,9 @@
                 p =i
 
 -coffee
+
     $ ->
+
         View(
             "test"
             {
@@ -40,7 +42,7 @@
                     li : [
                         {
                             id:"333"
-                        } 
+                        }
                     ]
                 }
             }
@@ -54,4 +56,3 @@
                 fetch v.lside.h1_now
                 v.lside.$watch "h1_now", fetch 
         )
-        

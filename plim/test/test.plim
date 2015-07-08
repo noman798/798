@@ -27,19 +27,23 @@
                 p =i
 
 -coffee
+
     $ ->
+
         View(
             "test"
             {
                 lside:{
                     num:1563
-                    title:"最新文章" 
+                    title:"最新文章"
                     li : [
                         {
                             id:"333"
-                        } 
+                        }
                     ]
                 }
             }
+            (v)->
+                lside = elem.find('.lside').scrollbar()
+                rside = elem.find('.right').scrollbar()
         )
-        

@@ -52,7 +52,8 @@
                     #li
                     # publish_time
                     # submit_time
-                    console.log nv
+                    console.log nv,window.SITE.ID
+
                 fetch v.lside.h1_now
                 v.lside.$watch "h1_now", fetch 
         )

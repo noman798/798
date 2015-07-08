@@ -1,5 +1,30 @@
-div.manage
-    link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+#PostManage
+    .manage ms-view="PostManage"
+        link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+
+        .lsidebg0
+        .lsidebg1
+        .lside.scrollbar-macosx
+            h1 
+                span.dropdown
+                    select ms-duplex="lside.h1_now"
+                        option ms-repeat="lside.h1" ms-attr-value="el[1]" {{el[0]}} 
+
+                span.m06 -
+                span.num
+                    span {{lside.num}}
+                    篇
+                 
+            p ms-class="now:$first" ms-repeat="lside._li" ms-click="lside.click(el)" {{el.title}}
+
+        .rside.scrollbar-macosx
+            .vc2
+                .vc1
+                    .content 
+                        h1
+                            span {{lside._li[0].title}}
+
+
 #    div.leftside.scrollbar-macosx
 #
 #    div.rightside.scrollbar-macosx

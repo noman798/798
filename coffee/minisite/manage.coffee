@@ -26,15 +26,74 @@
             【文章已于 2015-10-21 发布到首页】
 ###
 
-$.minisite.manage = ->
-    _manage(
+$.minisite.manage = (rel)->
+
+    AV.Cloud.run "PostInbox.by_current", {site_id:SITE.ID},{
+        success:(li)->
+            _li=[]
+            console.log li
+            for i in li
+                console.log i.ID,i.createAt,i.html,i.is_submit,i.kind,i.objectId,i.owner,i.tag_list,i.title,i.updateAt
+                _li.push {
+                    createAt:i.createAt
+                    title:i.title
+                    updateAt:i.updateAt
+                    html:i.html
+                    is_submit:i.is_submit
+                    owner:i.owner
+                    createAt:i.createAt
+                }
+
+
+            $.modal(
+                __inline("/html/coffee/minisite/manage.html")
+                {
+                    dimmerClassName:'read'
+                }
+                "PostManage"
+                (elem)->
+                    [
+                        {
+                            lside:{
+                                h1:[
+                                    [ "我的文章","by_current" ]
+                                    [ "已经发布","by_current_is_publish" ]
+                                ]
+                                h1_now : "by_current"
+                                num:_li.length
+                                _li
+                                click:(el)->
+                                    console.log el,$(this)
+                                    $(this).addClass("now").siblings().removeClass("now")
+                                    $('.rside').find('span').text el.title
+                                    $('.rside').find('content').append(el.html)
+                            }
+                        }
+                        (v)->
+                            console.log v.lside._li[0].html
+                            $('.rside').find('content').append(v.lside._li[0].html)
+                            fetch = (nv)->
+                                #PostIndex.by_current
+                                #li
+                                # publish_time
+                                # submit_time
+                                console.log nv,window.SITE.ID
+                                AV.Cloud.run "PostInbox."+nv, {site_id:SITE.ID},{
+                                    success:(li)->
+                                        console.log li
+                                }
+
+                            v.lside.$watch "h1_now", fetch
+                    ]
+            )
+    }
+
+###    _manage(
         [
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_is_publish" ]
         ]
     )
-    _label([
-    ])
 
 _manage = (lside_nav)->
 
@@ -170,3 +229,4 @@ _show = (params)->
         #            )
         #    )
     )
+    ###

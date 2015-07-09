@@ -33,14 +33,14 @@ $.minisite.member = AV.User.logined ->
                                 AV.Cloud.run "SiteUserLevel.set", $.extend({site_id:SITE.ID},V.Member.add.$model), {
                                     fail: (error) ->
                                         error_tip.set error
-                                    success: ([user_id,name])->
+                                    success: ([id,name])->
                                         level = V.Member.add.level
                                         for i in V.Member.li
-                                            if i.id == user_id
+                                            if i.id == id
                                                 i.level = level
                                                 return
                                         V.Member.li.$add {
-                                            user_id
+                                            id
                                             name
                                             level
                                         }

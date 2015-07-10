@@ -48,7 +48,7 @@ $ribbon-bg:#d20;
 $ribbon-h1:#e00;
 $ribbon-w:40px;
 $ribbon-tail:10px;
-#ribbon{
+.ribbon{
     padding:0 0 $ribbon-tail 0;
     position:fixed;
     left:47px;
@@ -96,7 +96,7 @@ $ribbon-tail:10px;
     .publish{
         top:0 !important;
     }
-    #ribbon{
+    .ribbon{
         top:491px;
         i:before{
             transform:rotate(45deg);
@@ -507,7 +507,7 @@ $ribbon-tail:10px;
     .publish{
         top:0 !important;
     }
-    #ribbon{
+    .ribbon{
         top:446px;
         i:before{
             transform:rotate(45deg);

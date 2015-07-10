@@ -35,6 +35,8 @@ $.minisite.member = AV.User.logined ->
                                         error_tip.set error
                                     success: ([id,name])->
                                         level = V.Member.add.level
+                                        V.Member.add.username = ''
+                                        V.Member.add.level = 800
                                         for i in V.Member.li
                                             if i.id == id
                                                 i.level = level
@@ -45,8 +47,6 @@ $.minisite.member = AV.User.logined ->
                                             level
                                         }
                                 }
-                                V.Member.add.username = ''
-                                V.Member.add.level = 800
                                 false
                             rm:(el)->
                                 alertify.confirm "真的要移除 #{$.escape el.name} 的所有权限？",(ok)->

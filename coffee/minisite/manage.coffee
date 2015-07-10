@@ -31,7 +31,6 @@ $.minisite.manage = (rel)->
 
     AV.Cloud.run "PostInbox.by_current", {site_id:SITE.ID},{
         success:(li)->
-            toggle=0
 
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
@@ -44,6 +43,9 @@ $.minisite.manage = (rel)->
                     [
                         {
                             now : 0
+                            ribbon_toggle: ->
+                                V.PostManage.show_ribbon = !V.PostManage.show_ribbon
+                            show_ribbon:0
                             lside:{
                                 h1:[
                                     [ "我的文章","by_current" ]
@@ -54,18 +56,12 @@ $.minisite.manage = (rel)->
                                 li
                                 click:(el)->
                                     V.PostManage.now = el
-                                    elem.find(".tag").tagEditor('destroy').val('').tagEditor({
+                                    elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
                                         placeholder:'请输入文章标签'
                                     })
 
-                                    #$('#tag').tagEditor('destroy').val('')
-                                    #$('#tag').tagEditor({
-                                    #    initialTags:el.tag_list.$model
-                                    #    placeholder:'请输入文章标签'
-                                    #})
-
-                                #    $(this).addClass("now").siblings().removeClass("now")
+                                    $(this).addClass("now").siblings().removeClass("now")
                                 #    elem.find('.rside').find('.content').html("""<h1><span>#{el.title}</span></h1>""")
                                 #    elem.find('.rside').find('.content').append(el.html)
                                 #    elem.find('.publish .title').val(el.title)
@@ -102,6 +98,14 @@ $.minisite.manage = (rel)->
                         (v)->
                             if v.lside.li.length
                                 v.lside.click v.lside.li[0]
+                            publish=->
+                                width=$('.lside').outerWidth(true)
+                                $('.rside .publish').css('marginLeft',width+'px')
+                                $('.rside .ribbon').css('marginLeft',width+'px')
+
+                            publish()
+                            $(window).resize ->
+                                publish()
                             #3if v.lside.li.length
                             #3    $('.rside').find('.content').append(v.lside.li[0].html)
 
@@ -119,13 +123,6 @@ $.minisite.manage = (rel)->
                            # $(window).resize ->
                            #     publish()
 
-                           # $('.rside #ribbon').click ->
-                           #     if toggle==0
-                           #         $(this).parent().addClass("show")
-                           #         toggle=1
-                           #     else if toggle==1
-                           #         $(this).parent().removeClass("show")
-                           #         toggle=0
 
                            # $('#tag').tagEditor({
                            #     initialTags:v.lside._li[0].tag_list.$model

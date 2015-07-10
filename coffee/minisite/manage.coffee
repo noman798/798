@@ -55,25 +55,22 @@ $.minisite.manage = (rel)->
                                 num:NUM
                                 li
                                 click:(el)->
-                                    V.PostManage.now = el
+                                    v = V.PostManage
+                                    v.show_ribbon = 0
+                                    v.now = el
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
                                         placeholder:'请输入文章标签'
                                     })
 
                                     $(this).addClass("now").siblings().removeClass("now")
-                                #    elem.find('.rside').find('.content').html("""<h1><span>#{el.title}</span></h1>""")
-                                #    elem.find('.rside').find('.content').append(el.html)
-                                #    elem.find('.publish .title').val(el.title)
-                                #    elem.find('.publish .title').attr("rel",el.objectId)
-                                #    elem.find('.publish .summary').val(el.brief)
-                                #    if window.SITE.SITE_USER_LEVEL > 850
-                                #        $(".rside .content").append("""<p class="author C"><i class="iconfont icon-trash"></i><span class="name"><span></span>#{el.owner} · #{$.timeago  el.createdAt}</span>""")
-                                #    else
-                                #        $(".rside .content").append("""<p class="author C"><span class="name"><span></span>#{el.owner} · #{$.timeago  el.createdAt}</span>""")
-                                #    tag=$('#tag').tagEditor('getTags')[0].tags
 
-                                #submit:->
+                                submit:->
+                                    {title, brief} = V.PostManage.now.$model
+                                    AV.Cloud.run("PostInbox.submit",{site_id:SITE.ID,post_id:i.objectId,title:$('.publish .title').val(),brief:$('.publish .summary').val(),tag_list:tag},{success:(m)->
+                                        console.log m
+                                    })
+                    
                                 #    for i in V.PostManage.lside.li
                                 #        if i.objectId==$('.publish').find('.title').attr('rel')
                                 #            check=$('.checkbox:checked').val()
@@ -98,14 +95,6 @@ $.minisite.manage = (rel)->
                         (v)->
                             if v.lside.li.length
                                 v.lside.click v.lside.li[0]
-                            publish=->
-                                width=$('.lside').outerWidth(true)
-                                $('.rside .publish').css('marginLeft',width+'px')
-                                $('.rside .ribbon').css('marginLeft',width+'px')
-
-                            publish()
-                            $(window).resize ->
-                                publish()
                             #3if v.lside.li.length
                             #3    $('.rside').find('.content').append(v.lside.li[0].html)
 

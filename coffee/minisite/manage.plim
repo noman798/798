@@ -1,7 +1,7 @@
 #PostManage
+    link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+    link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
     .manage ms-view="PostManage"
-        link rel="stylesheet" href="/css/minisite/manage.css?__inline"
-        link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
 
         .lsidebg0
         .lsidebg1
@@ -16,46 +16,47 @@
                     span {{lside.num}}
                     篇
                  
-            p ms-class="now:$first" ms-repeat="lside._li" ms-click="lside.click(el)" {{el.title}}
+            p ms-class="now:$first" ms-repeat="lside.li" ms-click="lside.click(el)" {{el.title}}
 
         .rside.scrollbar-macosx
             .vc2
                 .vc1
                     .content 
-                        h1 ms-if="lside._li"
-                            span {{lside._li[0].title}}
-                        h1.none ms-if="!lside._li"
+                        h1 ms-if="now"
+                            span {{now.title}}
+                        {{now.html|html}}
+                        h1.none ms-if="!now"
                             暂无文章
-                div#ribbon
-                    i.iconfont
-                div.publish
-                    input.title placeholder="请输入首页展示的标题" ms-attr-value="lside._li[0].title" ms-attr-rel="lside._li[0].objectId"
-                    textarea.summary placeholder="请输入首页展示的摘要" ms-attr-value="lside._li[0].brief"
-                    div.tag
-                        textarea#tag
-                    .C
-                        div.check
-                            input.checkbox type="checkbox" value="true" id="agree"
-                            label.check-box for="agree" 
-                            label for="agree"  投稿到首页
-                                a.help href="javascript:void(0);" &nbsp;?
-                        a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
+               / #ribbon ms-if="lside.li.length"
+               /     i.iconfont
+               / .publish ms-if="lside.li.length"
+               /     input.title placeholder="请输入首页展示的标题" ms-attr-value="lside.li[0].title" ms-attr-rel="lside.li[0].objectId"
+               /     textarea.summary placeholder="请输入首页展示的摘要" ms-attr-value="lside.li[0].brief"
+               /     div.tag
+               /         textarea#tag
+               /     .C
+               /         div.check
+               /             input.checkbox type="checkbox" value="true" id="agree"
+               /             label.check-box for="agree" 
+               /             label for="agree"  投稿到首页&nbsp;&nbsp;
+               /                 a.help href="javascript:void(0);" ?
+               /         a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 
-#    div.leftside.scrollbar-macosx
-#
-#    div.rightside.scrollbar-macosx
-#        .vc2
-#            .vc1
-#                .content 
-#            div#ribbon
-#                i.iconfont
-#            div.publish
-#                input.title placeholder="请输入首页展示的标题"
-#                textarea.summary placeholder="请输入首页展示的摘要"
-#                .C
-#                    div.check
-#                        input.checkbox type="checkbox" value="index" id="agree"
-#                        label.check-box for="agree" 
-#                        label for="agree"  投稿到首页
-#                            a href="javascript:void(0);" ?
-#                    a.ui.button.blue href="javascript:void(0)" 确定
+/    div.leftside.scrollbar-macosx
+/
+/    div.rightside.scrollbar-macosx
+/        .vc2
+/            .vc1
+/                .content 
+/            div#ribbon
+/                i.iconfont
+/            div.publish
+/                input.title placeholder="请输入首页展示的标题"
+/                textarea.summary placeholder="请输入首页展示的摘要"
+/                .C
+/                    div.check
+/                        input.checkbox type="checkbox" value="index" id="agree"
+/                        label.check-box for="agree" 
+/                        label for="agree"  投稿到首页
+/                            a href="javascript:void(0);" ?
+/                    a.ui.button.blue href="javascript:void(0)" 确定

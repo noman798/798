@@ -28,6 +28,9 @@ html lang="zh-CN"
         <!-- @require /lib/headroom/headroom.js -->
         <!-- @require /lib/cropper/cropper.css -->
         <!-- @require /lib/cropper/cropper.js -->
+        <!-- @require /lib/tageditor/jquery.tag-editor.css -->
+        <!-- @require /lib/tageditor/jquery.caret.min.js -->
+        <!-- @require /lib/tageditor/jquery.tag-editor.js -->
 
 
         -block head

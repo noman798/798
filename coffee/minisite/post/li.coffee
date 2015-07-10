@@ -74,10 +74,14 @@ render_tag = (post_list, tag) ->
         _POST[post.ID] = post
         _ """<div class="hr">"""
         href = "/#{post.ID}"
-        _ """<div class="post"><h2><a rel="#{post.ID}" class="iconfont star star#{!!post.is_star-0}" href="#{href}"></a><a class="title" href="#{href}">#{post.title}</a></h2><div class="brief"><p>#{post.brief}</p>"""
+        console.log post
+        if post.brief
+            _ """<div class="post"><h2><a rel="#{post.ID}" class="iconfont star star#{!!post.is_star-0}" href="#{href}"></a><a class="title" href="#{href}">#{post.title}</a></h2><div class="brief"><p>#{post.brief}</p>"""
+        else
+            _ """<div class="post"><h2><a rel="#{post.ID}" class="iconfont star star#{!!post.is_star-0}" href="#{href}"></a><a class="title" href="#{href}">#{post.title}</a></h2><div class="brief">"""
 
 
-        _ """<p class="author C"><span class="name">#{post.author}<i>·</i>#{$.timeago post.createdAt}</span>"""
+        _ """<p class="author C"><span class="name">#{post.author || post.owner.username}<i>·</i>#{$.timeago post.createdAt}</span>"""
         _ """<span class="reply">"""
         _ """<a class=replynum href="#{href}"><span class=num>#{post.reply_count or 0}</span>评论</a>"""
         _ """<span class="m06">&amp;</span>"""

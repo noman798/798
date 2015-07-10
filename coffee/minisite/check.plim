@@ -40,22 +40,3 @@
                             label for="agree"  投稿到首页
                                 a href="javascript:void(0);" ?
                         a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
-
-#    div.leftside.scrollbar-macosx
-#
-#    div.rightside.scrollbar-macosx
-#        .vc2
-#            .vc1
-#                .content 
-#            div#ribbon
-#                i.iconfont
-#            div.publish
-#                input.title placeholder="请输入首页展示的标题"
-#                textarea.summary placeholder="请输入首页展示的摘要"
-#                .C
-#                    div.check
-#                        input.checkbox type="checkbox" value="index" id="agree"
-#                        label.check-box for="agree" 
-#                        label for="agree"  投稿到首页
-#                            a href="javascript:void(0);" ?
-#                    a.ui.button.blue href="javascript:void(0)" 确定

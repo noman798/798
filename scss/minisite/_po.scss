@@ -54,6 +54,9 @@
     .post { 
         clear: both;
         margin-bottom: 10px;
+        h2{
+            margin-bottom:11px;
+        }
         a{
             transition: color 0.15s ease-in-out 0s;
         }
@@ -82,7 +85,9 @@
         }
     }
     .brief{
-        overflow:hidden;
+        p:first-child{
+            margin-top:-11px;
+        }
         p{
             font-size:18px;
             color:#343;
@@ -193,7 +198,7 @@
         margin:auto;
         h2{
             position:relative;
-            margin-bottom: 3px;
+            margin-bottom: 11px;
             display:inline-block;
             a.title{
                 margin-left:0px;

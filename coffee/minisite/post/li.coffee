@@ -74,7 +74,6 @@ render_tag = (post_list, tag) ->
         _POST[post.ID] = post
         _ """<div class="hr">"""
         href = "/#{post.ID}"
-        console.log post
         if post.brief
             _ """<div class="post"><h2><a rel="#{post.ID}" class="iconfont star star#{!!post.is_star-0}" href="#{href}"></a><a class="title" href="#{href}">#{post.title}</a></h2><div class="brief"><p>#{post.brief}</p>"""
         else

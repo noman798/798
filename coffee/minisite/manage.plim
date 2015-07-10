@@ -38,7 +38,7 @@
                             input.checkbox type="checkbox" value="true" id="agree"
                             label.check-box for="agree" 
                             label for="agree"  投稿到首页
-                                a href="javascript:void(0);" ?
+                                a.help href="javascript:void(0);" &nbsp;?
                         a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 
 #    div.leftside.scrollbar-macosx

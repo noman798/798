@@ -17,4 +17,5 @@ config.py
 start.sh
 npm-debug.log
 release
+*.swp
 node_modules

@@ -36,8 +36,8 @@
 .tag-editor .tag-editor-tag.active+.tag-editor-delete i { background: none; cursor: text; }
 
 .tag-editor .tag-editor-tag.active { background: none !important; }
-.tag-editor .placeholder div{ font-family:caecilia, times, serif, 'Microsoft YaHei';font-weight:bold;}
-.tag-editor li:first-child{ padding-left:33px;}
+.tag-editor .placeholder div{ font-family:'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';padding:9px 0}
+.tag-editor li:first-child{ padding-left:36px;}
 
 
 $ribbon-bg:#d20;
@@ -521,6 +521,10 @@ $ribbon-tail:10px;
         height:100%;
         color:#000;
         background: url(/css/img/bgpaper.png) #F3F3F3;
+        .help{
+            color:#00f;
+            border-bottom:1px solid #00f;
+        }
         .vc2{
             position:static;
             padding-right:45px;

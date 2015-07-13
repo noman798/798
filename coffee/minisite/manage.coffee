@@ -41,7 +41,8 @@ $.minisite.manage  = {
         ]
 }
 _indox = (h1)->
-    AV.Cloud.run "PostInbox."+h1[0][1], {site_id:SITE.ID},{
+    h1_now = h1[0][1]
+    AV.Cloud.run "PostInbox."+h1_now, {site_id:SITE.ID},{
         success:(li)->
 
             $.modal(
@@ -60,7 +61,7 @@ _indox = (h1)->
                             show_ribbon:0
                             lside:{
                                 h1
-                                h1_now : h1[0][1]
+                                h1_now
                                 num:NUM
                                 li
                                 click:(el)->

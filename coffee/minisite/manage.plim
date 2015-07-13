@@ -10,11 +10,18 @@
             .tag
                 textarea.tag
             .C
-                div.check
+                div.check ms-if="!submit_is_publish"
+                    input.checkbox type="checkbox" ms-duplex="now.is_submit" value="true" id="postInboxAgree"
+                    label.check-box for="postInboxAgree" 
+                    label for="postInboxAgree"  投稿到首页
+                        a.help href="javascript:void(0);" ?
+
+                div.check ms-if="submit_is_publish"
                     input.checkbox type="checkbox" ms-duplex="now.is_publish" value="true" id="postInboxAgree"
                     label.check-box for="postInboxAgree" 
-                    label for="postInboxAgree"  {{ribbon.action}}到首页
+                    label for="postInboxAgree"  发布到首页
                         a.help href="javascript:void(0);" ?
+
                 a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 
         .lsidebg0

@@ -54,6 +54,7 @@ _indox = (h1)->
                     
                     [
                         {
+                            submit_is_publish:SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.WRITER
                             now : 0
                             ribbon:{
                                 show:0

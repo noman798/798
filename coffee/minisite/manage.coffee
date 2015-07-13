@@ -27,7 +27,7 @@
 ###
 
 NUM = 332
-$.minisite.manage = (rel)->
+$.minisite.manage = ()->
 
     AV.Cloud.run "PostInbox.by_current", {site_id:SITE.ID},{
         success:(li)->
@@ -86,8 +86,17 @@ $.minisite.manage = (rel)->
                         }
 
                         (v)->
-                            if v.lside.li.length
-                                v.lside.click v.lside.li[0]
+                            _now = ->
+                                if v.lside.li.length
+                                    v.lside.click v.lside.li[0]
+                                else
+                                    v.now = 0
+                                    v.show_ribbon = 0
+                            _now()
+                            v.lside.$watch "h1_now",(nv, ov)->
+                                AV.Cloud.run "PostInbox."+nv,{site_id:SITE.ID},(li)->
+                                    v.lside.li = li
+                                    _now()
 
                     ]
             )

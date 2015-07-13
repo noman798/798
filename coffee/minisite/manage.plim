@@ -10,13 +10,13 @@
             .tag
                 textarea.tag
             .C
-                div.check ms-if="!submit_is_publish"
+                .check ms-if="!submit_is_publish"
                     input.checkbox type="checkbox" ms-duplex-checked="now.is_submit" id="postInboxAgree"
                     label.check-box for="postInboxAgree" 
                     label for="postInboxAgree"  投稿到首页
                         a.help href="javascript:void(0);" ?
 
-                div.check ms-if="submit_is_publish"
+                .check ms-if="submit_is_publish"
                     input.checkbox type="checkbox" ms-duplex-checked="now.is_publish" id="postInboxAgree1"
                     label.check-box for="postInboxAgree1" 
                     label for="postInboxAgree1"  发布到首页

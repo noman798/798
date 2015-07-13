@@ -54,12 +54,12 @@ $ribbon-tail:10px;
 .ribbon{
     padding:0 0 $ribbon-tail 0;
     position:fixed;
-    left:-7px;
+    left:47px;
     top:0;
     width:$ribbon-w;
     cursor:pointer;
     transition:all .3s;
-    margin-left:600px;
+    margin-left:40%;
     
     i{
         background:$ribbon-bg;
@@ -67,7 +67,7 @@ $ribbon-tail:10px;
         padding:4px 0;
         text-align:center;
         display: block;
-       -font-style: normal;
+        font-style: normal;
         height:30px;
         transition:all .3s;
         &:before{
@@ -80,6 +80,12 @@ $ribbon-tail:10px;
             margin-left: 2px;
             transition: all .3s;
             font-size:14px;
+        }
+        &:hover{
+            height:47px;
+        }
+        &:hover:before{
+            vertical-align: -10px;
         }
     }
     i:after{

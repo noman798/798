@@ -1,8 +1,8 @@
 #PostManage
     link rel="stylesheet" href="/css/minisite/manage.css?__inline"
     link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
-    .manage ms-view="PostManage"  ms-class="show_ribbon:show_ribbon"
-        .ribbon ms-click="ribbon_toggle" ms-if="now"
+    .manage ms-view="PostManage"  ms-class="ribbon_show:ribbon.show"
+        .ribbon ms-click="ribbon.toggle" ms-if="now"
             i.iconfont
         .publish
             input.title placeholder="请输入首页展示的标题" ms-attr-value="now.title" ms-attr-rel="now.objectId"
@@ -13,7 +13,7 @@
                 div.check
                     input.checkbox type="checkbox" value="true" id="agree"
                     label.check-box for="agree" 
-                    label for="agree"  投稿到首页&nbsp;&nbsp;
+                    label for="agree"  {{ribbon.action}}到首页
                         a.help href="javascript:void(0);" ?
                 a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 

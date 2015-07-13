@@ -1,7 +1,7 @@
 #PostManage
     link rel="stylesheet" href="/css/minisite/manage.css?__inline"
     link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
-    .manage ms-view="PostManage"
+    .manage ms-view="PostManage"  ms-class="show_ribbon:show_ribbon"
         .ribbon ms-click="ribbon_toggle"
             i.iconfont
         .publish
@@ -36,7 +36,7 @@
             .vc2 ms-if="!now"
                 .vc1
                     h1.none 暂无文章
-            .vc2 ms-if="now" ms-class="show:show_ribbon"
+            .vc2 ms-if="now"
                 .vc1
                     .content 
                         h1

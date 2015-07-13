@@ -129,6 +129,7 @@ $ribbon-h1:#e00;
 $ribbon-w:40px;
 $ribbon-tail:10px;
 .ribbon{
+    z-index:1;
     padding:0 0 $ribbon-tail 0;
     position:fixed;
     left:47px;
@@ -178,12 +179,12 @@ $ribbon-tail:10px;
         transform:scale(0.5);
     }
 }
-.rside .show{
+.show_ribbon{
     .publish{
         top:0 !important;
     }
     .ribbon{
-        top:491px;
+        top:488px;
         i:before{
             transform:rotate(45deg);
         }

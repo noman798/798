@@ -28,18 +28,24 @@
 
 $.minisite.manage  = {
     my : ->
-        _indox [
+
+        if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.WRITER
+            submit_bar = 2
+        else
+            submit_bar = 1
+
+        _indox submit_bar,[
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_published" ]
         ]
     review:->
-        _indox [
+        _indox 3,[
             [ "有待审核","by_site" ]
             [ "已经发布","by_site_published" ]
             [ "退回稿件","by_site_rmed" ]
         ]
 }
-_indox = (h1)->
+_indox = (submit_bar, h1)->
     _fetch = (action, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
@@ -65,7 +71,7 @@ _indox = (h1)->
                     
                     [
                         {
-                            submit_is_publish:SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.WRITER
+                            submit_bar
                             now : 0
                             ribbon:{
                                 show:0

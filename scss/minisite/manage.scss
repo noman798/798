@@ -1,11 +1,14 @@
 /* surrounding tag container */
 .tag-editor {
     list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden; border: 1px solid #eee; cursor: text;
-    font: normal 14px sans-serif; color: #555; background: #fff;
+    font-size:  16px ; color: #555; background: #fff;
 }
 
 /* core styles usually need no change */
-.tag-editor li { display: block; float: left; overflow: hidden; margin: 3px 0; line-height: 1.5; }
+.tag-editor li { display: block; float: left; overflow: hidden; margin: 3px;
+height: 35px;
+line-height: 22px;
+}
 .tag-editor div { float: left; padding: 0 4px; }
 .tag-editor .placeholder { padding: 0 8px; color: #bbb; }
 .tag-editor .tag-editor-spacer { padding: 0; width: 8px; overflow: hidden; color: transparent; background: none; }
@@ -36,18 +39,22 @@
 .tag-editor .tag-editor-tag.active+.tag-editor-delete i { background: none; cursor: text; }
 
 .tag-editor .tag-editor-tag.active { background: none !important; }
-.tag-editor .placeholder div{ font-family:'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';padding:9px 0}
+.tag-editor .placeholder div{ padding:9px 0}
 .tag-editor li:first-child{ padding-left:36px;}
 
+.help{
+    color:#00f;
+    border-bottom:1px solid #00f;
+}
 
 $ribbon-bg:#d20;
 $ribbon-h1:#e00;
 $ribbon-w:40px;
 $ribbon-tail:10px;
-#ribbon{
+.ribbon{
     padding:0 0 $ribbon-tail 0;
     position:fixed;
-    left:47px;
+    left:-7px;
     top:0;
     width:$ribbon-w;
     cursor:pointer;
@@ -60,7 +67,7 @@ $ribbon-tail:10px;
         padding:4px 0;
         text-align:center;
         display: block;
-        font-style: normal;
+       -font-style: normal;
         height:30px;
         transition:all .3s;
         &:before{
@@ -92,8 +99,8 @@ $ribbon-tail:10px;
     .publish{
         top:0 !important;
     }
-    #ribbon{
-        top:483px;
+    .ribbon{
+        top:491px;
         i:before{
             transform:rotate(45deg);
         }
@@ -248,8 +255,13 @@ $ribbon-tail:10px;
                 left: 0;
                 top:-100%;
                 transition:all .3s;
-                margin-left:600px;
+                margin-left:40%;
+                width:60%;
                 right:0;
+                .C{
+                    margin: 11px 0;
+                    margin-bottom: -3px;
+                }
                 .tag{
                     height:35px;
                 }    
@@ -499,13 +511,14 @@ $ribbon-tail:10px;
     .publish{
         top:0 !important;
     }
-    #ribbon{
+    .ribbon{
         top:446px;
         i:before{
             transform:rotate(45deg);
         }
     }
 }
+
 
 #PostManage{
     width:100%;
@@ -521,10 +534,7 @@ $ribbon-tail:10px;
         height:100%;
         color:#000;
         background: url(/css/img/bgpaper.png) #F3F3F3;
-        .help{
-            color:#00f;
-            border-bottom:1px solid #00f;
-        }
+        
         .vc2{
             position:static;
             padding-right:45px;

@@ -27,9 +27,21 @@
 ###
 
 NUM = 332
-$.minisite.manage = ()->
-
-    AV.Cloud.run "PostInbox.by_current", {site_id:SITE.ID},{
+$.minisite.manage  = {
+    my : ->
+        _indox [
+            [ "我的文章","by_current" ]
+            [ "已经发布","by_current_published" ]
+        ]
+    review:->
+        _indox [
+            [ "有待审核","by_site" ]
+            [ "已经发布","by_site_published" ]
+            [ "退回稿件","by_site_rmed" ]
+        ]
+}
+_indox = (h1)->
+    AV.Cloud.run "PostInbox."+h1[0][1], {site_id:SITE.ID},{
         success:(li)->
 
             $.modal(
@@ -47,10 +59,7 @@ $.minisite.manage = ()->
                                 V.PostManage.show_ribbon = !V.PostManage.show_ribbon
                             show_ribbon:0
                             lside:{
-                                h1:[
-                                    [ "我的文章","by_current" ]
-                                    [ "已经发布","by_current_published" ]
-                                ]
+                                h1
                                 h1_now : "by_current"
                                 num:NUM
                                 li

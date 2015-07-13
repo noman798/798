@@ -72,7 +72,7 @@ _indox = (submit_bar, h1)->
                     [
                         {
                             submit_bar
-                            now : 0
+                            now : {}
                             ribbon:{
                                 show:0
                                 toggle: ->

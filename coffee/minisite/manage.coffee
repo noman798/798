@@ -97,12 +97,20 @@ _indox = (submit_bar, h1)->
 
                                 submit:->
                                     v = V.PostManage
-                                    {title, brief, objectId} = v.now.$model
+                                    {title, brief, objectId, is_publish, is_submit} = v.now.$model
                                     tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
                                     v.ribbon.show = 0
-                                    
+                                     
+                                    if is_publish
+                                        action = "publish"
+                                    else if is_submit
+                                        action = "submit"
+                                    else
+                                        action = "rm"
+                                        
+
                                     AV.Cloud.run(
-                                        "PostInbox.submit"
+                                        "PostInbox."+action
                                         {
                                             site_id:SITE.ID
                                             post_id:objectId

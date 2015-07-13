@@ -27,7 +27,7 @@
 
                 span.m06 -
                 span.num
-                    span {{lside.num}}
+                    span {{lside.count}}
                     篇
                  
             p ms-class="now:$first" ms-repeat="lside.li" ms-click="lside.click(el)" {{el.title}}

@@ -40,9 +40,20 @@ $.minisite.manage  = {
         ]
 }
 _indox = (h1)->
+    _fetch = (action, options)->
+        AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
+            success:([count, li])->
+                for i in li
+                    i.is_submit = !!i.is_submit
+                    i.is_publish = !!i.is_publish
+                options.success count, li
+        }
+
+        
+
     h1_now = h1[0][1]
-    AV.Cloud.run "PostInbox."+h1_now, {site_id:SITE.ID},{
-        success:([count,li])->
+    _fetch h1_now, {
+        success:(count,li)->
 
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
@@ -106,7 +117,7 @@ _indox = (h1)->
                                     v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->
-                                AV.Cloud.run "PostInbox."+nv,{site_id:SITE.ID},([count,li])->
+                                _fetch nv, (count,li)->
                                     v.lside.li = li
                                     v.lside.count = count
                                     _now()

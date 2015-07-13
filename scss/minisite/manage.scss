@@ -173,6 +173,7 @@ $ribbon-tail:10px;
         }
     }
     i:after{
+        transition: all .3s;
         border-left:40px solid $ribbon-bg;
         border-right:40px solid $ribbon-bg;
         border-bottom:23px solid transparent;
@@ -183,6 +184,26 @@ $ribbon-tail:10px;
         position:absolute;
         width:0;
         transform:scale(0.5);
+    }
+}
+$ribbon-submit-bg:#219;
+.ribbon_submit{
+    i{
+        background:$ribbon-submit-bg;
+    }
+    i:after{
+        border-right-color:$ribbon-submit-bg;
+        border-left-color:$ribbon-submit-bg;
+    }
+}
+$ribbon-publish-bg:#138A16;
+.ribbon_publish{
+    i{
+        background:$ribbon-publish-bg;
+    }
+    i:after{
+        border-right-color:$ribbon-publish-bg;
+        border-left-color:$ribbon-publish-bg;
     }
 }
 .ribbon_show{

@@ -5,7 +5,9 @@
 
 /* surrounding tag container */
 .tag-editor {
-    list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden; border: 1px solid #eee; cursor: text;
+    list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden;
+    border-top: 1px dotted #f0f0f0; 
+    cursor: text;
     font-size:  16px ; color: #555; background: #fff;
 }
 

@@ -66,29 +66,20 @@ $.minisite.manage = (rel)->
                                     $(this).addClass("now").siblings().removeClass("now")
 
                                 submit:->
-                                    {title, brief} = V.PostManage.now.$model
-                                    AV.Cloud.run("PostInbox.submit",{site_id:SITE.ID,post_id:i.objectId,title:$('.publish .title').val(),brief:$('.publish .summary').val(),tag_list:tag},{success:(m)->
-                                        console.log m
+                                    {title, brief, objectId} = V.PostManage.now.$model
+                                    tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
+                                    AV.Cloud.run(
+                                        "PostInbox.submit"
+                                        {
+                                            site_id:SITE.ID
+                                            post_id:objectId
+                                            title
+                                            brief
+                                            tag_list
+                                        },{
+                                            success:(m)->
+                                                console.log m
                                     })
-                    
-                                #    for i in V.PostManage.lside.li
-                                #        if i.objectId==$('.publish').find('.title').attr('rel')
-                                #            check=$('.checkbox:checked').val()
-                                #            action = 0
-                                #            if check
-                                #                if window.SITE.SITE_USER_LEVEL<CONST.SITE_USER_LEVEL.EDITOR
-                                #                    action = "submit"
-                                #                else if window.SITE.SITE_USER_LEVEL>=CONST.SITE_USER_LEVEL.EDITOR
-                                #                    action = "publish"
-                                #            else
-                                #                action = "rm"
-                                #            if action
-                                #                AV.Cloud.run("PostInbox.#{action}",{site_id:SITE.ID,post_id:i.objectId,title:$('.publish .title').val(),brief:$('.publish .summary').val(),tag_list:tag},{success:(m)->
-                                #                    console.log m
-                                #                })
-                                #    if toggle==1
-                                #        $('.rside .vc2').removeClass('show')
-                                #        toggle=0
                             }
                         }
 

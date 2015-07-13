@@ -29,18 +29,18 @@
 NUM = 332
 $.minisite.manage  = {
     my : ->
-        _indox [
+        _indox "投稿",[
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_published" ]
         ]
     review:->
-        _indox [
+        _indox "发布",[
             [ "有待审核","by_site" ]
             [ "已经发布","by_site_published" ]
             [ "退回稿件","by_site_rmed" ]
         ]
 }
-_indox = (h1)->
+_indox = (action, h1)->
     h1_now = h1[0][1]
     AV.Cloud.run "PostInbox."+h1_now, {site_id:SITE.ID},{
         success:(li)->
@@ -56,9 +56,12 @@ _indox = (h1)->
                     [
                         {
                             now : 0
-                            ribbon_toggle: ->
-                                V.PostManage.show_ribbon = !V.PostManage.show_ribbon
-                            show_ribbon:0
+                            ribbon:{
+                                action
+                                show:0
+                                toggle: ->
+                                    V.PostManage.ribbon.show = !V.PostManage.ribbon.show
+                            }
                             lside:{
                                 h1
                                 h1_now
@@ -66,7 +69,7 @@ _indox = (h1)->
                                 li
                                 click:(el)->
                                     v = V.PostManage
-                                    v.show_ribbon = 0
+                                    v.ribbon.show = 0
                                     v.now = el
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
@@ -79,7 +82,7 @@ _indox = (h1)->
                                     v = V.PostManage
                                     {title, brief, objectId} = v.now.$model
                                     tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
-                                    v.show_ribbon = 0
+                                    v.ribbon.show = 0
                                     
                                     AV.Cloud.run(
                                         "PostInbox.submit"
@@ -101,7 +104,7 @@ _indox = (h1)->
                                     v.lside.click v.lside.li[0]
                                 else
                                     v.now = 0
-                                    v.show_ribbon = 0
+                                    v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->
                                 AV.Cloud.run "PostInbox."+nv,{site_id:SITE.ID},(li)->

@@ -87,13 +87,13 @@ _indox = (submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
-                                    $("#PostManage .rside").scrollTop(0)
+                                    elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
                                         placeholder:'请输入文章标签'
                                     })
 
-                                    $(this).addClass("now").siblings().removeClass("now")
+                                    #$(this).addClass("now").siblings().removeClass("now")
 
                                 submit:->
                                     v = V.PostManage

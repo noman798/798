@@ -43,7 +43,7 @@ $.minisite.manage  = {
 _indox = (action, h1)->
     h1_now = h1[0][1]
     AV.Cloud.run "PostInbox."+h1_now, {site_id:SITE.ID},{
-        success:(li)->
+        success:([count,li])->
 
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
@@ -65,7 +65,7 @@ _indox = (action, h1)->
                             lside:{
                                 h1
                                 h1_now
-                                num:NUM
+                                count
                                 li
                                 click:(el)->
                                     v = V.PostManage
@@ -107,8 +107,9 @@ _indox = (action, h1)->
                                     v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->
-                                AV.Cloud.run "PostInbox."+nv,{site_id:SITE.ID},(li)->
+                                AV.Cloud.run "PostInbox."+nv,{site_id:SITE.ID},([count,li])->
                                     v.lside.li = li
+                                    v.lside.count = count
                                     _now()
 
                     ]

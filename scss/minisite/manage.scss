@@ -58,10 +58,12 @@ line-height: 22px;
 }
 .publish{
     background: #fff;
-    border-bottom: 1px dashed rgba(0,0,100,.1);
+    border-bottom: 1px solid rgba(0,0,100,.1);
     margin-bottom: 37px;
     position: fixed;
     z-index: 100;
+    box-shadow:9px 0 9px #ccc;
+
     left: 0;
     top:-100%;
     transition:all .3s;

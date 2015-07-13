@@ -60,7 +60,7 @@ _indox = (h1)->
                             show_ribbon:0
                             lside:{
                                 h1
-                                h1_now : "by_current"
+                                h1_now : h1[0][1]
                                 num:NUM
                                 li
                                 click:(el)->

@@ -81,8 +81,7 @@ $.minisite.manage = (rel)->
                                             tag_list
                                         },{
                                             success:(m)->
-                                                console.log m
-                                    })
+                                        })
                             }
                         }
 

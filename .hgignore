@@ -18,4 +18,6 @@ start.sh
 npm-debug.log
 release
 *.swp
+*.pyc
+*.orig
 node_modules

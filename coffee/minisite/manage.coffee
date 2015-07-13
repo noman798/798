@@ -28,18 +28,18 @@
 
 $.minisite.manage  = {
     my : ->
-        _indox "投稿",[
+        _indox [
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_published" ]
         ]
     review:->
-        _indox "发布",[
+        _indox [
             [ "有待审核","by_site" ]
             [ "已经发布","by_site_published" ]
             [ "退回稿件","by_site_rmed" ]
         ]
 }
-_indox = (action, h1)->
+_indox = (h1)->
     h1_now = h1[0][1]
     AV.Cloud.run "PostInbox."+h1_now, {site_id:SITE.ID},{
         success:([count,li])->
@@ -56,7 +56,6 @@ _indox = (action, h1)->
                         {
                             now : 0
                             ribbon:{
-                                action
                                 show:0
                                 toggle: ->
                                     V.PostManage.ribbon.show = !V.PostManage.ribbon.show

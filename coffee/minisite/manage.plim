@@ -27,7 +27,7 @@
                 
                 .check ms-if="submit_bar==3"
                     select
-                        option value=""  222
+                        option value=""  - 请审核 -
 
                 a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 

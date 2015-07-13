@@ -2,22 +2,22 @@
     link rel="stylesheet" href="/css/minisite/manage.css?__inline"
     link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
     .manage ms-view="PostManage"  ms-class="ribbon_show:ribbon.show"
-        .ribbon ms-click="ribbon.toggle" ms-if="now"
+        .ribbon ms-click="ribbon.toggle" ms-if="now" ms-class-1="ribbon_submit:now.is_submit" ms-class-2="ribbon_publish:now.is_publish"
             i.iconfont
         .publish
-            input.title placeholder="请输入首页展示的标题" ms-attr-value="now.title" ms-attr-rel="now.objectId"
-            textarea.summary placeholder="请输入首页展示的摘要" ms-attr-value="now.brief"
+            input.title placeholder="请输入首页展示的标题" ms-duplex="now.title" 
+            textarea.summary placeholder="请输入首页展示的摘要" ms-duplex="now.brief"
             .tag
                 textarea.tag
             .C
-                div.check ms-if="submit_is_publish"
-                    input.checkbox type="checkbox" ms-duplex-radio="now.is_submit" value="true" id="postInboxAgree"
+                div.check ms-if="!submit_is_publish"
+                    input.checkbox type="checkbox" ms-duplex-checked="now.is_submit" id="postInboxAgree"
                     label.check-box for="postInboxAgree" 
                     label for="postInboxAgree"  投稿到首页
                         a.help href="javascript:void(0);" ?
 
-                div.check ms-if="!submit_is_publish"
-                    input.checkbox type="checkbox" ms-duplex-radio="now.is_publish" value="true" id="postInboxAgree1"
+                div.check ms-if="submit_is_publish"
+                    input.checkbox type="checkbox" ms-duplex-checked="now.is_publish" id="postInboxAgree1"
                     label.check-box for="postInboxAgree1" 
                     label for="postInboxAgree1"  发布到首页
                         a.help href="javascript:void(0);" ?

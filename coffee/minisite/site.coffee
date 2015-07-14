@@ -38,7 +38,7 @@ $ ->
                     if css_updated_at
                         fileref=document.createElement("link")
                         fileref.setAttribute("rel", "stylesheet")
-                        fileref.setAttribute("href", "//#{CONST.CSS_HOST}/css/#{SITE.id}?#{css_updated_at-0}")
+                        fileref.setAttribute("href", "//#{CONST.CSS_HOST}/css/#{SITE.id}/#{css_updated_at}")
                         $("body").append fileref
             )
             window.SITE = {

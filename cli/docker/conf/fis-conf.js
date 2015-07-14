@@ -1,3 +1,5 @@
+
+
 fis.config.set('pack', {
     "pkg/base.js":[
         "/lib/mod.js",
@@ -10,7 +12,14 @@ fis.config.set('pack', {
         "/lib/semantic/semantic.js",
         "/lib/config.js",
         "/lib/json2.js",
+        "/lib/alertify.js",
         "/lib/scrollbar/jquery.scrollbar.js",
+        "/lib/marked.js",
+        "/lib/autoresize.js",
+        "/lib/qrcode.js",
+        "/lib/tageditor/jquery.caret.min.js",
+        "/lib/tageditor/jquery.tag-editor.js",
+        "/lib/AV.realtime.js",
         "/modules/lib/jquery_ext.js",
         "/modules/lib/error_tip.js",
         "/modules/lib/async.js",

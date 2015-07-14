@@ -21,6 +21,12 @@ $ ->
                 SITE.user_level
                 css_updated_at
             ] = site
+            if css_updated_at
+                fileref=document.createElement("link")
+                fileref.setAttribute("rel", "stylesheet")
+                fileref.setAttribute("type", "text/css")
+                fileref.setAttribute("href", "//#{CONST.CSS_HOST}/css/#{SITE.id}?#{css_updated_at}")
+                $("head").append fileref
 
             require.async(
                 [

@@ -40,7 +40,7 @@ $ ->
                         fileref.setAttribute("rel", "stylesheet")
                         fileref.setAttribute("type", "text/css")
                         fileref.setAttribute("href", "//#{CONST.CSS_HOST}/css/#{SITE.id}?#{css_updated_at-0}")
-                        $("head").append fileref
+                        $("body").append fileref
             )
             window.SITE = {
                 ID : SITE.id

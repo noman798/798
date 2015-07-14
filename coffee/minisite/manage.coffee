@@ -93,7 +93,7 @@ _indox = (submit_bar, h1)->
                                         placeholder:'请输入文章标签'
                                     })
 
-                                    #$(this).addClass("now").siblings().removeClass("now")
+                                    $(this).addClass("now").siblings().removeClass("now")
 
                                 submit:->
                                     v = V.PostManage

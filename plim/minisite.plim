@@ -1,10 +1,7 @@
 -inherit /_base/page.plim
----!
-    from config import CSS_HOST
 
 -block head
     link rel="alternate" type="application/rss+xml" href="http://host.avosapps.com/rss/_NGINX_HOST_"
-    link rel="stylesheet" type="text/css" href="//${CSS_HOST}/_NGINX_HOST_"
 
 
 -block script

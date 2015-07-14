@@ -19,6 +19,7 @@ $ ->
                 SITE.slogo
                 SITE.social
                 SITE.user_level
+                css_updated_at
             ] = site
 
             require.async(

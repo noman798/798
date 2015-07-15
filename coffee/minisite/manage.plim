@@ -47,7 +47,7 @@
                     span {{lside.count}}
                     篇
                  
-            p ms-class="now:$first" ms-repeat="lside.li" ms-click="lside.click(el)" {{el.title}}
+            p ms-class="now:now.ID==el.ID" ms-repeat="lside.li" ms-click="lside.click(el)" {{el.title}}
             .footer
 
         .rside.scrollbar-macosx

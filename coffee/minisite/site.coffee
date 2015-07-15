@@ -19,6 +19,7 @@ $ ->
                 SITE.slogo
                 SITE.social
                 SITE.user_level
+                css_updated_at
             ] = site
 
             require.async(
@@ -34,6 +35,11 @@ $ ->
                             $('#BODY .Rbar .scrollbar-macosx').scrollbar()
                     )
                     RBAR.init()
+                    if css_updated_at
+                        fileref=document.createElement("link")
+                        fileref.setAttribute("rel", "stylesheet")
+                        fileref.setAttribute("href", "//#{CONST.CSS_HOST}/css/#{SITE.id}/#{css_updated_at}")
+                        $("body").append fileref
             )
             window.SITE = {
                 ID : SITE.id

@@ -151,13 +151,12 @@ _indox = (submit_bar, h1)->
 
                             _footer_end = ->
                                 $(".lside .footer").html "<div class=end></div>"
+
                             li=v.lside.li.$model
-                            since=v.lside.li[v.lside.li.length-1].ID
-                            _LOADING =1
+                            since=li[li.length-1].ID
                             _post_li = (action, params)->
                                 
                                 main=$("#PostManage .lside")
-                                _LOADING = 0
                                 if li.length
                                     since=params.since
                                     if since

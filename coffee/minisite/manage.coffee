@@ -49,10 +49,21 @@ _indox = (submit_bar, h1)->
     _fetch = (action, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
+                if submit_bar != 3
+                    for i in li
+                        i.is_submit = !!i.is_submit
+                        if not i.publisher
+                            i.publisher = 0
+                else if submit_bar == 3
+                    for i in li
+                        if i.publisher
+                            i.state = 1
+                        else if i.rmer
+                            i.state = 2
+                        else
+                            i.state = 0
+                        console.log i.state
 
-                for i in li
-                    i.is_submit = !!i.is_submit
-                    i.is_publish = !!i.is_publish
                 options.success count, li
         }
 
@@ -92,6 +103,7 @@ _indox = (submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
+                                    console.log v.now
                                     elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
@@ -102,17 +114,24 @@ _indox = (submit_bar, h1)->
 
                                 submit:->
                                     v = V.PostManage
-                                    {title, brief, objectId, is_publish, is_submit} = v.now.$model
+                                    {title, brief, objectId, publisher, is_submit} = v.now.$model
                                     tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
-                                    v.ribbon.show = 0
-                                     
-                                    if is_publish
-                                        action = "publish"
-                                    else if is_submit
-                                        action = "submit"
-                                    else
-                                        action = "rm"
-                                        
+                                    if submit_bar != 3
+
+                                        if publisher
+                                            action = "publish"
+                                        else if is_submit
+                                            action = "submit"
+                                        else
+                                            action = "rm"
+
+                                    else if submit_bar == 3
+                                        if v.now.state==1
+                                            action = "publish"
+                                        else if v.now.state==0
+                                            action = "save"
+                                        else if v.now.state==2
+                                            action = "rm"
 
                                     AV.Cloud.run(
                                         "PostInbox."+action
@@ -124,6 +143,8 @@ _indox = (submit_bar, h1)->
                                             tag_list
                                         },{
                                             success:(m)->
+
+                                                v.ribbon.show = 0
                                         })
                             }
                         }

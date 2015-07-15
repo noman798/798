@@ -46,8 +46,9 @@ $.minisite.manage  = {
         ]
 }
 _indox = (submit_bar, h1)->
-    _fetch = (action, options)->
-        AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
+    _fetch = (action, callback, params={})->
+        params.site_id = SITE.ID
+        AV.Cloud.run "PostInbox."+action, params, {
             success:([count, li])->
                 if submit_bar != 3
                     for i in li
@@ -62,156 +63,145 @@ _indox = (submit_bar, h1)->
                             i.state = 2
                         else
                             i.state = 0
-                        console.log i.state
 
-                options.success count, li
+                callback count, li
         }
 
         
 
     h1_now = h1[0][1]
-    _fetch h1_now, {
-        success:(count,li)->
+    _fetch h1_now, (count,li)->
 
-            $.modal(
-                __inline("/html/coffee/minisite/manage.html")
-                {
-                    dimmerClassName:'read'
-                }
-                "PostManage"
-                (elem)->
-                    
-                    [
-                        {
-                            submit_bar
-                            pub:->
-                                alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
-                            sub:->
-                                alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
-                            now : {
-                                state:0
-                            }
-                            ribbon:{
-                                show:0
-                                toggle: ->
-                                    V.PostManage.ribbon.show = !V.PostManage.ribbon.show
-                            }
-                            lside:{
-                                h1
-                                h1_now
-                                count
-                                li
-                                click:(el)->
-                                    v = V.PostManage
-                                    v.ribbon.show = 0
-                                    v.now = el
-                                    elem.find('.ribbon .dropdown select').val el.state
-                                    elem.find(".rside").scrollTop(0)
-                                    elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
-                                        initialTags:el.tag_list.$model
-                                        placeholder:'请输入文章标签'
-                                    })
-                                        
-                                    $(this).addClass("now").siblings().removeClass("now")
-
-                                submit:->
-                                    v = V.PostManage
-                                    {title, brief, objectId, publisher, is_submit} = v.now.$model
-                                    tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
-                                    if submit_bar != 3
-
-                                        if publisher
-                                            action = "publish"
-                                        else if is_submit
-                                            action = "submit"
-                                        else
-                                            action = "rm"
-
-                                    else if submit_bar == 3
-                                        if v.now.state==1
-                                            action = "publish"
-                                        else if v.now.state==0
-                                            action = "save"
-                                        else if v.now.state==2
-                                            action = "rm"
-
-                                    AV.Cloud.run(
-                                        "PostInbox."+action
-                                        {
-                                            site_id:SITE.ID
-                                            post_id:objectId
-                                            title
-                                            brief
-                                            tag_list
-                                        },{
-                                            success:(m)->
-
-                                                v.ribbon.show = 0
-                                        })
-                            }
+        $.modal(
+            __inline("/html/coffee/minisite/manage.html")
+            {
+                dimmerClassName:'read'
+            }
+            "PostManage"
+            (elem)->
+                
+                [
+                    {
+                        submit_bar
+                        pub:->
+                            alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
+                        sub:->
+                            alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
+                        now : {
+                            state:0
                         }
+                        ribbon:{
+                            show:0
+                            toggle: ->
+                                V.PostManage.ribbon.show = !V.PostManage.ribbon.show
+                        }
+                        lside:{
+                            h1
+                            h1_now
+                            count
+                            li
+                            click:(el)->
+                                v = V.PostManage
+                                v.ribbon.show = 0
+                                v.now = el
+                                elem.find('.ribbon .dropdown select').val el.state
+                                elem.find(".rside").scrollTop(0)
+                                elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
+                                    initialTags:el.tag_list.$model
+                                    placeholder:'请输入文章标签'
+                                })
+                                    
+                                $(this).addClass("now").siblings().removeClass("now")
 
-                        (v)->
-                            _now = ->
-                                if v.lside.li.length
-                                    v.lside.click v.lside.li[0]
-                                else
-                                    v.now = {}
-                                    v.ribbon.show = 0
-                            _now()
-                            v.lside.$watch "h1_now",(nv, ov)->
-                                _fetch nv, {success:(count,li)->
-                                    v.lside.li = li
-                                    v.lside.count = count
-                                    _now()
+                            submit:->
+                                v = V.PostManage
+                                {title, brief, objectId, publisher, is_submit} = v.now.$model
+                                tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
+                                if submit_bar != 3
 
-                                    _post_li("PostInbox."+h1_now, {site_id:SITE.ID,since:since})
-                                }
-
-                            _footer_loading = ->
-                                elem.find('.lside .footer').html '<div class=loading></div>'
-
-                            _footer_end = ->
-                                elem.find(".lside .footer").html "<div class=end></div>"
-
-                            li=v.lside.li.$model
-                            since=li[li.length-1].ID
-                            _post_li = (action, params)->
-                                
-                                main=$("#PostManage .lside")
-                                if li.length
-                                    since=params.since
-                                    if since
-                                        main.unbind('scroll.post_li')
-                                        win = $(window)
-                                        main.bind(
-                                            'scroll.post_li'
-                                            ->
-                                                if (@scrollTop + 2*win.height()) > @scrollHeight
-                                                    _footer_loading()
-                                                    main.unbind('scroll.post_li')
-                                                    AV.Cloud.run(
-                                                        action
-                                                        params
-                                                        success:([count,_li])->
-                                                            if _li.length
-                                                                for i in _li
-                                                                    v.lside.li.push i
-
-                                                                since=_li[_li.length-1].ID
-                                                                _post_li(action, {site_id:SITE.ID,since:since})
-                                                            else
-                                                                _footer_end()
-                                                    )
-                                        )
+                                    if publisher
+                                        action = "publish"
+                                    else if is_submit
+                                        action = "submit"
                                     else
-                                        _footer_end()
-                                else
-                                    _footer_end()
+                                        action = "rm"
 
-                            _post_li("PostInbox."+h1_now, {site_id:SITE.ID,since:since})
+                                else if submit_bar == 3
+                                    if v.now.state==1
+                                        action = "publish"
+                                    else if v.now.state==0
+                                        action = "save"
+                                    else if v.now.state==2
+                                        action = "rm"
 
-                    ]
-            )
-    }
+                                AV.Cloud.run(
+                                    "PostInbox."+action
+                                    {
+                                        site_id:SITE.ID
+                                        post_id:objectId
+                                        title
+                                        brief
+                                        tag_list
+                                    },{
+                                        success:(m)->
+
+                                            v.ribbon.show = 0
+                                    })
+                        }
+                    }
+
+                    (v)->
+                        _now = ->
+                            if v.lside.li.length
+                                v.lside.click v.lside.li[0]
+                            else
+                                v.now = {}
+                                v.ribbon.show = 0
+                        _now()
+                        v.lside.$watch "h1_now",(nv, ov)->
+                            _fetch nv, (count,li)->
+                                v.lside.li = li
+                                v.lside.count = count
+                                _now()
+
+                                _post_li()
+
+                        _footer_loading = ->
+                            elem.find('.lside .footer').addClass 'loading'
+
+                        _footer_end = ->
+                            elem.find(".lside .footer").removeClass 'loading'
+
+                        _post_li = ->
+                            li=v.lside.li
+                            if li.length
+                                lside=elem.find(".lside")
+                                lside.unbind('scroll.post_li')
+                                win = $(window)
+                                lside.bind(
+                                    'scroll.post_li'
+                                    ->
+                                        if (@scrollTop + 2*win.height()) > @scrollHeight
+                                            _footer_loading()
+                                            lside.unbind('scroll.post_li')
+                                            _fetch(
+                                                h1_now
+                                                ([count,_li])->
+                                                    if _li.length
+                                                        for i in _li
+                                                            v.lside.li.push i
+                                                        _post_li()
+                                                    else
+                                                        _footer_end()
+                                                {
+                                                    since : li[li.length-1].ID
+                                                }
+                                            )
+                                )
+                            else
+                                _footer_end()
+
+
+                ]
+        )
 

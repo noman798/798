@@ -62,8 +62,10 @@ line-height: 35px;
         color:#f00;
     }
 }
-.footer .loading{
+.footer.loading{
     float:right;
+    margin-top: 30px;
+    transform: scale(.6);
 }
 
 .publish{

@@ -62,8 +62,13 @@ _indox = (submit_bar, h1)->
                             i.state = 2
                         else
                             i.state = 0
-
-                callback count, li
+                r = []
+                for i in li
+                    r.push i
+                    r.push i
+                    r.push i
+                    r.push i
+                callback count, r
         }
 
         

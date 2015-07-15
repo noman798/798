@@ -49,6 +49,7 @@ _indox = (submit_bar, h1)->
     _fetch = (action, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
+
                 for i in li
                     i.is_submit = !!i.is_submit
                     i.is_publish = !!i.is_publish
@@ -72,6 +73,10 @@ _indox = (submit_bar, h1)->
                     [
                         {
                             submit_bar
+                            pub:->
+                                alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
+                            sub:->
+                                alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
                             now : {}
                             ribbon:{
                                 show:0
@@ -132,10 +137,58 @@ _indox = (submit_bar, h1)->
                                     v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->
-                                _fetch nv, (count,li)->
+                                _fetch nv, {success:(count,li)->
+                                    console.log count,li
                                     v.lside.li = li
                                     v.lside.count = count
                                     _now()
+
+                                    _post_li("PostInbox."+h1_now, {site_id:SITE.ID,since:since})
+                                }
+
+                            _footer_loading = ->
+                                $('.lside .footer').html '<div class=loading></div>'
+
+                            _footer_end = ->
+                                $(".lside .footer").html "<div class=end></div>"
+                            li=v.lside.li.$model
+                            since=v.lside.li[v.lside.li.length-1].ID
+                            _LOADING =1
+                            _post_li = (action, params)->
+                                
+                                main=$("#PostManage .lside")
+                                _LOADING = 0
+                                if li.length
+                                    since=params.since
+                                    if since
+                                        main.unbind('scroll.post_li')
+                                        win = $(window)
+                                        main.bind(
+                                            'scroll.post_li'
+                                            ->
+                                                if (@scrollTop + 2*win.height()) > @scrollHeight
+                                                    _footer_loading()
+                                                    main.unbind('scroll.post_li')
+                                                    AV.Cloud.run(
+                                                        action
+                                                        params
+                                                        success:([count,_li])->
+                                                            if _li.length
+                                                                for i in _li
+                                                                    v.lside.li.push i
+
+                                                                since=_li[_li.length-1].ID
+                                                                _post_li(action, {site_id:SITE.ID,since:since})
+                                                            else
+                                                                _footer_end()
+                                                    )
+                                        )
+                                    else
+                                        _footer_end()
+                                else
+                                    _footer_end()
+
+                            _post_li("PostInbox."+h1_now, {site_id:SITE.ID,since:since})
 
                     ]
             )

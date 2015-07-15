@@ -53,8 +53,7 @@ _indox = (submit_bar, h1)->
                 if submit_bar != 3
                     for i in li
                         i.is_submit = !!i.is_submit
-                        if not i.publisher
-                            i.publisher = 0
+                        i.is_publish = !!i.publisher
                 else if submit_bar == 3
                     for i in li
                         if i.publisher

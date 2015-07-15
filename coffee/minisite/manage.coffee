@@ -49,10 +49,21 @@ _indox = (submit_bar, h1)->
     _fetch = (action, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
+                if submit_bar != 3
+                    for i in li
+                        i.is_submit = !!i.is_submit
+                        if not i.publisher
+                            i.publisher = 0
+                else if submit_bar == 3
+                    for i in li
+                        if i.publisher
+                            i.state = 1
+                        else if i.rmer
+                            i.state = 2
+                        else
+                            i.state = 0
+                        console.log i.state
 
-                for i in li
-                    i.is_submit = !!i.is_submit
-                    i.is_publish = !!i.is_publish
                 options.success count, li
         }
 
@@ -77,7 +88,8 @@ _indox = (submit_bar, h1)->
                                 alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
                             sub:->
                                 alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
-                            now : {}
+                            now : {
+                            }
                             ribbon:{
                                 show:0
                                 toggle: ->
@@ -92,6 +104,7 @@ _indox = (submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
+                                    console.log v.now
                                     elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
@@ -102,17 +115,24 @@ _indox = (submit_bar, h1)->
 
                                 submit:->
                                     v = V.PostManage
-                                    {title, brief, objectId, is_publish, is_submit} = v.now.$model
+                                    {title, brief, objectId, publisher, is_submit} = v.now.$model
                                     tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
-                                    v.ribbon.show = 0
-                                     
-                                    if is_publish
-                                        action = "publish"
-                                    else if is_submit
-                                        action = "submit"
-                                    else
-                                        action = "rm"
-                                        
+                                    if submit_bar != 3
+
+                                        if publisher
+                                            action = "publish"
+                                        else if is_submit
+                                            action = "submit"
+                                        else
+                                            action = "rm"
+
+                                    else if submit_bar == 3
+                                        if v.now.state==1
+                                            action = "publish"
+                                        else if v.now.state==0
+                                            action = "save"
+                                        else if v.now.state==2
+                                            action = "rm"
 
                                     AV.Cloud.run(
                                         "PostInbox."+action
@@ -124,6 +144,8 @@ _indox = (submit_bar, h1)->
                                             tag_list
                                         },{
                                             success:(m)->
+
+                                                v.ribbon.show = 0
                                         })
                             }
                         }
@@ -133,7 +155,7 @@ _indox = (submit_bar, h1)->
                                 if v.lside.li.length
                                     v.lside.click v.lside.li[0]
                                 else
-                                    v.now = 0
+                                    v.now = {}
                                     v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->

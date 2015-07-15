@@ -170,8 +170,6 @@ _indox = (submit_bar, h1)->
 
                                 _post_li()
 
-                        _footer_loading = ->
-                            elem.find('.lside .footer').addClass 'loading'
 
                         _footer_end = ->
                             elem.find(".lside .footer").removeClass 'loading'
@@ -186,11 +184,11 @@ _indox = (submit_bar, h1)->
                                     'scroll.post_li'
                                     ->
                                         if (@scrollTop + 2*win.height()) > @scrollHeight
-                                            _footer_loading()
+                                            elem.find('.lside .footer').addClass 'loading'
                                             lside.unbind('scroll.post_li')
                                             _fetch(
                                                 h1_now
-                                                ([count,_li])->
+                                                (count,_li)->
                                                     if _li.length
                                                         for i in _li
                                                             v.lside.li.push i
@@ -205,7 +203,7 @@ _indox = (submit_bar, h1)->
                             else
                                 _footer_end()
 
-
+                        _post_li()
                 ]
         )
 

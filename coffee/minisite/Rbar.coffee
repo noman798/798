@@ -118,6 +118,7 @@ window.RBAR = class RBAR
                     if tag != undefined
                         $$('minisite/post/li',"Space.post_by_tag", {tag})
                         _tag_now tag
+                        document.title = SITE.NAME
                     else
                         _clear_now()
             }

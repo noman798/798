@@ -60,3 +60,9 @@
                         h1
                             span {{now.title}}
                         {{now.html|html}}
+                        p.author.C
+                            i.iconfont.icon-trash ms-click="rm"
+                            span.name 
+                                span
+                                {{now.author || now.owner.username}}·
+                                i {{now.time}}

@@ -115,21 +115,15 @@ _indox = (submit_bar, h1)->
                                 v = V.PostManage
                                 {title, brief, objectId, publisher, is_submit} = v.now.$model
                                 tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
-                                if submit_bar != 3
 
+                                if submit_bar == 3
+                                    action = ['save','publish','rm'][v.now.state]
+                                else
                                     if publisher
                                         action = "publish"
                                     else if is_submit
                                         action = "submit"
                                     else
-                                        action = "rm"
-
-                                else if submit_bar == 3
-                                    if v.now.state==1
-                                        action = "publish"
-                                    else if v.now.state==0
-                                        action = "save"
-                                    else if v.now.state==2
                                         action = "rm"
 
                                 AV.Cloud.run(

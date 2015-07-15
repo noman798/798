@@ -88,7 +88,8 @@ _indox = (submit_bar, h1)->
                                 alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
                             sub:->
                                 alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
-                            now : {}
+                            now : {
+                            }
                             ribbon:{
                                 show:0
                                 toggle: ->
@@ -154,7 +155,7 @@ _indox = (submit_bar, h1)->
                                 if v.lside.li.length
                                     v.lside.click v.lside.li[0]
                                 else
-                                    v.now = 0
+                                    v.now = {}
                                     v.ribbon.show = 0
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->

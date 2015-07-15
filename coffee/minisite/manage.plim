@@ -2,7 +2,7 @@
     link rel="stylesheet" href="/css/minisite/manage.css?__inline"
     link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
     .manage ms-view="PostManage"  ms-class="ribbon_show:ribbon.show"
-        .ribbon ms-click="ribbon.toggle" ms-if="now" ms-class-1="ribbon_submit:now.is_submit" ms-class-2="ribbon_publish:now.publisher"
+        .ribbon ms-click="ribbon.toggle" ms-if="now.ID" ms-class-1="ribbon_submit:now.is_submit" ms-class-2="ribbon_publish:now.publisher"
             i.iconfont
         .publish
             input.title placeholder="请输入首页展示的标题" ms-duplex="now.title" 

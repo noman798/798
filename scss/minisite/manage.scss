@@ -7,6 +7,7 @@
 .tag-editor {
     list-style-type: none; padding: 0 5px 0 0; margin: 0; overflow: hidden;
     border-top: 1px dotted #f0f0f0; 
+    border-bottom: 1px dotted #f0f0f0;
     cursor: text;
     font-size:  16px ; color: #555; background: #fff;
 }
@@ -15,6 +16,9 @@
 .tag-editor li { display: block; float: left; overflow: hidden; margin: 3px;
 height: 35px;
 line-height: 35px;
+}
+.tag-editor li:nth-child(2){
+    margin-left:-3px;
 }
 .tag-editor div { float: left; padding: 0 4px; }
 .tag-editor .placeholder { padding: 0 8px; color: #bbb; }
@@ -46,7 +50,7 @@ line-height: 35px;
 .tag-editor .tag-editor-tag.active+.tag-editor-delete i { background: none; cursor: text; }
 
 .tag-editor .tag-editor-tag.active { background: none !important; }
-.tag-editor .placeholder div{ padding:9px 0}
+.tag-editor .placeholder div{ padding:9px 0;margin-top:-10px;}
 .tag-editor li:first-child{ padding-left:36px;}
 .help{
     color:#00f;
@@ -58,6 +62,10 @@ line-height: 35px;
         color:#f00;
     }
 }
+.footer .loading{
+    float:right;
+}
+
 .publish{
     background: #fff;
     border-bottom: 1px solid rgba(0,0,100,.1);
@@ -496,5 +504,39 @@ $ribbon-publish-bg:#138A16;
             }
         }
             
+    }
+}
+.publish .dropdown{
+    position:relative;
+    select{
+        background:transparent;
+        text-align: center;
+        outline:0;
+        border-radius:0;
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        cursor:pointer;
+        border:none;
+        color:#446E2E;
+        font-size: 16px;
+        line-height: 26px;
+        padding-left:0;
+        padding-right:14px;
+        option{
+            outline:0;
+        }
+        cursor:pointer;
+        
+    }
+    &:after{
+        position:absolute;
+        font-family:"iconfont";
+        pointer-events:none;
+        content: "\e61e";
+        cursor: pointer;
+        margin-top: -11px;
+        right:-4px;
+        color:#446E2E;
+        top:15px;
     }
 }

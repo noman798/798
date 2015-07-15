@@ -15,7 +15,7 @@ fis.config.set('pack', {
         "/lib/alertify.js",
         "/lib/scrollbar/jquery.scrollbar.js",
         "/lib/marked.js",
-        "/lib/autoresize.js",
+        "/lib/autosize.js",
         "/lib/qrcode.js",
         "/lib/tageditor/jquery.caret.min.js",
         "/lib/tageditor/jquery.tag-editor.js",

@@ -161,7 +161,9 @@ _indox = (submit_bar, h1)->
                             else
                                 v.now = {}
                                 v.ribbon.show = 0
+                        
                         _now()
+
                         v.lside.$watch "h1_now",(nv, ov)->
                             _fetch nv, (count,li)->
                                 v.lside.li = li
@@ -171,10 +173,14 @@ _indox = (submit_bar, h1)->
                                 _post_li()
 
 
-                        _footer_end = ->
-                            elem.find(".lside .footer").removeClass 'loading'
 
                         _post_li = ->
+
+                            footer = elem.find(".lside .footer")
+
+                            _footer_end = ->
+                                footer.removeClass 'loading'
+
                             li=v.lside.li
                             if li.length
                                 lside=elem.find(".lside")
@@ -184,7 +190,7 @@ _indox = (submit_bar, h1)->
                                     'scroll.post_li'
                                     ->
                                         if (@scrollTop + 2*win.height()) > @scrollHeight
-                                            elem.find('.lside .footer').addClass 'loading'
+                                            footer.addClass 'loading'
                                             lside.unbind('scroll.post_li')
                                             _fetch(
                                                 h1_now

@@ -89,6 +89,7 @@ _indox = (submit_bar, h1)->
                             sub:->
                                 alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
                             now : {
+                                state:0
                             }
                             ribbon:{
                                 show:0
@@ -104,13 +105,13 @@ _indox = (submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
-                                    console.log v.now
+                                    elem.find('.ribbon .dropdown select').val el.state
                                     elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
                                         placeholder:'请输入文章标签'
                                     })
-
+                                        
                                     $(this).addClass("now").siblings().removeClass("now")
 
                                 submit:->

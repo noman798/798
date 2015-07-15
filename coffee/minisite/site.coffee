@@ -43,6 +43,7 @@ $ ->
             )
             window.SITE = {
                 ID : SITE.id
+                NAME:SITE.name
                 TAG_LIST:SITE.tag_list
                 SITE_USER_LEVEL:SITE.user_level
             }

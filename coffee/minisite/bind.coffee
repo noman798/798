@@ -27,6 +27,7 @@ $.minisite.bind = AV.User.logined (bind_id)->
                 (elem)->
                     [
                         {
+                            name:SITE.NAME
                             rm:(el)->
                                 if confirm "确认要解除 #{el.name} 的绑定吗?"
                                     for i,_ in V.Bind.li

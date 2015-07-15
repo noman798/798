@@ -46,8 +46,9 @@ $ ->
                 NAME:SITE.name
                 TAG_LIST:SITE.tag_list
                 SITE_USER_LEVEL:SITE.user_level
+                TITLE:SITE.name+" · "+SITE.name_cn
             }
-            document.title = SITE.name+" · "+SITE.name_cn
+            document.title = window.SITE.TITLE
     )
 
 

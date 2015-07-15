@@ -49,6 +49,7 @@ _indox = (submit_bar, h1)->
     _fetch = (action, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
+                console.log li
                 if submit_bar != 3
                     for i in li
                         i.is_submit = !!i.is_submit
@@ -88,6 +89,13 @@ _indox = (submit_bar, h1)->
                                 alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
                             sub:->
                                 alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
+                            rm:->
+                                alertify.confirm "<h1>确定要删除此篇文章吗？</h1>",(m)->
+                                    if m
+                                        for i,_pos in V.PostManage.lside.li
+                                            if i.ID==V.PostManage.now.ID
+                                                V.PostManage.lside.li.splice _pos,1
+
                             now : {
                                 state:0
                             }
@@ -105,6 +113,9 @@ _indox = (submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
+                                    console.log el.createdAt
+                                    v.now.time=$.timeago el.createdAt
+                                    elem.find('.rside .author .name i').html v.now.time
                                     elem.find('.ribbon .dropdown select').val el.state
                                     elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({

@@ -161,7 +161,6 @@ _indox = (submit_bar, h1)->
                             _now()
                             v.lside.$watch "h1_now",(nv, ov)->
                                 _fetch nv, {success:(count,li)->
-                                    console.log count,li
                                     v.lside.li = li
                                     v.lside.count = count
                                     _now()
@@ -170,10 +169,10 @@ _indox = (submit_bar, h1)->
                                 }
 
                             _footer_loading = ->
-                                $('.lside .footer').html '<div class=loading></div>'
+                                elem.find('.lside .footer').html '<div class=loading></div>'
 
                             _footer_end = ->
-                                $(".lside .footer").html "<div class=end></div>"
+                                elem.find(".lside .footer").html "<div class=end></div>"
 
                             li=v.lside.li.$model
                             since=li[li.length-1].ID

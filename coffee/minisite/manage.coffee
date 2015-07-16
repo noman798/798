@@ -27,7 +27,7 @@
 ###
 
 $.minisite.manage  = {
-    my : (rel)->
+    my : ->
 
         if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.WRITER
             submit_bar = 2
@@ -37,20 +37,20 @@ $.minisite.manage  = {
         _indox submit_bar,[
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_published" ]
-        ],rel
-    review:(rel)->
+        ]
+    review:->
         _indox 3,[
             [ "有待审核","by_site" ]
             [ "已经发布","by_site_published" ]
             [ "退回稿件","by_site_rmed" ]
-        ],rel
+        ]
 }
-
-_indox = (submit_bar, h1,rel)->
-    _fetch = (action,callback, params={})->
+_indox = (submit_bar, h1)->
+    _fetch = (action, callback, params={})->
         params.site_id = SITE.ID
         AV.Cloud.run "PostInbox."+action, params, {
             success:([count, li])->
+                console.log li
                 if submit_bar != 3
                     for i in li
                         i.is_submit = !!i.is_submit
@@ -65,33 +65,58 @@ _indox = (submit_bar, h1,rel)->
                             i.state = 0
                 callback count, li
         }
-        
-    h1_now = h1[0][1]
 
+        
+
+    h1_now = h1[0][1]
     _fetch h1_now, (count,li)->
 
-            $.modal(
-                __inline("/html/coffee/minisite/manage.html")
-                {
-                    dimmerClassName:'read'
-                }
-                "PostManage"
-                (elem)->
-                    
-                    [
-                        {
-                            submit_bar
-                            pub:->
-                                alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
-                            sub:->
-                                alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
-                            rm:->
-                                alertify.confirm "<h1>确定要删除此篇文章吗？</h1>",(m)->
-                                    if m
-                                        for i,_pos in V.PostManage.lside.li
-                                            if i.ID==V.PostManage.now.ID
-                                                V.PostManage.lside.li.splice _pos,1
-                                                V.PostManage.lside.click V.PostManage.lside.li[_pos-1]
+        $.modal(
+            __inline("/html/coffee/minisite/manage.html")
+            {
+                dimmerClassName:'read'
+            }
+            "PostManage"
+            (elem)->
+                
+                [
+                    {
+                        submit_bar
+                        pub:->
+                            alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
+                        sub:->
+                            alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
+                        rm:->
+                            alertify.confirm "<h1>确定要删除此篇文章吗？</h1>",(m)->
+                                if m
+                                    for i,_pos in V.PostManage.lside.li
+                                        if i.ID==V.PostManage.now.ID
+                                            V.PostManage.lside.li.splice _pos,1
+                        now : {}
+                        ribbon:{
+                            show:0
+                            toggle: ->
+                                V.PostManage.ribbon.show = !V.PostManage.ribbon.show
+                        }
+                        lside:{
+                            h1
+                            h1_now
+                            count
+                            li
+                            click:(el)->
+                                v = V.PostManage
+                                v.ribbon.show = 0
+                                v.now = el
+                                #v.now.time=$.timeago el.createdAt
+                                #elem.find('.rside .author .name i').html v.now.time
+                                elem.find('.ribbon .dropdown select').val el.state
+                                elem.find(".rside").scrollTop(0)
+                                elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
+                                    initialTags:el.tag_list.$model
+                                    placeholder:'请输入文章标签'
+                                })
+                                    
+                                $(this).addClass("now").siblings().removeClass("now")
 
                             submit:->
                                 v = V.PostManage
@@ -122,68 +147,64 @@ _indox = (submit_bar, h1,rel)->
                                             v.ribbon.show = 0
                                     })
                         }
+                    }
 
-                        (v)->
-                            _now = ->
-#                                if rel
-#                                    li = v.lside.li
-#                                    for i,pos in li
-#                                        if rel==i.objectId
-#                                            v.lside.li.splice pos,1
-#                                            v.lside.li.unshift i
-#                                            v.lside.click v.lside.li[0]
-                                if v.lside.li.length
-                                    v.lside.click v.lside.li[0]
-                                else
-                                    v.now = {}
-                                    v.ribbon.show = 0
-                            _now()
+                    (v)->
+                        _now = ->
+                            if v.lside.li.length
+                                v.lside.click v.lside.li[0]
+                            else
+                                v.now = {}
+                                v.ribbon.show = 0
+                        
+                        _now()
+
+                        v.lside.$watch "h1_now",(nv, ov)->
+                            _fetch nv, (count,li)->
+                                v.lside.li = li
+                                v.lside.count = count
+                                _now()
+
+                                _post_li()
 
 
-                            _post_li = ->
-                                footer = elem.find(".lside .footer")
 
-                                _footer_end = ->
-                                    footer.removeClass 'loading'
+                        _post_li = ->
 
-                                li=v.lside.li
-                                if li.length
-                                    lside=elem.find(".lside")
-                                    lside.unbind('scroll.post_li')
-                                    win = $(window)
-                                    lside.bind(
-                                        'scroll.post_li'
-                                        ->
-                                            if (@scrollTop + 2*win.height()) > @scrollHeight
-                                                footer.addClass 'loading'
-                                                lside.unbind('scroll.post_li')
-                                                _fetch(
-                                                    h1_now
-                                                    (count,_li)->
-                                                        if _li.length
-                                                            for i in _li
-                                                                if i in v.lside.li
-                                                                    return
-                                                                else
-                                                                    v.lside.li.push i
-                                                            _post_li()
-                                                        else
-                                                            _footer_end()
-                                                    {
-                                                        since : li[li.length-1].ID
-                                                    }
-                                                )
-                                    )
-                                else
-                                    _footer_end()
+                            footer = elem.find(".lside .footer")
 
-                            _post_li()
-                            v.lside.$watch "h1_now",(nv, ov)->
-                                _fetch nv, (count,li)->
-                                    v.lside.li = li
-                                    v.lside.count = count
-                                    _now()
-                                    _post_li()
-                    ]
-            )
+                            _footer_end = ->
+                                footer.removeClass 'loading'
+
+                            li=v.lside.li
+                            if li.length
+                                lside=elem.find(".lside")
+                                lside.unbind('scroll.post_li')
+                                win = $(window)
+                                lside.bind(
+                                    'scroll.post_li'
+                                    ->
+                                        if (@scrollTop + 2*win.height()) > @scrollHeight
+                                            footer.addClass 'loading'
+                                            lside.unbind('scroll.post_li')
+                                            _fetch(
+                                                h1_now
+                                                (count,_li)->
+                                                    if _li.length
+                                                        for i in _li
+                                                            v.lside.li.push i
+                                                        _post_li()
+                                                    else
+                                                        _footer_end()
+                                                {
+                                                    since : li[li.length-1].ID
+                                                }
+                                            )
+                                )
+                            else
+                                _footer_end()
+
+                        _post_li()
+                ]
+        )
 

@@ -39,11 +39,19 @@ $.minisite.manage  = {
             [ "已经发布","by_current_published" ]
         ]
     review:(post_id)->
-        _indox post_id, 3,[
-            [ "有待审核","by_site" ]
-            [ "已经发布","by_site_published" ]
-            [ "退回稿件","by_site_rmed" ]
-        ]
+        if post_id
+            _indox post_id, 3,[
+                [ "已经发布","by_site_published" ]
+                [ "有待审核","by_site" ]
+                [ "退回稿件","by_site_rmed" ]
+            ]
+        else
+            _indox  post_id,3,[
+                [ "有待审核","by_site" ]
+                [ "已经发布","by_site_published" ]
+                [ "退回稿件","by_site_rmed" ]
+            ]
+
 }
 _indox = (post_id, submit_bar, h1)->
 
@@ -63,18 +71,14 @@ _indox = (post_id, submit_bar, h1)->
         params.site_id = SITE.ID
         AV.Cloud.run "PostInbox."+action, params, {
             success:([count, li])->
-                first_id = 0
                 for i in li
                     _parser i
                 callback count, li
         }
-
         
-
     _render = (fetch)->
         h1_now = h1[0][1]
         fetch h1_now, (count,li)->
-
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
                 {
@@ -111,8 +115,8 @@ _indox = (post_id, submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
-                                    #v.now.time=$.timeago el.createdAt
-                                    #elem.find('.rside .author .name i').html v.now.time
+                                    v.now.time=$.timeago el.createdAt
+                                    elem.find('.rside .author .name i').html v.now.time
                                     elem.find('.ribbon .dropdown select').val el.state
                                     elem.find(".rside").scrollTop(0)
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
@@ -171,8 +175,6 @@ _indox = (post_id, submit_bar, h1)->
 
                                     _post_li()
 
-
-
                             _post_li = ->
 
                                 footer = elem.find(".lside .footer")
@@ -216,10 +218,10 @@ _indox = (post_id, submit_bar, h1)->
     if post_id
         AV.Cloud.run "Post.by_id", {
             host:location.host
-            ID:post_id
+            id:post_id
         },{
             success: (post)->
-
+                post.tag_list = post.tag_list or []
                 _parser(post)
                 _render (action, callback)->
                     _fetch action, (count, li)->

@@ -51,10 +51,10 @@
             .footer
 
         .rside.scrollbar-macosx
-            .vc2 ms-if="!now"
+            .vc2 ms-if="!now.ID"
                 .vc1
                     h1.none 暂无文章
-            .vc2 ms-if="now"
+            .vc2 ms-if="now.ID"
                 .vc1
                     .content 
                         h1

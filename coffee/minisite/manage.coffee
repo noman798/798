@@ -98,18 +98,31 @@ _indox = (post_id, submit_bar, h1)->
                             rm:->
                                 alertify.confirm "<h1>确定要删除此篇文章吗？</h1>",(m)->
                                     if m
-                                        for i,_pos in V.PostManage.lside.li
-                                            if i.ID==V.PostManage.now.ID
+                                        v = V.PostManage
+
+                                        _rm = (i,_pos)->
+                                            if i.ID==v.now.ID
                                                 AV.Cloud.run(
                                                    "Post.rm"
                                                     {
                                                         site_id:SITE.ID
-                                                        post_id:V.PostManage.now.objectId
+                                                        id:v.now.objectId
                                                     },{
                                                         success:(m)->
-                                                            V.PostManage.lside.li.splice _pos,1
-                                                            V.PostManage.lside.click V.PostManage.lside.li[_pos-1]
+                                                            console.log _pos
+                                                            v.lside.li.splice _pos,1
+                                                            if _pos == 0
+                                                                _pos = 1
+                                                            else
+                                                                _pos -= 1
+                                                            if v.lside.li[_pos]
+                                                                v.lside.click v.lside.li[_pos]
+                                                            else
+                                                                v.now = {}
                                                     })
+
+                                        for i,_pos in v.lside.li
+                                            _rm i,_pos
                             now : {}
                             ribbon:{
                                 show:0

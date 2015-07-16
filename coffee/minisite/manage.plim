@@ -64,5 +64,5 @@
                             i.iconfont.icon-trash ms-click="rm"
                             span.name 
                                 span
-                                {{now.author || now.owner.username}}·
+                                {{now.author || now.owner.username}} ·
                                 i {{now.time}}

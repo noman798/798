@@ -63,6 +63,7 @@ _indox = (post_id, submit_bar, h1)->
         params.site_id = SITE.ID
         AV.Cloud.run "PostInbox."+action, params, {
             success:([count, li])->
+                first_id = 0
                 for i in li
                     _parser i
                 callback count, li
@@ -70,19 +71,10 @@ _indox = (post_id, submit_bar, h1)->
 
         
 
-    h1_now = h1[0][1]
-    _fetch h1_now, (count,li)->
-        if post_id
-            AV.Cloud.run "Post.by_id", {}, {
-                success:(post)->
-                    _parser(post)
-                    li.unshfit post
-                    _render()
-            }
-        else
-            _render()
+    _render = (fetch)->
+        h1_now = h1[0][1]
+        fetch h1_now, (count,li)->
 
-        _render = ->
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
                 {
@@ -204,7 +196,8 @@ _indox = (post_id, submit_bar, h1)->
                                                     (count,_li)->
                                                         if _li.length
                                                             for i in _li
-                                                                v.lside.li.push i
+                                                                if i.ID != li[0].ID
+                                                                    v.lside.li.push i
                                                             _post_li()
                                                         else
                                                             _footer_end()
@@ -219,4 +212,23 @@ _indox = (post_id, submit_bar, h1)->
                             _post_li()
                     ]
         )
+
+    if post_id
+        AV.Cloud.run "Post.by_id", {
+            host:location.host
+            ID:post_id
+        },{
+            success: (post)->
+
+                _parser(post)
+                _render (action, callback)->
+                    _fetch action, (count, li)->
+                        r = [post]
+                        for i in li
+                            if i.ID != post.ID
+                                r.push i
+                        callback(count, r)
+        }
+    else
+        _render _fetch
 

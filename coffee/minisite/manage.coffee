@@ -74,7 +74,7 @@ _indox = (post_id, submit_bar, h1)->
                 for i in li
                     _parser i
                 callback count, li
-                ("#PostManage .rside").scrollTop(0).scrollbar()
+                $("#PostManage .lside").scrollbar()
         }
         
     _render = (fetch)->

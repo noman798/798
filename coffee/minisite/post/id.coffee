@@ -80,7 +80,7 @@ _render_reply = (post, reply)->
         _ """<p class=author><a class="iconfont icon-reply" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         if CURRENT_USER?.id
             id = CURRENT_USER.id
-            if owner_id == id or id == post.get('owner')?.id
+            if owner_id == id or id == post.get('owner')?.objectId
                 _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         _ """<span class=name><span class="owner">#{$.escape owner_name}</span><i>·</i>#{$.timeago reply.createdAt}</span></p>"""
     _ """</div>"""

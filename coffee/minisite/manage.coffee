@@ -165,15 +165,18 @@ _indox = (post_id, submit_bar, h1)->
                                         else
                                             action = "rm"
 
-                                    AV.Cloud.run(
-                                        "PostInbox."+action
-                                        {
+                                    data = {
                                             site_id:SITE.ID
                                             post_id:objectId
                                             title
-                                            brief
                                             tag_list
-                                        },{
+                                        }
+                                    if brief
+                                        data.brief = brief
+                                    AV.Cloud.run(
+                                        "PostInbox."+action
+                                        data
+                                        {
                                             success:(m)->
 
                                                 v.ribbon.show = 0

@@ -400,10 +400,9 @@ $ribbon-publish-bg:#138A16;
                 height: 40px;
                 border:1px solid #999;
                 border-radius:22px;
+                text-align:center;
                 &:before{
-                    margin-left: 9px;
-                    vertical-align: 3px;
-                    line-height:37px;
+                    line-height:41px;
                 }
             }
             .author .name{

@@ -74,6 +74,7 @@ _indox = (post_id, submit_bar, h1)->
                 for i in li
                     _parser i
                 callback count, li
+                ("#PostManage .rside").scrollTop(0).scrollbar()
         }
         
     _render = (fetch)->
@@ -99,7 +100,16 @@ _indox = (post_id, submit_bar, h1)->
                                     if m
                                         for i,_pos in V.PostManage.lside.li
                                             if i.ID==V.PostManage.now.ID
-                                                V.PostManage.lside.li.splice _pos,1
+                                                AV.Cloud.run(
+                                                   "Post.rm"
+                                                    {
+                                                        site_id:SITE.ID
+                                                        post_id:V.PostManage.now.objectId
+                                                    },{
+                                                        success:(m)->
+                                                            V.PostManage.lside.li.splice _pos,1
+                                                            V.PostManage.lside.click V.PostManage.lside.li[_pos-1]
+                                                    })
                             now : {}
                             ribbon:{
                                 show:0
@@ -117,7 +127,8 @@ _indox = (post_id, submit_bar, h1)->
                                     v.now = el
                                     v.now.time=$.timeago el.createdAt
                                     elem.find('.rside .author .name i').html v.now.time
-                                    elem.find('.ribbon .dropdown select').val el.state
+                                    console.log el.state
+                                    elem.find('.publish .dropdown select').val el.state
                                     elem.find(".rside").scrollTop(0).scrollbar()
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model

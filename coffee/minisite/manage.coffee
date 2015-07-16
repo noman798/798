@@ -27,7 +27,7 @@
 ###
 
 $.minisite.manage  = {
-    my : ->
+    my : (rel)->
 
         if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.WRITER
             submit_bar = 2
@@ -37,16 +37,16 @@ $.minisite.manage  = {
         _indox submit_bar,[
             [ "我的文章","by_current" ]
             [ "已经发布","by_current_published" ]
-        ]
-    review:->
+        ],rel
+    review:(rel)->
         _indox 3,[
             [ "有待审核","by_site" ]
             [ "已经发布","by_site_published" ]
             [ "退回稿件","by_site_rmed" ]
-        ]
+        ],rel
 }
-_indox = (submit_bar, h1)->
-    _fetch = (action, options)->
+_indox = (submit_bar, h1,rel)->
+    _fetch = (action,rel, options)->
         AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
             success:([count, li])->
                 console.log li
@@ -71,8 +71,9 @@ _indox = (submit_bar, h1)->
         
 
     h1_now = h1[0][1]
-    _fetch h1_now, {
+    _fetch h1_now,rel, {
         success:(count,li)->
+            console.log count,rel,li
 
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
@@ -95,6 +96,7 @@ _indox = (submit_bar, h1)->
                                         for i,_pos in V.PostManage.lside.li
                                             if i.ID==V.PostManage.now.ID
                                                 V.PostManage.lside.li.splice _pos,1
+                                                V.PostManage.lside.click V.PostManage.lside.li[_pos-1]
 
                             now : {
                                 state:0
@@ -164,7 +166,13 @@ _indox = (submit_bar, h1)->
 
                         (v)->
                             _now = ->
-                                if v.lside.li.length
+                                if rel
+                                    for i,pos in v.lside.li
+                                        if rel==i.objectId
+                                            v.lside.li.splice pos,1
+                                            v.lside.li.unshift i
+                                            v.lside.click v.lside.li[0]
+                                else if v.lside.li.length
                                     v.lside.click v.lside.li[0]
                                 else
                                     v.now = {}

@@ -125,7 +125,12 @@ _render = (post, scroll_to_reply)->
             replyLi.before textarea
             $('.icon-edit').click ->
                 rel=$(this).attr('rel')
-                URL '-minisite/manage',rel
+                console.log post
+                if post.owner.id==AV.User.current().id
+                    URL '-minisite/manage.my',rel
+
+                else if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
+                    URL '-minisite/manage.review',rel
 
             AV.Cloud.run(
                 "PostTxt.by_post"

@@ -118,7 +118,7 @@ _indox = (post_id, submit_bar, h1)->
                                     v.now.time=$.timeago el.createdAt
                                     elem.find('.rside .author .name i').html v.now.time
                                     elem.find('.ribbon .dropdown select').val el.state
-                                    elem.find(".rside").scrollTop(0)
+                                    elem.find(".rside").scrollTop(0).scrollbar()
                                     elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
                                         initialTags:el.tag_list.$model
                                         placeholder:'请输入文章标签'

@@ -61,7 +61,10 @@ _reply_bind = (elem, post) ->
     elem.find('.icon-trash').click ->
         AV.Cloud.run(
             "PostTxt.rm"
-            {id:@rel}
+            {
+                id:@rel
+                site_id:SITE.ID
+            }
         )
         $(@).parents('.li').slideUp()
 

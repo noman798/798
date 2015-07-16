@@ -88,6 +88,7 @@ _render_reply = (post, reply)->
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
+    current = AV.User.current()
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")
@@ -96,10 +97,11 @@ _render = (post, scroll_to_reply)->
     html.find('.ui.form>h1 span').text post.title
     html.find('.ui.form a.iconfont').addClass("star#{!!post.is_star-0}").attr('rel',post.ID)
 
-    if window.SITE.SITE_USER_LEVEL > 850
-        html.find('.ui.form>.body').append("""<p class="author C"><i class="iconfont icon-edit" rel="#{post.objectId}"></i><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
-    else
-        html.find('.ui.form>.body').append("""<p class="author C"><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
+    editbar = $ """<p class="author C"><span class="name"><span></span>#{$.escape post.author} · #{$.timeago post.createdAt}</span></p>"""
+    if window.SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR or post.owner?.objectId == current.id
+        editbar.prepend """<i class="iconfont icon-edit"></i>"""
+
+    html.find('.ui.form>.body').append(editbar)
     $.modal(
         html.html()
         {
@@ -128,12 +130,12 @@ _render = (post, scroll_to_reply)->
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")
             replyLi.before textarea
-            $('.icon-edit').click ->
-                if post.owner and post.owner.id==AV.User.current().id
-                    URL '-minisite/manage.my',post.ID
-
+            elem.find('.icon-edit').click ->
+                if post.owner?.id==AV.User.current().id
+                    url = 'my'
                 else if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
-                    URL '-minisite/manage.review',post.ID
+                    url = 'review'
+                URL '-minisite/manage.'+url,post.ID
 
             AV.Cloud.run(
                 "PostTxt.by_post"

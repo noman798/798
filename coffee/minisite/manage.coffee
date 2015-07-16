@@ -45,6 +45,8 @@ $.minisite.manage  = {
             [ "退回稿件","by_site_rmed" ]
         ]
 }
+
+
 _indox = (submit_bar, h1)->
     _fetch = (action, callback, params={})->
         params.site_id = SITE.ID

@@ -118,6 +118,7 @@ _indox = (post_id, submit_bar, h1)->
                                                             else
                                                                 v.now = {}
                                                             v.lside.li.splice _pos,1
+                                                            v.lside.count -= 1
                                                     })
 
                                         for i,_pos in v.lside.li

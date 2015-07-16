@@ -47,10 +47,10 @@ $.minisite.manage  = {
 }
 
 _indox = (submit_bar, h1,rel)->
-    _fetch = (action,rel, options)->
-        AV.Cloud.run "PostInbox."+action, {site_id:SITE.ID}, {
+    _fetch = (action,callback, params={})->
+        params.site_id = SITE.ID
+        AV.Cloud.run "PostInbox."+action, params, {
             success:([count, li])->
-                console.log li
                 if submit_bar != 3
                     for i in li
                         i.is_submit = !!i.is_submit
@@ -65,14 +65,10 @@ _indox = (submit_bar, h1,rel)->
                             i.state = 0
                 callback count, li
         }
-
         
-
     h1_now = h1[0][1]
 
-    _fetch h1_now,rel, {
-        success:(count,li)->
-            console.log count,rel,li
+    _fetch h1_now, (count,li)->
 
             $.modal(
                 __inline("/html/coffee/minisite/manage.html")
@@ -129,61 +125,65 @@ _indox = (submit_bar, h1,rel)->
 
                         (v)->
                             _now = ->
-                                if rel
-                                    for i,pos in v.lside.li
-                                        if rel==i.objectId
-                                            v.lside.li.splice pos,1
-                                            v.lside.li.unshift i
-                                            v.lside.click v.lside.li[0]
-                                else if v.lside.li.length
+#                                if rel
+#                                    li = v.lside.li
+#                                    for i,pos in li
+#                                        if rel==i.objectId
+#                                            v.lside.li.splice pos,1
+#                                            v.lside.li.unshift i
+#                                            v.lside.click v.lside.li[0]
+                                if v.lside.li.length
                                     v.lside.click v.lside.li[0]
                                 else
                                     v.now = {}
                                     v.ribbon.show = 0
                             _now()
+
+
+                            _post_li = ->
+                                footer = elem.find(".lside .footer")
+
+                                _footer_end = ->
+                                    footer.removeClass 'loading'
+
+                                li=v.lside.li
+                                if li.length
+                                    lside=elem.find(".lside")
+                                    lside.unbind('scroll.post_li')
+                                    win = $(window)
+                                    lside.bind(
+                                        'scroll.post_li'
+                                        ->
+                                            if (@scrollTop + 2*win.height()) > @scrollHeight
+                                                footer.addClass 'loading'
+                                                lside.unbind('scroll.post_li')
+                                                _fetch(
+                                                    h1_now
+                                                    (count,_li)->
+                                                        if _li.length
+                                                            for i in _li
+                                                                if i in v.lside.li
+                                                                    return
+                                                                else
+                                                                    v.lside.li.push i
+                                                            _post_li()
+                                                        else
+                                                            _footer_end()
+                                                    {
+                                                        since : li[li.length-1].ID
+                                                    }
+                                                )
+                                    )
+                                else
+                                    _footer_end()
+
+                            _post_li()
                             v.lside.$watch "h1_now",(nv, ov)->
-                                _fetch nv, {success:(count,li)->
-                                    console.log count,li
+                                _fetch nv, (count,li)->
                                     v.lside.li = li
                                     v.lside.count = count
                                     _now()
-                                }
-
-                            footer = elem.find(".lside .footer")
-
-                            _footer_end = ->
-                                footer.removeClass 'loading'
-
-                            li=v.lside.li
-                            if li.length
-                                lside=elem.find(".lside")
-                                lside.unbind('scroll.post_li')
-                                win = $(window)
-                                lside.bind(
-                                    'scroll.post_li'
-                                    ->
-                                        if (@scrollTop + 2*win.height()) > @scrollHeight
-                                            footer.addClass 'loading'
-                                            lside.unbind('scroll.post_li')
-                                            _fetch(
-                                                h1_now
-                                                (count,_li)->
-                                                    if _li.length
-                                                        for i in _li
-                                                            v.lside.li.push i
-                                                        _post_li()
-                                                    else
-                                                        _footer_end()
-                                                {
-                                                    since : li[li.length-1].ID
-                                                }
-                                            )
-                                )
-                            else
-                                _footer_end()
-
-                        _post_li()
+                                    _post_li()
                     ]
             )
-    }
 

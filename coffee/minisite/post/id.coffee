@@ -68,7 +68,7 @@ _reply_bind = (elem, post) ->
         )
         $(@).parents('.li').slideUp()
 
-_render_reply = (reply)->
+_render_reply = (post, reply)->
     [owner_id, owner_name] = reply.owner
     _ = $.html()
     if reply.rmer
@@ -78,8 +78,10 @@ _render_reply = (reply)->
     _ """<div class="C li" id="li#{reply.id}" data-txt="#{$.escape reply.txt or ''}">#{html}"""
     if not reply.rmer
         _ """<p class=author><a class="iconfont icon-reply" href="javascript:void(0)" rel="#{reply.id}"></a>"""
-        if CURRENT_USER?.id == owner_id
-            _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
+        if CURRENT_USER?.id
+            id = CURRENT_USER.id
+            if owner_id == id or id == post.get('owner')?.id
+                _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         _ """<span class=name><span class="owner">#{$.escape owner_name}</span><i>·</i>#{$.timeago reply.createdAt}</span></p>"""
     _ """</div>"""
     _.html()
@@ -142,7 +144,7 @@ _render = (post, scroll_to_reply)->
                             return
                         _ = $.html()
                         for i in o
-                            _ _render_reply(i)
+                            _ _render_reply(post, i)
                         replyLi.append(_.html())
                         _reply_bind replyLi, post
                         if scroll_to_reply
@@ -204,7 +206,7 @@ _textarea_bind = (reply_div, post)->
                     postModal = $("#postModal")
                     replyLi = postModal.find('.replyLi')
                     m.id = m.objectId
-                    replyLi.append _render_reply(m)
+                    replyLi.append _render_reply(post, m)
                     last_reply = replyLi.find('.C:last')
                     _reply_bind last_reply, post
                     PostModal.scrollTop(

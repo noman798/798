@@ -1,3 +1,8 @@
+删除
+
+    PostInbox
+    SiteTagList
+
 文章页面底部的edit
 
 sso

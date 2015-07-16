@@ -92,9 +92,9 @@ _indox = (post_id, submit_bar, h1)->
                         {
                             submit_bar
                             pub:->
-                                alertify.confirm "勾选并保存文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
+                                alertify.confirm "勾选并保存文章将发布到 #{$.escape SITE.NAME} 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
                             sub:->
-                                alertify.confirm "勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 TECH2IPO 首页并通过 RSS 向站外发布，发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。"
+                                alertify.confirm "<p>勾选并保存，文章将提交编辑审核，如审核通过文章将发布到 #{$.escape SITE.NAME} 首页并通过 RSS 向站外发布<p><p>发布之前请确认标题、摘要及标签正确，编辑审核过程中可能会对您的文章做出部分修改。</p>"
                             rm:->
                                 alertify.confirm "<h1>确定要删除此篇文章吗？</h1>",(m)->
                                     if m
@@ -109,16 +109,15 @@ _indox = (post_id, submit_bar, h1)->
                                                         id:v.now.objectId
                                                     },{
                                                         success:(m)->
-                                                            console.log _pos
-                                                            v.lside.li.splice _pos,1
                                                             if _pos == 0
-                                                                _pos = 1
+                                                                pos = 1
                                                             else
-                                                                _pos -= 1
-                                                            if v.lside.li[_pos]
-                                                                v.lside.click v.lside.li[_pos]
+                                                                pos = _pos-1
+                                                            if v.lside.li[pos]
+                                                                v.lside.click v.lside.li[pos]
                                                             else
                                                                 v.now = {}
+                                                            v.lside.li.splice _pos,1
                                                     })
 
                                         for i,_pos in v.lside.li
@@ -138,17 +137,16 @@ _indox = (post_id, submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
-                                    v.now.time=$.timeago el.createdAt
-                                    elem.find('.rside .author .name i').html v.now.time
-                                    console.log el.state
-                                    elem.find('.publish .dropdown select').val el.state
-                                    elem.find(".rside").scrollTop(0).scrollbar()
-                                    elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
-                                        initialTags:el.tag_list.$model
-                                        placeholder:'请输入文章标签'
-                                    })
-                                        
-                                    $(this).addClass("now").siblings().removeClass("now")
+                                    if el.ID
+                                        v.now.time=$.timeago el.createdAt
+                                        elem.find('.rside .author .name i').html v.now.time
+                                        elem.find('.publish .dropdown select').val el.state
+                                        elem.find(".rside").scrollTop(0).scrollbar()
+                                        elem.find("textarea.tag").tagEditor('destroy').val('').tagEditor({
+                                            initialTags:el.tag_list.$model
+                                            placeholder:'请输入文章标签'
+                                        })
+                                            
 
                                 submit:->
                                     v = V.PostManage

@@ -56,6 +56,7 @@ $.minisite.manage  = {
 _indox = (post_id, submit_bar, h1)->
 
     _parser = (i)->
+        i.brief = i.brief or ''
         if submit_bar == 3
             if i.publisher
                 i.state = 1

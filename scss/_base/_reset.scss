@@ -9,3 +9,12 @@ html,body,button,input,select,textarea,.ui-button, pre, p{
 a{
 outline:0;
 }
+pre{
+word-wrap:break-word;
+overflow:hidden;
+word-break:break-all;
+white-space: pre-wrap;
+white-space:-moz-pre-wrap;
+*white-space: pre;
+*word-wrap: break-word;
+}

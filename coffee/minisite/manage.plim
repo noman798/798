@@ -56,7 +56,7 @@
                     h1.none 暂无文章
             .vc2 ms-if="now.ID"
                 .vc1
-                    .content 
+                    .content.post_read
                         h1
                             span {{now.title}}
                         {{now.html|html}}

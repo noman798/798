@@ -58,15 +58,14 @@ _indox = (post_id, submit_bar, h1)->
     _parser = (i)->
         i.brief = i.brief or ''
         if submit_bar == 3
-            if i.publisher
-                i.state = 1
-            else if i.rmer
+            if i.rmer
                 i.state = 2
+            else if i.publisher
+                i.state = 1
             else
                 i.state = 0
-        else
-            i.is_submit = !!i.is_submit
-            i.is_publish = !!i.publisher
+        i.is_submit = !!i.is_submit
+        i.is_publish = !!i.publisher
 
     _fetch = (action, callback, params={})->
         params.site_id = SITE.ID

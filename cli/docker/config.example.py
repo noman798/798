@@ -7,7 +7,8 @@ class CONFIG:
 
     class LIVERELOAD:
         PORT = 4242 
-    
+        HOST = "192.168.59.103"
+
     class LEANCLOUD:
         NAME = ""
         ID = ""

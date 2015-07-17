@@ -1,0 +1,406 @@
+#PostManage{
+    background: url(/css/img/white_texture.jpg) #F7F4EF;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    .manage{
+        height:100%;
+    }
+    .lside{
+        color:rgba(255,255,255,.8);
+        padding-top:50px;
+        padding-left:80px;
+        padding-right:50px;
+        .dropdown{
+            display: inline-block;
+            position:relative;
+            &:before{
+                color:rgba(255,255,255,.8);
+                font-family:'iconfont';
+                content:"\e627";
+                position: absolute;
+                top: 45%;
+                left:-19px;
+                margin-top: -16px;
+                font-size: 13px;
+            }
+        }
+        select{
+            background-color: transparent;
+            color:rgba(255,255,255,.8);
+            text-align: center;
+            border: none; 
+            outline:0;
+            border-radius:0;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            cursor:pointer;
+            font-size:32px;
+            font-family:caecilia, times, serif, 'Microsoft YaHei';
+            option{
+                font-family:caecilia, times, serif, 'Microsoft YaHei';
+                background:#000;
+                border:1px solid #333;
+                padding:14px;
+                color:#fff;
+                outline:0;
+            }
+            cursor:pointer;
+            &:after{
+                content:"\e61e";
+                color:#fff;
+                font-family: 'iconfont';
+
+            }
+        }
+        h1,p {
+            text-align:right;
+        }
+        h1{
+            .num span{
+                margin-right:6px;
+            }
+            font-size:32px;
+            font-family:caecilia, times, serif, 'Microsoft YaHei';
+            margin-bottom:40px;
+        }
+        p{
+            font-size:21px;
+            font-weight:bold;
+            line-height:30px;
+            margin:0;
+            padding:8px 0;
+            font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
+            position:relative;
+            &:hover{
+                color:#fff;
+                cursor:pointer;
+                &:after{
+                    display:block;
+                    color:#fff;
+                }
+            }
+            &:after{
+                display:none;
+                font-family:'iconfont';
+                content:"\e61c";
+                position: absolute;
+                top: 50%;
+                right:-30px;
+                margin-top: -16px;
+                font-size: 28px;
+            }
+            &.now{
+                color:#fff;
+                &:after{
+                    display:block;
+                }
+            }
+        }
+    }
+    .lside, .lsidebg0,.lsidebg1, .rside{
+        overflow:auto;
+        height:100%;
+        position:fixed;
+        width:40%;
+    }
+    .rside{
+        width:60%; 
+        left:40%;
+    }
+    .lsidebg0,.lsidebg1{
+        position:fixed;
+        left:0;
+        height:100%;
+    }
+    .lsidebg0{
+        background:url(//dn-acac.qbox.me/tech2ipo7041875-red-rider-winter.jpg) -160px 0 / cover no-repeat #1E303D;
+    }
+    .lsidebg1{
+        background:#000;
+        opacity:.5;
+    }
+}
+/*
+$ribbon-bg:#d20;
+$ribbon-h1:#e00;
+$ribbon-w:40px;
+$ribbon-tail:10px;
+#ribbon{
+    padding:0 0 $ribbon-tail 0;
+    position:fixed;
+    left:47px;
+    top:0;
+    width:$ribbon-w;
+    cursor:pointer;
+    transition:all .3s;
+    margin-left:600px;
+    i{
+        background:$ribbon-bg;
+        color:#fff;
+        padding:4px 0;
+        text-align:center;
+        display: block;
+        font-style: normal;
+        height:30px;
+        transition:all .3s;
+        &:before{
+            content: "\e623";
+            font-family: iconfont;
+            display: inline-block;
+            font-weight: normal;
+            vertical-align: -2px;
+            text-align: center;
+            margin-left: 2px;
+            transition: all .3s;
+            font-size:14px;
+        }
+    }
+    i:after{
+        border-left:40px solid $ribbon-bg;
+        border-right:40px solid $ribbon-bg;
+        border-bottom:23px solid transparent;
+        bottom:-6px;
+        content:'';
+        height:0;
+        left:-20px;
+        position:absolute;
+        width:0;
+        transform:scale(0.5);
+    }
+}
+#PostManage .rightside .show{
+    .publish{
+        top:0 !important;
+    }
+    #ribbon{
+        top:446px;
+        i:before{
+            transform:rotate(45deg);
+        }
+    }
+}
+
+#PostManage{
+    width:100%;
+    height:100%;
+    background:url(//dn-acac.qbox.me/tech2ipo7041875-red-rider-winter.jpg) 1152px -150px / cover;
+    color:#AFB6B9;
+    .rightside{
+        font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
+        font-size:21px;
+        padding-left:26px;
+        overflow:hidden;
+        width:auto;
+        height:100%;
+        color:#000;
+        background: url(/css/img/bgpaper.png) #F3F3F3;
+        .vc2{
+            position:static;
+            padding-right:45px;
+            .content{
+                line-height:24px;
+            }
+            .publish{
+                background: #fff;
+                border-bottom: 1px dashed rgba(0,0,100,.1);
+                margin-bottom: 37px;
+                position: fixed;
+                z-index: 100;
+                left: 0;
+                top:-100%;
+                transition:all .3s;
+                margin-left:600px;
+                right:0;
+                input.title{
+                    font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
+                    display: block;
+                    width: 100%;
+                    background: transparent;
+                    border: 0;
+                    border-bottom: 1px solid rgba(0,0,0,.05);
+                    line-height: 46px;
+                    padding: 0 32px;
+                    padding-top: 15px;
+                    outline: 0;
+                    padding-bottom: 11px;
+                    font-weight: bold;
+                    font-family: 'Poiret One','Hiragino Sans GB','Microsoft YaHei';
+                    font-size: 26px;
+                    padding-left:47px;
+                }
+                textarea.summary{
+                    width: 100%;
+                    resize: none;
+                    background: transparent;
+                    border: 0;
+                    border-bottom: 1px solid rgba(0,0,0,.05);
+                    height: 300px;
+                    outline: 0;
+                    padding: 26px 47px;
+                    line-height: 1.875;
+                    font-size: 22px;
+                }
+                .C{
+                    width: 100%;
+                    padding: 12px 47px 16px;
+                    text-align: right;
+                    div.check{
+                        float: left;
+                        margin-top: 9px;
+                        input.checkbox{
+                            display:none;
+                            margin-right: 10px;
+                            -webkit-appearance: none;
+                            border: 3px solid #000;
+                            height: 24px;
+                            width: 24px;
+                        }
+                        label{
+                            cursor:pointer;
+                            font-size: 16px;
+                            color: #000;
+                        }
+                    }
+                    a.ui.button.blue{
+                        margin-right:0;
+                        background: #2C5ABD;
+                        font-weight: normal;
+                        font-size: 16px;
+                    }
+
+                }
+            }
+        }
+        .description.ui.form>h1{
+            padding-top:69px;
+            font-size:34px;
+            position:relative;
+            padding-bottom:34px;
+        }
+        hr{
+            margin:46px 0;
+            border:0;
+            border-bottom:1px dashed rgba(150,150,150,.4);
+        }
+        .content{
+            .author .icon-trash{
+                float:left;
+                cursor:pointer;
+                color: #4C93CB;
+                font-size:21px;
+                width: 40px;
+                height: 40px;
+                &:before{
+                    margin-left: 9px;
+                    vertical-align: 3px;
+                }
+            }
+            .author .name{
+                float:right;
+                span{
+                    display: inline-block;
+                    width: 28px;
+                    border-bottom: 1px solid #000;
+                    height: 17px;
+                    vertical-align: 6px;
+                    margin-right: 12px;
+                }
+            }
+            h1{
+                margin:50px 0;
+            }
+            .reply{
+                resize: none;
+                border-radius: 0;
+                background: transparent;
+                border: 1px solid rgba(0,0,0,.2);
+                padding: 0 16px;
+                height: 34px;
+                max-height:none;
+                font-size: 18px;
+                outline: 0;
+                line-height: 30px;
+                box-shadow: 3px 3px 0 rgba(0,0,0,.1);
+                padding-top:10px;
+                padding-bottom:48px;
+                &:hover{
+                    border-color:#6c0;
+                    box-shadow: 3px 3px 0 rgba(90,200,0,.15);
+                }
+            }
+                .reply.focus{
+                    border-color:#090;
+                    transition:all .3s ease-in-out;
+                    box-shadow: 3px 3px 0 rgba(30,90,0,.15);
+                }
+            text-align:left;
+            margin:auto;
+            max-width:800px;
+            
+            
+            img{
+                margin-left:auto;
+                margin-right:auto;
+                display:block;
+                max-width:100%;
+            }
+            p{
+                margin-bottom:30px;
+                font-size:22px;
+            }
+            .body h2{
+                font-size: 30px;
+                margin-top: 34px;
+                margin-bottom: 30px;
+            }
+            .body h3{
+                font-size: 26px;
+                margin-top: 30px;
+                margin-bottom: 26px;
+            }
+            blockquote{
+                p.L a span{
+                    color:#465D99;
+                }
+                p{
+                margin-bottom:14px;
+                }
+                position: relative;
+                margin: 0px;
+                margin-bottom:30px;
+                padding-left: 16px;
+                color: #139;
+               &:after{
+                    content: '';
+                    position: absolute;
+                    top: 9px;
+                    bottom: 4px;
+                    left: 0px;
+                    width: 2px;
+                    background-color: #139; 
+               }
+                &:before{
+                    font-family:Arial;
+                    content: '“';
+                    position: absolute;
+                    top: -15px;
+                    left: -3px;
+                    font-size: 42px;
+                }
+            }
+
+            a{
+                color:#139;
+                padding-bottom:3px;
+                &:hover{
+                    color:#f40;
+                    border-bottom-color:#f40; 
+                }
+            }
+        }
+            
+    }
+}
+
+*/

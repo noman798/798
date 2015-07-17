@@ -16,6 +16,7 @@ html lang="zh-CN"
 
         
         <!-- @require /lib/jquery.js -->
+        <!-- @require /lib/alertify.js -->
         <!-- @require /lib/marked.js -->
         <!-- @require /lib/autosize.js -->
         <!-- @require /lib/mod.js -->
@@ -27,6 +28,10 @@ html lang="zh-CN"
         <!-- @require /lib/headroom/headroom.js -->
         <!-- @require /lib/cropper/cropper.css -->
         <!-- @require /lib/cropper/cropper.js -->
+        <!-- @require /lib/tageditor/jquery.tag-editor.css -->
+        <!-- @require /lib/tageditor/jquery.caret.min.js -->
+        <!-- @require /lib/tageditor/jquery.tag-editor.js -->
+
 
         -block head
 

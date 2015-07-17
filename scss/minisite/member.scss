@@ -1,0 +1,197 @@
+#Member{
+    form{
+        padding-bottom: 1px;
+        margin-bottom: -6px;
+    }
+    overflow:auto;
+    background:url(/css/img/bgpaper.png) #F3F3F3;
+    .scrollbar-macosx{
+        height:100%;
+    }
+    .body{
+        max-width:800px;
+        margin:auto;
+    }
+    .vc2{
+        position:static;
+        .content{
+            line-height:24px;
+        }
+    }
+    h1{
+        text-align:left;
+        padding-top:69px;
+        font-size:34px;
+        position:relative;
+        padding-bottom:34px;
+        padding-left:0;
+    }
+    hr{
+        margin:24px 0;
+        border:0;
+        border-bottom:1px dashed rgba(160,160,160,.4);
+    }
+    .mb25{
+        margin-bottom:25px;
+    }
+    p{
+        position:relative;
+        
+    }
+    .button{
+        .message{
+            margin-left:140px;
+            color:#f00;
+            margin-top:3px;
+        }
+        input[type=text]{
+            height: 42px;
+            line-height:42px;
+            width: 100%;
+            padding:0 137px;
+            outline:0;
+            border: 1px solid #000;
+            background:transparent;
+            border-right:0;
+            box-sizing:border-box;
+        }
+        input[type=submit]{
+            margin-left:-125px;
+            box-sizing:border-box;
+            outline:0;
+            vertical-align:top;
+            background-color: #0af;
+            height: 42px;
+            line-height: 27px;
+            color: #fff;
+            width: 125px;
+            text-align: center;
+            border:none;
+            display: inline-block;
+        }
+    
+        .add{
+            background: #0af;
+            height: 42px;
+            display: inline-block;
+            width: 42px;
+            text-align: center;
+            color: #fff;
+            font-size: 27px;
+            line-height: 38px;
+            vertical-align: top;
+            border: 1px solid #000;
+            border-left:0;
+            box-shadow: 0 0 3px #01f inset;
+            &:hover{
+            
+                background:#00f;
+            }
+        }
+        .submit{
+            margin-bottom:30px;
+        }
+        .dropdown{
+            margin-right:-125px;
+            select{
+                box-sizing:border-box;
+                height:42px;
+                padding-left: 12px;
+                width:125px;
+                background:#000;
+                color: #fff;
+                &:after{
+                    content:"\e61e";
+                    color:#fff;
+                    font-family: 'iconfont';
+                }
+            }
+            &:after{
+                top:7px;
+                right:9px;
+            }
+        }
+    }
+    .dropdown{
+        position:relative;
+    }
+    .button .member{
+        font-weight: bold;
+        font-size: 20px;
+        margin-right:20px;
+    }
+    .member div.L{
+        margin-left:20px;
+        margin-top:15px;
+    }
+    p.list{
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 34px;
+    }
+    .icon-trash{
+        border: 1px solid;
+        border-radius: 22px;
+        width: 40px;
+        height: 40px;
+        text-align:center;
+        &:before{
+            font-size: 18px;
+            line-height: 40px;
+        }
+    }
+    .dropdown{
+        select{
+            background:transparent;
+            text-align: center;
+            border: 1px solid #000;
+            outline:0;
+            border-radius:0;
+            -webkit-appearance:none;
+            -moz-appearance:none;
+            cursor:pointer;
+            option{
+                outline:0;
+            }
+            cursor:pointer;
+            
+        }
+        &:after{
+            position:absolute;
+            font-family:"iconfont";
+            pointer-events:none;
+            color:#fff;
+            content: "\e61e";
+            cursor: pointer;
+            pointer-events: none;
+            margin-top: -11px;
+        }
+    }
+    .member .dropdown{
+        select{
+            border:none;
+            border-bottom:1px solid #446E2E;
+            color:#446E2E;
+            font-size: 12px;
+            line-height: 26px;
+            padding-left:0;
+            padding-right:14px;
+        }
+        &:after{
+            right:-4px;
+            color:#446E2E;
+            top:15px;
+        }
+    }
+    span.L{
+        line-height:45px;
+        display: inline-block;
+        font-size:22px;
+    }
+    i.R.iconfont{
+        margin-top: 4px;
+        font-size: 23px;
+        cursor:pointer;
+        color:#999;
+    }
+}

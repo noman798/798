@@ -1,7 +1,7 @@
 #BODY .main > .inner{
     box-sizing: border-box;
     min-height: 100%;
-    background: url(/css/img/white_texture.jpg) #F7F4EF;
+    background: url(/css/img/crossword.png) #F7F4EF;
 
     .tagSearch{
         width:100%;
@@ -54,6 +54,9 @@
     .post { 
         clear: both;
         margin-bottom: 10px;
+        h2{
+            margin-bottom:11px;
+        }
         a{
             transition: color 0.15s ease-in-out 0s;
         }
@@ -82,7 +85,9 @@
         }
     }
     .brief{
-        overflow:hidden;
+        p:first-child{
+            margin-top:-11px;
+        }
         p{
             font-size:18px;
             color:#343;
@@ -95,7 +100,7 @@
                 z-index: 1;
                 position: relative;
                 height: 33px;
-                background: url(/css/img/white_texture.jpg) #F7F4EF;
+                background: url(/css/img/crossword.png) #F7F4EF;
                 padding-left: 14px;
             }
         }
@@ -178,7 +183,7 @@
             margin-bottom:3px;
         }
     }
-    .bg1, .bg2{
+    .bg1{
         height:100%;
         width:100%;
         background-size:cover;
@@ -188,17 +193,12 @@
         top:0;
         left:0;
     }
-    .bg2{
-        z-index:-20; 
-        background:url(/css/img/white_texture.jpg) #F7F4EF;
-        opacity:.98;
-    }
     .post{ 
         max-width: 680px;
         margin:auto;
         h2{
             position:relative;
-            margin-bottom: 3px;
+            margin-bottom: 11px;
             display:inline-block;
             a.title{
                 margin-left:0px;

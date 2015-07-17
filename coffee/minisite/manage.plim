@@ -67,7 +67,7 @@
                                 span ms-if="now.author"
                                     {{now.author}}
                                 span ms-if="now.owner"
-                                    {{now.owner.name}}
+                                    {{now.owner.username}}
 
                                 span.m06 ·
                                 i {{now.time}}

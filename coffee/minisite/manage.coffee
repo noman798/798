@@ -245,7 +245,7 @@ _indox = (post_id, submit_bar, h1)->
     if post_id
         AV.Cloud.run "Post.by_id", {
             host:location.host
-            id:post_id
+            ID:post_id
         },{
             success: (post)->
                 post.tag_list = post.tag_list or []

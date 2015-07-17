@@ -64,6 +64,12 @@
                             i.iconfont.icon-trash ms-click="rm"
                             span.name 
                                 u
-                                {{now.author || now.owner.username}}
+                                span ms-if="now.author"
+                                    {{now.author}}
+                                span ms-if="now.owner"
+                                    {{now.owner.name}}
+
                                 span.m06 ·
                                 i {{now.time}}
+
+

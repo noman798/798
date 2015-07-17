@@ -4,7 +4,7 @@ div
         .vc2
             .vc1
                 .content
-                    .description.ui.form
+                    .description.ui.form.post_read
                         h1
                             a.iconfont.star href="javascipt:void(0)"
                             span

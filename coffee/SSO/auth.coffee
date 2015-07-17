@@ -77,6 +77,9 @@ $.SSO.auth = {
                                 AV.User.logIn(o.email, o.password, {
                                     success: (user) ->
                                         location.href="/-SSO/auth.phone_verify"
+                                    error:(err)->
+                                        if err.code == 210
+                                            error_tip.set {password:"""手机 或 邮箱 已经注册，<a href="javascript:URL('-SSO/auth.login')">请点此登录</a>"""}
                                 })
                             fail: (error) ->
                                 error_tip.set error

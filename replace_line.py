@@ -4,11 +4,11 @@ from os.path import abspath, dirname, basename, join, exists
 from os import walk
 
 FROM_STRING = """
-/static/css/img/bgpaper.png
+white_texture.jpg
 """
 
 TO_STRING = """
-/css/img/bgpaper.png
+furley_bg.png
 """
 
 

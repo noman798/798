@@ -1,10 +1,50 @@
 .scrollbar-macosx{
     height:100%;
 }
+
 #PostModal{
     z-index:0;
     overflow:auto;
-    background:url(/css/img/bgpaper.png) #F3F3F3;
+    background:url(/css/img/furley_bg.png) #F3F3F3;
+}
+@keyframes closebtni {
+  0% {
+      right:-128px;
+      opacity:0;
+      top:128px;
+  }
+  50%{
+     right:20%;
+     opacity:.5;
+  }
+  100% {
+      top:0;
+      right:4px;
+      opacity:1;
+  }
+}
+@keyframes closebtn {
+  0% {
+      color:#000;
+      font-size:128px;
+      font-weight:bold;
+  }
+
+  100% {
+      font-size:30px;
+      font-weight:normal;
+      color:rgba(155, 155, 155, 0.7);
+  }
+}
+.modals>.close.icon:before, .modals>.close.icon{
+  animation-duration: 1s;
+  animation-fill-mode: both;
+} 
+.modals>.close.icon:before{
+  animation-name: closebtn;
+}
+.modals>.close.icon{
+  animation-name: closebtni;
 }
 #postModal{
     .description.ui.form>h1{
@@ -41,14 +81,6 @@
         background:#4C93CB;
         color:#fff;
       } 
-    }
-    .body .author .name span{
-        display: inline-block;
-        width: 28px;
-        border-bottom: 1px solid #000;
-        height: 17px;
-        vertical-align: 6px;
-        margin-right: 12px;
     }
     hr{
         margin:46px 0;
@@ -199,16 +231,6 @@
             }
             .textarea textarea.focus + label b.send{
                 color: #090;
-            }
-            img{
-                margin-left:auto;
-                margin-right:auto;
-                display:block;
-                max-width:100%;
-            }
-            p{
-                margin-bottom:30px;
-                font-size:22px;
             }
             .body h2{
                 font-size: 30px;

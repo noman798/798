@@ -1,11 +1,20 @@
 [ms_view], [ms_important] {
   visibility: hidden;
 }
-html,body,button,input,select,textarea,.ui-button, pre, p{
+html,body,button,input,select,textarea,.ui-button, pre, p, ul{
     line-height:1.875;
     -webkit-font-smoothing:antialiased;
     font-size:16px;
 }
 a{
 outline:0;
+}
+pre{
+word-wrap:break-word;
+overflow:hidden;
+word-break:break-all;
+white-space: pre-wrap;
+white-space:-moz-pre-wrap;
+*white-space: pre;
+*word-wrap: break-word;
 }

@@ -61,11 +61,14 @@ _reply_bind = (elem, post) ->
     elem.find('.icon-trash').click ->
         AV.Cloud.run(
             "PostTxt.rm"
-            {id:@rel}
+            {
+                id:@rel
+                site_id:SITE.ID
+            }
         )
         $(@).parents('.li').slideUp()
 
-_render_reply = (reply)->
+_render_reply = (post, reply)->
     [owner_id, owner_name] = reply.owner
     _ = $.html()
     if reply.rmer
@@ -75,15 +78,17 @@ _render_reply = (reply)->
     _ """<div class="C li" id="li#{reply.id}" data-txt="#{$.escape reply.txt or ''}">#{html}"""
     if not reply.rmer
         _ """<p class=author><a class="iconfont icon-reply" href="javascript:void(0)" rel="#{reply.id}"></a>"""
-        if CURRENT_USER?.id == owner_id
-            _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
+        if CURRENT_USER?.id
+            id = CURRENT_USER.id
+            if owner_id == id or id == post.get('owner')?.objectId or SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
+                _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         _ """<span class=name><span class="owner">#{$.escape owner_name}</span><i>·</i>#{$.timeago reply.createdAt}</span></p>"""
     _ """</div>"""
     _.html()
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
-    console.log post
+    current = AV.User.current()
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")
@@ -91,8 +96,17 @@ _render = (post, scroll_to_reply)->
     html.find('.ui.form>.body').html post.html
     html.find('.ui.form>h1 span').text post.title
     html.find('.ui.form a.iconfont').addClass("star#{!!post.is_star-0}").attr('rel',post.ID)
-    html.find('.ui.form>.body').append("""<p class="author C"><i class="iconfont icon-edit" rel="#{post.objectId}"></i><span class="name"><span></span>#{post.author} · #{$.timeago post.createdAt}</span>""")
 
+    if post.owner
+        author = post.owner.username
+    else
+        author = post.author
+
+    editbar = $ """<p class="author C"><span class="name"><u></u>#{$.escape author}<span class="m06">·</span>#{$.timeago post.createdAt}</span></p>"""
+    if window.SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR or post.owner?.objectId == current.id
+        editbar.prepend """<i class="iconfont icon-edit"></i>"""
+
+    html.find('.ui.form>.body').append(editbar)
     $.modal(
         html.html()
         {
@@ -121,9 +135,12 @@ _render = (post, scroll_to_reply)->
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")
             replyLi.before textarea
-            $('.icon-edit').click ->
-                rel=$(this).attr('rel')
-                URL '-minisite/manage',rel
+            elem.find('.icon-edit').click ->
+                if post.owner?.id==AV.User.current().id
+                    url = 'my'
+                else if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
+                    url = 'review'
+                URL '-minisite/manage.'+url,post.ID
 
             AV.Cloud.run(
                 "PostTxt.by_post"
@@ -137,7 +154,7 @@ _render = (post, scroll_to_reply)->
                             return
                         _ = $.html()
                         for i in o
-                            _ _render_reply(i)
+                            _ _render_reply(post, i)
                         replyLi.append(_.html())
                         _reply_bind replyLi, post
                         if scroll_to_reply
@@ -199,13 +216,13 @@ _textarea_bind = (reply_div, post)->
                     postModal = $("#postModal")
                     replyLi = postModal.find('.replyLi')
                     m.id = m.objectId
-                    replyLi.append _render_reply(m)
+                    replyLi.append _render_reply(post, m)
                     last_reply = replyLi.find('.C:last')
                     _reply_bind last_reply, post
                     PostModal.scrollTop(
                         last_reply.offset().top-postModal.offset().top
                     )
             })
+
     reply.ctrl_enter send
     reply_div.find('.send').click send
-

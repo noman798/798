@@ -16,5 +16,8 @@ pure/html
 config.py
 start.sh
 npm-debug.log
-node_modules
 release
+*.swp
+*.pyc
+*.orig
+node_modules

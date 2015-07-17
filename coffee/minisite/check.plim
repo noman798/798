@@ -1,0 +1,42 @@
+#PostManage
+    .manage ms-view="PostManage"
+        link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+        link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
+
+        .lsidebg0
+        .lsidebg1
+        .lside.scrollbar-macosx
+            h1 
+                span.dropdown
+                    select ms-duplex="lside.h1_now"
+                        option ms-repeat="lside.h1" ms-attr-value="el[1]" {{el[0]}} 
+
+                span.m06 -
+                span.num
+                    span {{lside.num}}
+                    篇
+                 
+            p ms-class="now:$first" ms-repeat="lside._li" ms-click="lside.click(el)" {{el.title}}
+
+        .rside.scrollbar-macosx
+            .vc2
+                .vc1
+                    .content 
+                        h1 ms-if="lside._li"
+                            span {{lside._li[0].title}}
+                        h1.none ms-if="!lside._li"
+                            暂无文章
+                div#ribbon
+                    i.iconfont
+                div.publish
+                    input.title placeholder="请输入首页展示的标题" ms-attr-value="lside._li[0].title" ms-attr-rel="lside._li[0].objectId"
+                    textarea.summary placeholder="请输入首页展示的摘要" ms-attr-value="lside._li[0].brief"
+                    div.tag
+                        textarea#tag
+                    .C
+                        div.check
+                            input.checkbox type="checkbox" value="true" id="agree"
+                            label.check-box for="agree" 
+                            label for="agree"  投稿到首页
+                                a href="javascript:void(0);" ?
+                        a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存

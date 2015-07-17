@@ -5,7 +5,8 @@
         p 借助
             a.m06 href="https://www.yinxiang.com/" target="_blank" 印象笔记
             ，你就可以随时随地创作，发布文章。
-        p 首先，请在本站绑定帐号。
+        p 首先，请在本站绑定帐号，绑定时请在授权页面选择未来作为投稿用的笔记本。
+        img src="//dn-acac.qbox.me/tech2ipo第一步.png"
         hr
         div.button.C
             .L
@@ -40,9 +41,11 @@
                         i.iconfont.icon-trash ms-click="rm(el)"
         hr
         p.later 之后，写作如常。当您需要发布的时候。
-        p 只需在需要发布笔记上添加标签「@TECH2IPO」即可自动向 TECH2IPO 投稿。
-        p 一篇投稿向 TECH2IPO 的印象笔记文章应当如下图所示：
-        img src="//dn-acac.qbox.me/tech2ipoQQ图片20150619171819.jpg"
+        p 只需将需要发布笔记拖入投稿笔记本，然后再添上「@{{name.toLowerCase()}}」标签即可自动投稿。
+        p 普通用户文章需编辑审核后发，认证撰稿人文章将直接发布。
+
+        p 一篇投稿向 {{name}} 的印象笔记文章应当如下图所示：
+        img src="//dn-acac.qbox.me/tech2ipo第二步新.png"
         p 想用Markdown写作的话，不妨试试
             a.m06 href="http://maxiang.info/#/?id=readme" target="_blank" 马克飞象
           ，专为印象笔记打造的Markdown编辑器。

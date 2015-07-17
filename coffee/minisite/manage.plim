@@ -1,0 +1,75 @@
+#PostManage
+    link rel="stylesheet" href="/css/minisite/manage.css?__inline"
+    link rel="stylesheet" href="/lib/tageditor/jquery.tag-editor.css?__inline"
+    .manage ms-view="PostManage"  ms-class="ribbon_show:ribbon.show"
+        .ribbon ms-click="ribbon.toggle" ms-if="now.ID" ms-class-1="ribbon_submit:now.is_submit" ms-class-2="ribbon_publish:now.is_publish" ms-class-3="ribbon_publish:now.state=='1'" ms-class-4="ribbon_rm:now.state=='2'"
+            i.iconfont
+        .publish
+            input.title placeholder="请输入首页展示的标题" ms-duplex="now.title" 
+            textarea.summary placeholder="请输入首页展示的摘要" ms-duplex="now.brief"
+            .tag
+                textarea.tag
+            .C
+                .check ms-if="submit_bar==1"
+                    div ms-if="!now.is_publish"
+                        input.checkbox type="checkbox" ms-duplex-checked="now.is_submit" id="postInboxAgree"
+                        label.check-box for="postInboxAgree" 
+                        label for="postInboxAgree"  投稿到首页
+                            a.help ms-click="sub" href="javascript:void(0);" ?
+                    .published_tip ms-if="now.is_publish"
+                        文章已发布到首页
+
+                .check ms-if="submit_bar==2"
+                    input.checkbox type="checkbox" ms-duplex-checked="now.is_publish" id="postInboxAgree1"
+                    label.check-box for="postInboxAgree1" 
+                    label for="postInboxAgree1"  发布到首页
+                        a.help ms-click="pub" href="javascript:void(0);" ?
+                
+                .check ms-if="submit_bar==3"
+                    span.dropdown
+                        select ms-duplex-number="now.state"
+                            option value='0' - 请审核 -
+                            option value='1' 审核通过
+                            option value='2' 退回稿件
+
+                a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
+
+        .lsidebg0
+        .lsidebg1
+        .lside.scrollbar-macosx
+            h1 
+                span.dropdown
+                    select ms-duplex="lside.h1_now"
+                        option ms-repeat="lside.h1" ms-attr-value="el[1]" {{el[0]}} 
+
+                span.m06 -
+                span.num
+                    span {{lside.count}}
+                    篇
+                 
+            p ms-class="now:now.ID==el.ID" ms-repeat="lside.li" ms-click="lside.click(el)" {{el.title}}
+            .footer
+
+        .rside.scrollbar-macosx
+            .vc2 ms-if="!now.ID"
+                .vc1
+                    h1.none 暂无文章
+            .vc2 ms-if="now.ID"
+                .vc1
+                    .content.post_read
+                        h1
+                            span {{now.title}}
+                        {{now.html|html}}
+                        p.author.C
+                            i.iconfont.icon-trash ms-click="rm"
+                            span.name 
+                                u
+                                span ms-if="now.author"
+                                    {{now.author}}
+                                span ms-if="now.owner"
+                                    {{now.owner.username}}
+
+                                span.m06 ·
+                                i {{now.time}}
+
+

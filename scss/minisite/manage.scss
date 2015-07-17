@@ -222,6 +222,16 @@ $ribbon-publish-bg:#138A16;
         border-left-color:$ribbon-publish-bg;
     }
 }
+$ribbon-rm-bg:#000;
+.ribbon_rm{
+    i{
+        background:$ribbon-rm-bg;
+    }
+    i:after{
+        border-right-color:$ribbon-rm-bg;
+        border-left-color:$ribbon-rm-bg;
+    }
+}
 .ribbon_show{
     .publish{
         top:0 !important;

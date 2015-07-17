@@ -1,0 +1,29 @@
+.post_read {
+
+    img{
+        margin-left:auto;
+        margin-right:auto;
+        display:block;
+        max-width:100%;
+        margin-top:32px;
+    }
+    p,ul,pre{
+        margin-bottom:22px;
+        font-size:22px;
+    }
+
+    .author .name{
+        float:right;
+        u{
+            display: inline-block;
+            width: 28px;
+            border-bottom: 1px solid #000;
+            height: 17px;
+            vertical-align: 6px;
+            margin-right: 12px;
+        }
+        i{
+            font-style:normal;
+        }
+    }
+}

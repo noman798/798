@@ -97,9 +97,12 @@ _render = (post, scroll_to_reply)->
     html.find('.ui.form>h1 span').text post.title
     html.find('.ui.form a.iconfont').addClass("star#{!!post.is_star-0}").attr('rel',post.ID)
 
+    if post.owner
+        author = post.owner.username
+    else
+        author = post.author
 
-
-    editbar = $ """<p class="author C"><span class="name"><span></span>#{$.escape post.author} · #{$.timeago post.createdAt}</span></p>"""
+    editbar = $ """<p class="author C"><span class="name"><u></u>#{$.escape author}<span class="mo6">·</span>#{$.timeago post.createdAt}</span></p>"""
     if window.SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR or post.owner?.objectId == current.id
         editbar.prepend """<i class="iconfont icon-edit"></i>"""
 

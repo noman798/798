@@ -1,5 +1,5 @@
 
-fis.config.set('pack', require('pack'));
+fis.config.set('pack', require('./pack.js'));
 
 //静态资源域名，使用pure release命令时，添加--domains或-D参数即可生效
 fis.config.set('roadmap.domain', '//${CONFIG.CDN}');

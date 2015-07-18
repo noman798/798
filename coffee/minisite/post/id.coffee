@@ -22,6 +22,10 @@ $.minisite.post.id = (id, scroll_to_reply=0)->
         }
 
 CURRENT_USER = AV.User.current()
+if CURRENT_USER
+    CURRENT_USER_ID = CURRENT_USER.id
+else
+    CURRENT_USER_ID = null
 
 _textarea = (id)->
     """<div class="textarea"><textarea id="#{id}" spellcheck="false" placeholder="点击这里，尽情地吐槽、调侃、表达态度吧。\n回复支持Markdown格式！" class="reply"></textarea><label for="#{id}" class="C"><b class="send iconfont icon-fly"></b><b class="tip">快捷键 CTRL+ENTER</b></label></div>"""
@@ -78,8 +82,8 @@ _render_reply = (post, reply)->
     _ """<div class="C li" id="li#{reply.id}" data-txt="#{$.escape reply.txt or ''}">#{html}"""
     if not reply.rmer
         _ """<p class=author><a class="iconfont icon-reply" href="javascript:void(0)" rel="#{reply.id}"></a>"""
-        if CURRENT_USER?.id
-            id = CURRENT_USER.id
+        if CURRENT_USER_ID
+            id = CURRENT_USER_ID
             if owner_id == id or id == post.get('owner')?.objectId or SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
                 _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         _ """<span class=name><span class="owner">#{$.escape owner_name}</span><i>·</i>#{$.timeago reply.createdAt}</span></p>"""
@@ -88,7 +92,6 @@ _render_reply = (post, reply)->
 
 _TITLE = 0
 _render = (post, scroll_to_reply)->
-    current = AV.User.current()
     _TITLE = document.title
     document.title = post.title
     html = $ __inline("/html/coffee/minisite/post.html")
@@ -103,7 +106,7 @@ _render = (post, scroll_to_reply)->
         author = post.author
 
     editbar = $ """<p class="author C"><span class="name"><u></u>#{$.escape author}<span class="m06">·</span>#{$.timeago post.createdAt}</span></p>"""
-    if window.SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR or post.owner?.objectId == current.id
+    if window.SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR or post.owner?.objectId == CURRENT_USER_ID
         editbar.prepend """<i class="iconfont icon-edit"></i>"""
 
     html.find('.ui.form>.body').append(editbar)
@@ -120,7 +123,7 @@ _render = (post, scroll_to_reply)->
 
             onHidden: ->
                 _POST_ID = undefined
-                if AV.User.current()
+                if CURRENT_USER
                     AV.Cloud._run(
                         "UserRead.end"
                         {
@@ -136,7 +139,7 @@ _render = (post, scroll_to_reply)->
             textarea = $ _textarea("postModelReply")
             replyLi.before textarea
             elem.find('.icon-edit').click ->
-                if post.owner?.id==AV.User.current().id
+                if post.owner?.id==CURRENT_USER_ID
                     url = 'my'
                 else if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
                     url = 'review'
@@ -177,7 +180,7 @@ _textarea_bind = (reply_div, post)->
 
     autosize reply
     reply.focus ->
-        if AV.User.current()
+        if CURRENT_USER
             reply.addClass 'focus'
         else
             $$ "SSO/auth.new_or_login"
@@ -211,7 +214,7 @@ _textarea_bind = (reply_div, post)->
                         disabled:false
                         placeholder
                     })
-                    m.owner = [CURRENT_USER.id, CURRENT_USER.get 'username']
+                    m.owner = [CURRENT_USER_ID, CURRENT_USER.get 'username']
                     PostModal = $("#PostModal")
                     postModal = $("#postModal")
                     replyLi = postModal.find('.replyLi')

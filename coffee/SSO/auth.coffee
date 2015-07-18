@@ -201,8 +201,7 @@ $.SSO.auth = {
                             }
                             submit:->
                                 o = V.ssoAuthLogin.o
-                                account = o.account
-
+                                account = $.trim o.account
                                 if isNaN(account-0)
                                     login = AV.User.logIn
                                 else

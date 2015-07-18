@@ -151,18 +151,18 @@ _indox = (post_id, submit_bar, h1)->
 
                                 submit:->
                                     v = V.PostManage
-                                    {title, brief, objectId, publisher, is_submit} = v.now.$model
+                                    {title, brief, objectId, is_publish, is_submit} = v.now.$model
                                     tag_list = elem.find("textarea.tag").tagEditor('getTags')[0].tags
 
                                     if submit_bar == 3
                                         action = ['save','publish','rm'][v.now.state]
                                     else
-                                        if publisher
-                                            action = "publish"
+                                        action = "rm"
+                                        if SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
+                                            if is_publish
+                                                action = "publish"
                                         else if is_submit
                                             action = "submit"
-                                        else
-                                            action = "rm"
 
                                     data = {
                                             site_id:SITE.ID

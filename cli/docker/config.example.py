@@ -12,6 +12,6 @@ class CONFIG:
     class LEANCLOUD:
         NAME = ""
         ID = ""
-        URL = "https://test2.avosapps.com"
         KEY = ""
+        HOST = "test2.avosapps.com"
 

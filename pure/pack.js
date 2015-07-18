@@ -1,3 +1,5 @@
+
+
 module.exports = {
     "pkg/base.js":[
         "/lib/mod.js",
@@ -28,7 +30,13 @@ module.exports = {
         "/modules/lib/init.js",
     ],
 
-
+    "pkg/ministe.js":[
+        "modules/minisite/const.js", 
+        "modules/minisite/init.js", 
+        "modules/minisite.js", 
+        "modules/minisite/site.js", 
+        "modules/minisite/url.js", 
+    ],
 
     "pkg/base.css":[
         "/lib/semantic/semantic.css",

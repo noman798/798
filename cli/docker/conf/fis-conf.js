@@ -1,4 +1,3 @@
-require pack
 
 fis.config.set('pack', require('pack'));
 

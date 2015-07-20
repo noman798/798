@@ -44,6 +44,7 @@ fis.config.merge({
 //开启autoReflow使得在关闭autoCombine的情况下，依然会优化脚本与样式资源引用位置
 //fis.config.set('settings.postpackager.simple.autoReflow', true);
 
+fis.config.set('project.md5Connector ', '.');
 fis.config.set("project.md5Length",8)
 
 //csssprite处理时图片之间的边距，默认是3px

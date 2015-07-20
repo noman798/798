@@ -84,7 +84,7 @@ _render_reply = (post, reply)->
         _ """<p class=author><a class="iconfont icon-reply" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         if CURRENT_USER_ID
             id = CURRENT_USER_ID
-            if owner_id == id or id == post.get('owner')?.objectId or SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
+            if owner_id == id or id == post.owner?.objectId or SITE.SITE_USER_LEVEL >= CONST.SITE_USER_LEVEL.EDITOR
                 _ """<a class="icon-trash iconfont" href="javascript:void(0)" rel="#{reply.id}"></a>"""
         _ """<span class=name><span class="owner">#{$.escape owner_name}</span><i>·</i>#{$.timeago reply.createdAt}</span></p>"""
     _ """</div>"""

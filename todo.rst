@@ -1,6 +1,10 @@
 seo
-
-    if ( $http_user_agent ~* "360Spider|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {
+http://www.myjishu.com/?p=417
+写单独的logo方便查看
+if (
+    $http_user_agent ~* "360Spider|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot"
+) {
+}
 
 if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|youdaobot|yandex|yeti|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com") {            
 

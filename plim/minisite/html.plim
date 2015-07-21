@@ -1,6 +1,8 @@
 html
     head
+        meta charset="utf-8"
         link rel="stylesheet" href="/css/init.css"
+        link rel="stylesheet" href="/css/minisite/post_read.css"
         meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
         -scss
             body{
@@ -9,11 +11,10 @@ html
             }
             .phone{
                 background:#fff;
-                height:736px;
-                max-width:640px; 
+                max-width:640px;
                 margin:auto;
             }
-            h1{
+            h1.logo{
                 height: 40px; 
                 padding: 0; margin: 0; text-align: left; line-height: 40px; margin-right: 15px; font-size: 22px; 
                 .name{
@@ -47,13 +48,106 @@ html
                     z-index: 1;
                 }
             }
+        h1.title{
+            margin:10px 15px;
+            height:24px;
+            p{
+                margin-top:5px;
+                height:21px;
+                span{
+                    padding-left:20px;
+                }
+            }
+        }
+        p.pic{
+            margin:0 auto;
+            img{
+                width:290px;
+                max-width:180px;
+            }
+        }
         
     body
         .phone
-            h1 
+            h1.logo 
                .name  TECH2IPO
                .slogo 「 创造 &amp; 见证 」
-            h1 天使汇 · 程序部 · 招人启事
-            p 楚狂·7-18
-            p 
-                img src="//dn-noman.qbox.me/FkUmO-V6VhjvmLa5T_OC85fIMrAq"
+            h1.title 天使汇 · 程序部 · 招人启事
+                p 楚狂
+                    span 7-18
+            .post_read
+                p 天使汇，
+                    a shape="rect" href="http://angelcrunch.com" target="_blank" angelcrunch.com。
+                    p 北京，中关村，创业大街路口，天使汇大厦。
+                        p
+                            img src="//dn-noman.qbox.me/FkUmO-V6VhjvmLa5T_OC85fIMrAq"
+                            br 我们致力于对接&nbsp;
+                                strong 创业
+                                &nbsp;&amp;&nbsp;
+                                strong 资本
+                                &nbsp;
+                                ，帮助靠谱的项目找到靠谱的钱。
+                            同时，也期待着有更多心怀梦想的一流程序员的加入。
+                        p 让我们一起来撰写属于我们的时代传奇。
+                        p 我们常用到的技术如下：
+                            br 前端 CoffeeScript，jQuery， Avalon， FIS
+                                后端&nbsp;nodejs ( Express) ， python（ tornado ，mako，
+                                a shape="rect" href="http://plim.readthedocs.org/" target="_blank" plim
+                                ）
+                                br 云引擎 leancloud
+                                数据库 
+                                &nbsp;redis&nbsp;
+                                ，mongodb ，Hyper&nbsp;Estraier（全文搜索），gearman（消息队列）
+                                br 运维 docker， supervisor
+                                开发工具 &nbsp;tmux，vim， hg&amp; hg-git
+
+                        p 如果您熟悉以上一种或几种技术，欢迎投递简历。
+                            br 投递邮箱 :&nbsp;
+                                a shape="rect" href="mailto:noman@798.space" target="_blank" noman@798.space
+                                &nbsp;。
+                        p 我们赞同 《
+                            a shape="rect" href="http://icodeit.org/2015/06/do-we-really-short-for-front-end-developer/" target="_blank" 我们真的缺前端工程师吗？
+                            》文中的观念。
+                        blockquote
+                            p 简而言之，开发者视野应该放开开阔一些。不要将自己局限在某种角色上，不但不要局限在前端/后端开发上，压根就不要局限在开发这种角色本身上，你在系统中，可以是设计师，还可以是业务分析师。虽然不一定最终要你去转行做BA，或者UX，但是更广阔的视野可以使你更加高效的发挥自己的作用，也可以在和别的角色互动式，快速的了解上下文。
+                            p ……&nbsp;……&nbsp;……</p>
+                            p 对学习保持着热情，对解决问题保持着热情，仅此而已。在项目上，如果我发现了问题，我就想办法解决，如果属于知识欠缺，那我就会去学习。我还远远没有到达精通这些技术的地步，但是在工程实践领域，根据
+                                a shape="rect" href="https://en.wikipedia.org/wiki/Pareto_principle" target="_blank"
+                                    80/20原则
+                                ，这些粗浅的知识足以解决80%的问题，而另外的20%，我们才真正需要一个专家来帮忙。也就是说，团队里需要有一个能解决20%的问题的前端工程师，而其他的80%的前端工作，应该可以被其他所有的开发完成，对于后端开发也是一样。
+                        p 我们认为，好的工程师，必然不会拘泥于某种固定的角色，而是热衷于学习新的知识，探索未知领域。
+                        p 所以，我们特别欢迎那些有产品意识，有设计审美 的 全栈式工程师工程师的加入。
+                        p 对，我们想要的就是《
+                            a shape="rect" href="http://vdisk.weibo.com/s/C0fcUgZQl-Zt6" target="_blank" 黑客与画家
+                            》书中描述的那种有着强烈的创作冲动的hacker。
+                        blockquote
+                            p 黑客与画家的共同之处，在于他们都是创作者。与作曲家、建筑师、作家一样，黑客和画家都是试图创作出优秀的作品。
+                                br 他们本质上都不是在做研究，虽然在创作过程中，他们可能会发现一些新技术（那样当然更好）。
+                        p
+                        hr
+                        p 
+                        p 最后，我们同时还进行着一个开源项目
+                        p 
+                            strong    798.space - 垂直社区技术解决方案
+                        p
+                            目前，基于此搭建的网站有：
+                        p
+                        ul
+                            li
+                                a shape="rect" href="http://alpha.tech2ipo.com" target="_blank" alpha.tech2ipo.com
+                            li
+                                a shape="rect" href="http://coder.angelcrunch.com" target="_blank" coder.angelcrunch.com
+                                br
+                        p
+                        p 也同时欢迎程序员掺和，贡献代码，又或者帮忙撰写文档等等（开源项目，当然可以兼职参与）。
+                        p 项目想法见 ：&nbsp;
+                            a shape="rect" href="http://docs.798.space/foreword.html" target="_blank" http://docs.798.space/foreword.html
+                            br 项目规划见 ：&nbsp;
+                            a shape="rect" href="http://dwz.cn/P6x07" target="_blank" http://dwz.cn/P6x07
+                        p
+                        hr
+                        p
+                        p 冲锋的号角已经吹响
+                            br 我们挥舞着战旗
+                            br 向着漫天战火，扬帆启航
+                        

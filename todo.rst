@@ -1,3 +1,5 @@
+<link rel="canonical" href="http://www.seomoz.org/blog"> 
+
 seo
 http://www.myjishu.com/?p=417
 #googlebot-mobile|googlebot-image|

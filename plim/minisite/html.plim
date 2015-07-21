@@ -9,9 +9,8 @@ html
             .phone{
                 background:#fff;
                 height:736px;
-                width:414px; 
+                max-width:640px; 
                 margin:auto;
-                margin-top:40px;
             }
             h1{
                 height: 40px; 

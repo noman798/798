@@ -1,12 +1,14 @@
 seo
 http://www.myjishu.com/?p=417
+#googlebot-mobile|googlebot-image|
 写单独的logo方便查看
 if (
-    $http_user_agent ~* "360Spider|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot"
+
+    $http_user_agent ~* "baiduspider|googlebot|360spider|qihoobot|mediapartners-google|adsbot-google|feedfetcher-google|yahoo! slurp|yahoo! slurp china|youdaobot|sosospider|sogou spider|sogou web spider|msnbot|ia_archiver|tomato bot|twitterbot|facebookexternalhit|yandex|yeti|gigabot|bingbot|developers\.google\.com"
 ) {
 }
 
-if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|youdaobot|yandex|yeti|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com") {            
+if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|youdaobot|yandex|yeti|gigabot|ia_archiver|facebookexternalhit|twitterbot") {            
 
 server from snapshots
 

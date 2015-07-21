@@ -3,17 +3,14 @@ html
         link rel="stylesheet" href="/css/init.css"
         -scss
             body{
-                width: 600px;
-                margin: auto;
-                background: #000;
+                margin:0;
+                padding:0;
             }
             .phone{
                 background:#fff;
                 height:736px;
                 width:414px; 
-                overflow:none;
                 margin:auto;
-                position:relative;
                 margin-top:40px;
             }
             h1{

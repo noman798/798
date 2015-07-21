@@ -1,6 +1,6 @@
 html
     head
-        link rel="stylesheet" href="http://r.io/static/css/init.css"
+        link rel="stylesheet" href="/css/init.css"
         -scss
             body{
                 width: 600px;

@@ -21,9 +21,16 @@ $.minisite.cropper = ->
                 preview:''
                 built:->
                     uploader = Simple.uploader()
+                    that=$(this)
                     $("#test").change ->
                         uploader.upload(@files)
-                        uploader.readImageFile(@files,->
+                        uploader.on('uploadcomplete',(e,@files,responseText)->
+                            console.log @files.xhr.responseJSON.key,responseText
+                            $('.cropper .cropper-canvas > img').attr('src',"http://7xjfna.com1.z0.glb.clouddn.com/#{@files.xhr.responseJSON.key}")
+                            $('.cropper.editable > img').attr('src',"http://7xjfna.com1.z0.glb.clouddn.com/#{@files.xhr.responseJSON.key}")
+                            )
+                        uploader.readImageFile(@files,(o)->
+                            
                             editor=new MediumEditor('.editable')
                             $('.editable').mediumInsert({editor:editor})
                         )
@@ -31,8 +38,7 @@ $.minisite.cropper = ->
                     h=$('.cropper .cropper-canvas > img').height()
                     $('.slide input[type="range"]').change ->
                         v=$(this).val()
-                        console.log w,v,$('.cropper .cropper-canvas > img')
-                        $('.cropper').setCanvasData({width:w*v,height:h*v})
+                        that.cropper('setCanvasData',{width:w*v,height:h*v})
                     $('.upload').find('.icon-upload').click ->
                         $('#test').click()
             })

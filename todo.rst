@@ -1,7 +1,18 @@
 <link rel="canonical" href="http://www.seomoz.org/blog"> 
 
+http://zhanzhang.baidu.com/tools/ping
+
+
+http://ping.baidu.com/ping/RPC2
+http://blogsearch.google.com/ping/RPC2
+http://rpc.pingomatic.com/
+
+
 seo
 http://www.myjishu.com/?p=417
+
+
+
 #googlebot-mobile|googlebot-image|
 写单独的logo方便查看
 if (

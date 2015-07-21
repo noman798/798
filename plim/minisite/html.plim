@@ -36,7 +36,9 @@ html
                     float: right;
                     font-size: 12px;
                     z-index: 2;
-                    margin-top: -4px;
+                    margin-top: 12px;
+                    background: #fff;
+                    padding: 0;
                 }
                 &:after{
                     border-bottom: 2px solid #4285F4;

@@ -1,6 +1,7 @@
 html
     head
         meta charset="utf-8"
+        link rel="stylesheet" href="/css/_base/_reset.css"
         link rel="stylesheet" href="/css/init.css"
         link rel="stylesheet" href="/css/minisite/post_read.css"
         meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
@@ -21,13 +22,15 @@ html
                     font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
                     background: #4285F4;
                     color: #fff;
-                    height: 40px;
+                    height: 28px;
                     float: left;
+                    max-width:120px;
                     padding: 0 15px;
                     margin-left: 15px;
                     font-size: 16px;
                     z-index:2;
                     position:relative;
+                    margin-top:6px;
                 }
                 .slogo{
                     position: relative;
@@ -48,36 +51,44 @@ html
                     z-index: 1;
                 }
             }
-        h1.title{
-            margin:10px 15px;
-            height:24px;
-            p{
+            h1.title{
+                text-align:center;
+                margin:10px 15px;
+                line-height:24px;
+                font-size:21px;
+            }
+            p.author{
+                text-align:center;
                 margin-top:5px;
                 height:21px;
+                font-size:12px;
                 span{
                     padding-left:20px;
                 }
             }
-        }
-        p.pic{
-            margin:0 auto;
-            img{
-                width:290px;
-                max-width:180px;
+            .post_read{
+                img{
+                    min-width:180px;
+                }
+                margin:0 15px;
+                font-size:18px;
+                line-height:1.5;
+                blockquote{
+                    margin-bottom:14px;
+                }
             }
-        }
-        
     body
         .phone
             h1.logo 
                .name  TECH2IPO
                .slogo 「 创造 &amp; 见证 」
             h1.title 天使汇 · 程序部 · 招人启事
-                p 楚狂
-                    span 7-18
+            p.author 楚狂
+                span 7-18
             .post_read
                 p 天使汇，
-                    a shape="rect" href="http://angelcrunch.com" target="_blank" angelcrunch.com。
+                    a shape="rect" href="http://angelcrunch.com" target="_blank" angelcrunch.com
+                    。
                     p 北京，中关村，创业大街路口，天使汇大厦。
                         p
                             img src="//dn-noman.qbox.me/FkUmO-V6VhjvmLa5T_OC85fIMrAq"
@@ -140,9 +151,9 @@ html
                                 br
                         p
                         p 也同时欢迎程序员掺和，贡献代码，又或者帮忙撰写文档等等（开源项目，当然可以兼职参与）。
-                        p 项目想法见 ：&nbsp;
+                        p 项目想法见：
                             a shape="rect" href="http://docs.798.space/foreword.html" target="_blank" http://docs.798.space/foreword.html
-                            br 项目规划见 ：&nbsp;
+                            br 项目规划见：
                             a shape="rect" href="http://dwz.cn/P6x07" target="_blank" http://dwz.cn/P6x07
                         p
                         hr

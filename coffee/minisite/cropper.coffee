@@ -27,8 +27,9 @@ $.minisite.cropper = ->
                         uploader.on('uploadcomplete',(e,@files,responseText)->
                             console.log @files.xhr.responseJSON.key,responseText
                             $('.cropper .cropper-canvas > img').attr('src',"http://7xjfna.com1.z0.glb.clouddn.com/#{@files.xhr.responseJSON.key}")
-                            $('.cropper.editable > img').attr('src',"http://7xjfna.com1.z0.glb.clouddn.com/#{@files.xhr.responseJSON.key}")
+                            $('.cropper .cropper-view-box > img').attr('src',"http://7xjfna.com1.z0.glb.clouddn.com/#{@files.xhr.responseJSON.key}")
                             )
+                                
                         uploader.readImageFile(@files,(o)->
                             
                             editor=new MediumEditor('.editable')

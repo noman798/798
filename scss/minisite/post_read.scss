@@ -11,7 +11,7 @@
         margin: 0px;
         margin-bottom:30px;
         padding-left: 16px;
-        color: #139;
+        color: #390;
        &:after{
             content: '';
             position: absolute;
@@ -19,7 +19,7 @@
             bottom: 4px;
             left: 0px;
             width: 2px;
-            background-color: #139; 
+            background-color: #390; 
        }
         &:before{
             font-family:Arial;
@@ -34,6 +34,8 @@
     a{
         color:#139;
         padding-bottom:3px;
+        text-decoration: none;
+        border-bottom: 1px solid #139;
         &:hover{
             color:#f40;
             border-bottom-color:#f40; 
@@ -48,7 +50,7 @@
         margin-top:32px;
     }
     p,ul,pre, blockquote{
-        font-size:22px;
+        font-size:16px;
     }
     p,ul{
         margin-bottom:22px;

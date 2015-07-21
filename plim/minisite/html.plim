@@ -9,6 +9,7 @@ html
             body{
                 margin:0;
                 padding:0;
+                font-family:Lato,'Hiragino Sans GB','Microsoft YaHei';
             }
             .phone{
                 background:#fff;
@@ -22,7 +23,7 @@ html
                     font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
                     background: #4285F4;
                     color: #fff;
-                    height: 28px;
+                    height: 40px;
                     float: left;
                     max-width:120px;
                     padding: 0 15px;
@@ -30,7 +31,6 @@ html
                     font-size: 16px;
                     z-index:2;
                     position:relative;
-                    margin-top:6px;
                 }
                 .slogo{
                     position: relative;
@@ -56,6 +56,7 @@ html
                 margin:10px 15px;
                 line-height:24px;
                 font-size:21px;
+                margin-top:12px;
             }
             p.author{
                 text-align:center;

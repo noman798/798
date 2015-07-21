@@ -1,3 +1,18 @@
+seo
+
+    if ( $http_user_agent ~* "360Spider|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo! Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot") {
+
+if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|youdaobot|yandex|yeti|gigabot|ia_archiver|facebookexternalhit|twitterbot|developers\.google\.com") {            
+
+server from snapshots
+
+}
+
+
+
+
+
+
 删除
 
     PostInbox

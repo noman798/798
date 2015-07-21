@@ -5,7 +5,7 @@ div
         img src="/css/img/low_contrast_linen.png" alt=""
     div.slide
         i.iconfont.icon-zoomout
-        input type="range" max="2" min="1" step="0.02" 
+        input type="range" max="2" min="1" step="0.02" value="1"
         i.iconfont.icon-zoomin 
     div.upload.C
         input#test type="file" value=""

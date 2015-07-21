@@ -29,6 +29,7 @@ $ ->
                     "minisite/Rbar"
                 ]
                 ->
+                    $('link[rel=shortcut]').attr("href",'www.baidu.com')
                     RBAR.push(
                         renderRbar(SITE)
                         ->

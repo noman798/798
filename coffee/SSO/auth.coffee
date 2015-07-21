@@ -59,7 +59,7 @@ $.SSO.auth = {
     new : ->
         modal(
             __inline("/html/coffee/SSO/new.html")
-            "red"
+            "green"
             "ssoAuthNew"
             (elem)->
                 error_tip = $.error_tip(elem)
@@ -89,7 +89,7 @@ $.SSO.auth = {
     phone_verify:(email) ->
         modal(
             __inline("/html/coffee/SSO/phone_verify.html")
-            "red"
+            "green"
             "ssoPhoneVerify"
             (elem)->
                 error_tip = $.error_tip(elem)
@@ -338,7 +338,7 @@ $.SSO.auth = {
     info_update : ->
         modal(
             __inline("/html/coffee/SSO/info_update.html")
-            "red"
+            "green"
             "ssoInfoUpdate"
             (elem)->
                 error_tip = $.error_tip(elem)
@@ -384,7 +384,7 @@ $.SSO.auth = {
     password_update : ->
         modal(
             __inline("/html/coffee/SSO/password_update.html")
-            "red"
+            "green"
             "ssoPasswordUpdate"
             (elem)->
                 error_tip = $.error_tip(elem)

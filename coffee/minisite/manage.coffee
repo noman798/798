@@ -138,6 +138,7 @@ _indox = (post_id, submit_bar, h1)->
                                     v = V.PostManage
                                     v.ribbon.show = 0
                                     v.now = el
+                                    console.log v.now.author,v.now.owner
                                     if el.ID
                                         v.now.time=$.timeago el.createdAt
                                         elem.find('.rside .author .name i').html v.now.time

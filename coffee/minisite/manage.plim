@@ -64,11 +64,16 @@
                             i.iconfont.icon-trash ms-click="rm"
                             span.name 
                                 u
+<<<<<<< local
                                 span ms-if="now.author"
                                     {{now.author}}
                                 span ms-if="now.owner"
                                     {{now.owner.username}}
 
+=======
+                                span ms-if="now.owner" {{now.owner.username}}
+                                span ms-if="!now.owner" {{now.author}}
+>>>>>>> other
                                 span.m06 ·
                                 i {{now.time}}
 

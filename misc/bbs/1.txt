@@ -52,4 +52,7 @@ http://www.html-js.com/topic/1518
 http://v2ex.com/t/207524
 http://react-china.org/t/leancloud-nodejs/1765
 https://cnodejs.org/topic/55af4785911fb957520ead25
+http://www.zhihu.com/question/33193637
+
+
 

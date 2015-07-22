@@ -11,7 +11,7 @@
         margin: 0px;
         margin-bottom:30px;
         padding-left: 16px;
-        color: #390;
+        color: #250;
        &:after{
             content: '';
             position: absolute;
@@ -19,7 +19,7 @@
             bottom: 4px;
             left: 0px;
             width: 2px;
-            background-color: #390; 
+            background-color: #250; 
        }
         &:before{
             font-family:Arial;
@@ -33,9 +33,7 @@
 
     a{
         color:#139;
-        padding-bottom:3px;
         text-decoration: none;
-        border-bottom: 1px solid #139;
         &:hover{
             color:#f40;
             border-bottom-color:#f40; 

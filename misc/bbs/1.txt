@@ -1,5 +1,22 @@
+开发了一个开源的博客系统，欢迎大家掺和
 
-
+先给大家看两个演示站
 
 http://coder.angelcrunch.com/
 http://alpha.tech2ipo.com/
+
+
+目前支持的功能有
+1. 文章浏览(适配了手机端)
+2. 同步Evernote笔记文章发布到博客
+
+项目想法见 http://docs.798.space/foreword.html
+开发规划见 http://dwz.cn/P6x07
+
+现在正在写SEO功能
+代码是基于leancloud和nodejs的，是纯前端的网站
+欢迎大家掺和开发，
+
+最后，打一下公司的招聘广告 http://coder.angelcrunch.com/10018859
+
+

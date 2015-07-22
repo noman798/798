@@ -21,10 +21,5 @@
 
     cat ~/.ssh/id_rsa.pub
 
-然后注册 `bitbucket <HTTPS://BITBUCKET.ORG>`_  , 将这个公钥贴到 右上角头像 > Manage account -> 左侧栏 SSH keys -> Add Keys ，Label可以留空，内容为上面cat显示的公钥。
+TODO...
 
-#. 注册 bitbucket 账户
-#. 访问 https://bitbucket.org/798/798/fork fork 项目 798 
-#. 修改 hgrc
-#. 运行ssh-keygen生成私钥，并配置bitbucket的ssh私钥
-#. 提交pull-request

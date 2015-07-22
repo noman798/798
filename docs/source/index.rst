@@ -65,10 +65,10 @@
 相关链接
 ---------------------------------
 
-#. `代码仓库 <https://bitbucket.org/798space/798>`_ 
+#. `前端代码 <https://github.com/noman798/798>`_ 
+#. `后端代码 <https://github.com/noman798/leancloud_798>`_ 
+#. `开发环境 <https://github.com/noman798/home_798>`_ 
 #. `在线文档 <http://docs.798.space/>`_ 
-#. `聊天沟通工具 798.bearychat.com <https://798.bearychat.com/apply>`_
-#. 微信公众号 798 
 
 
 

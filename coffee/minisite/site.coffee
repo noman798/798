@@ -17,10 +17,13 @@ $ ->
                 SITE.tag_list
                 SITE.logo
                 SITE.slogo
-                SITE.social
+                SITE.link_list
+                favicon
                 SITE.user_level
                 css_updated_at
             ] = site
+            if favicon
+                $('head').append("""<link rel="shortcut icon" type="image/x-icon" href="#{favicon}">""")
 
             require.async(
                 [
@@ -60,10 +63,10 @@ renderRbar = (site)->
 
     _ """<div class="profile"><a class="logo" href="//#{location.host}"><b class="bg"><b class="svg" style="background-image:url(#{site.logo})"></b></b></a><h1><a class="header" href="//#{location.host}">#{$.escape site.name}</a></h1><p class=header>#{$.escape site.slogo}</p></div>"""
 
-    _ """<div class="socialWay hrline"><ul>"""
+    _ """<div class="link_listWay hrline"><ul>"""
 
 
-    for [way,website] in site.social
+    for [way,website] in site.link_list
 
         if way=="weixin"
 

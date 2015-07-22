@@ -63,7 +63,7 @@ renderRbar = (site)->
 
     _ """<div class="profile"><a class="logo" href="//#{location.host}"><b class="bg"><b class="svg" style="background-image:url(#{site.logo})"></b></b></a><h1><a class="header" href="//#{location.host}">#{$.escape site.name}</a></h1><p class=header>#{$.escape site.slogo}</p></div>"""
 
-    _ """<div class="link_listWay hrline"><ul>"""
+    _ """<div class="link_list hrline"><ul>"""
 
 
     for [way,website] in site.link_list

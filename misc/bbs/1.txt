@@ -14,9 +14,9 @@ http://alpha.tech2ipo.com/
 开发规划见 http://dwz.cn/P6x07
 
 现在正在写SEO功能
-代码是基于leancloud和nodejs的，是纯前端的网站
-欢迎大家掺和开发，
+代码是基于leancloud和nodejs的，代码在github上，是纯前端的网站（参见 http://docs.798.space ）
+欢迎大家掺和开发
 
 最后，打一下公司的招聘广告 http://coder.angelcrunch.com/10018859
-
+欢迎联系我们 noman@798.space
 

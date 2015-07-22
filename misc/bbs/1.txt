@@ -13,10 +13,13 @@ http://alpha.tech2ipo.com/
 项目想法见 http://docs.798.space/foreword.html
 开发规划见 http://dwz.cn/P6x07
 
-现在正在写SEO功能
-代码是基于leancloud和nodejs的，代码在github上，是纯前端的网站（参见 http://docs.798.space ）
-欢迎大家掺和开发
+现在正在写SEO功能，接下来计划做IM系统和手机端（打算基于react native）。
 
-最后，打一下公司的招聘广告 http://coder.angelcrunch.com/10018859
+代码是基于leancloud和nodejs的，代码在github上，是纯前端的网站（参见 http://docs.798.space ）
+欢迎大家掺和开发，无论你是设计师还是产品，又或是前端，或者移动端。哪怕你是初学者，也可以考虑来帮忙贡献一下文档。
+
+最后，打一下公司的招聘广告 
+    http://coder.angelcrunch.com/10018859
+
 欢迎联系我们 noman@798.space
 

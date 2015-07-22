@@ -28,7 +28,7 @@ html
                     max-width:120px;
                     padding: 0 15px;
                     margin-left: 15px;
-                    font-size: 16px;
+                    font-size: 21px;
                     z-index:2;
                     position:relative;
                 }
@@ -36,6 +36,7 @@ html
                     position: relative;
                     float: right;
                     font-size: 12px;
+                    padding:0 6px;
                     z-index: 2;
                     margin-top: 12px;
                     background: #fff;

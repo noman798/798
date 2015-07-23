@@ -1,2 +1,2 @@
-Sitemap: /sitemap.xml
+Sitemap: http://_NGINX_HOST_/sitemap.xml
 

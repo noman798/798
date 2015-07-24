@@ -13,7 +13,6 @@ $.lib.sideshare = {
                 ->
                     new QRCode(
                         sideshare.find('i.icon-weixin')[0]
-                        t
                         {
                             text:link
                             width:200

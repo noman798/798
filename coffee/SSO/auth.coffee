@@ -48,14 +48,10 @@ _email_alert = (email)->
 
 $.SSO.auth = {
     new_or_login : ->
-        require.async(
-            "lib/store"
-            ->
-                if store.get('username')
-                    $.SSO.auth.login()
-                else
-                    $.SSO.auth.new()
-        )
+        if store.get('username')
+            $.SSO.auth.login()
+        else
+            $.SSO.auth.new()
     new : ->
         modal(
             __inline("/html/coffee/SSO/new.html")

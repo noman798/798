@@ -1,4 +1,5 @@
 _POST_ID = undefined
+
 $.minisite.post.id = (id, scroll_to_reply=0)->
     id = id - 0
     if _POST_ID == id
@@ -134,6 +135,98 @@ _render = (post, scroll_to_reply)->
         }
         "PostModal"
         (elem)->
+            setTimeout(
+                ->
+                    kown_close = store.get('post.id.close')
+                    kown_share = store.get('post.id.share')
+
+                    if (kown_share and kown_close)
+                        return
+
+                    _ = $.html()
+                    _ """
+                    <div>
+                    <style>
+                    .post_tip{
+                    z-index: 10000;
+                    position: fixed;
+                    font-size: 32px;
+                    right: 50px; 
+                    border: 5px solid #f40;
+                    padding: 14px 24px; 
+                    background: #f60; 
+                    font-weight: bold; 
+                    color: #fff;
+                    }
+                    .post_tip_close{
+                    top: 49px; 
+                    }
+                    .post_tip_close p{
+                    margin:0;
+                    padding:0;
+                    margin-top:6px;
+                    font-size:22px;
+                    }
+                    .ui.dimmer  .post_tip_share .close{
+                    position: absolute;
+                    left: -37px;
+                    top: -50px;
+                    }
+                    .ui.dimmer  .post_tip_close .close{
+                    position: absolute;
+                    left: -37px;
+                    top: 96px;
+                    }
+                    .ui.dimmer  .post_tip .close:before{
+                    color:#f40;
+                    font-weight:bold;
+                    }
+                    .post_tip_close:before{
+                    border: 5px solid #f40;
+                    border-bottom: 0;
+                    border-left: 0;
+                    right: -15px;
+                    top: -15px;
+                    width: 22px;
+                    position: absolute;
+                    content: "";
+                    height: 21px;
+                    }
+                    .post_tip_share{
+                    bottom:126px;
+                    }
+                    .post_tip_share:before{
+                    border: 5px solid #f40;
+                    border-left: 0;
+                    border-top: 0;
+                    right: -15px;
+                    bottom: -15px;
+                    width: 22px;
+                    position: absolute;
+                    content: "";
+                    height: 21px;
+                    }
+                    </style>"""
+                    if not kown_close
+                        _ """<div class="post_tip post_tip_close animated lightSpeedIn">点此关闭窗口<p>快捷键 ESC</p><i class="close icon"></i></div>"""
+                    if not kown_share
+                        _ """<div class="post_tip post_tip_share animated lightSpeedIn">点此分享文章<i class="close icon"></i></div>"""
+
+                    _ """</div>"""
+                    _ = $ _.html()
+                    elem.before _
+                    _.find('.post_tip .close').click ->
+                        node = $(@parentNode).removeClass('lightSpeedIn').addClass 'lightSpeedOut'
+                        if node.hasClass('post_tip_share')
+                            store.set 'post.id.share', 1
+                        else if node.hasClass('post_tip_close')
+                            store.set 'post.id.close', 1
+
+
+
+                1000
+        )
+
             $$("lib/sideshare.open")
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")

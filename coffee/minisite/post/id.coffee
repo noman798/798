@@ -139,8 +139,10 @@ _render = (post, scroll_to_reply)->
                 ->
                     kown_close = store.get('post.id.close')
                     kown_share = store.get('post.id.share')
-                    if not (kown_share or kown_close)
+
+                    if (kown_share and kown_close)
                         return
+
                     _ = $.html()
                     _ """
                     <div>
@@ -210,7 +212,17 @@ _render = (post, scroll_to_reply)->
                     if not kown_share
                         _ """<div class="post_tip post_tip_share animated lightSpeedIn">点此分享文章<i class="close icon"></i></div>"""
 
-                        _ """</div>"""
+                    _ """</div>"""
+                    _ = $ _.html()
+                    elem.before _
+                    _.find('.post_tip .close').click ->
+                        node = $(@parentNode).removeClass('lightSpeedIn').addClass 'lightSpeedOut'
+                        if node.hasClass('post_tip_share')
+                            store.set 'post.id.share', 1
+                        else if node.hasClass('post_tip_close')
+                            store.set 'post.id.close', 1
+
+
 
                 1000
         )

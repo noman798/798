@@ -11,7 +11,7 @@ html
         .phone
             .head
                 h1.logo 
-                   .name  TECH2IPO
+                   a.name href="/" TECH2IPO
                    .slogo 「 创造 &amp; 见证 」
                 h1.title 天使汇 · 程序部 · 招人启事
                 p.author 楚狂

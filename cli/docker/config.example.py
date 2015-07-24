@@ -5,6 +5,8 @@ class CONFIG:
     HOST = "797.SPACE"
     CDN = "cdn.797.website"
 
+    SITEMAP = "/mnt/data/sitemap"
+
     class LIVERELOAD:
         PORT = 4242 
         HOST = "192.168.59.103"

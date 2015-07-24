@@ -153,6 +153,12 @@ color: #fff;
 .post_tip_close{
 top: 49px; 
 }
+.post_tip_close p{
+margin:0;
+padding:0;
+margin-top:6px;
+font-size:22px;
+}
 .post_tip_close:before{
 border: 5px solid #f40;
 border-bottom: 0;
@@ -179,7 +185,7 @@ content: "";
 height: 21px;
 }
 </style>
-<div class="post_tip post_tip_close">点此关闭窗口</div>
+<div class="post_tip post_tip_close">点此关闭窗口<p>快捷键 ESC</p></div>
 <div class="post_tip post_tip_share">点此分享文章</div>
 </div>
 """

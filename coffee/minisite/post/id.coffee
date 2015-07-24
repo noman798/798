@@ -135,8 +135,9 @@ _render = (post, scroll_to_reply)->
         }
         "PostModal"
         (elem)->
-
-            elem.before """
+            setTimeout(
+                ->
+                    elem.before """
 <div>
 <style>
 .post_tip{
@@ -199,10 +200,13 @@ content: "";
 height: 21px;
 }
 </style>
-<div class="post_tip post_tip_close">点此关闭窗口<p>快捷键 ESC</p><i class="close icon"></i></div>
-<div class="post_tip post_tip_share">点此分享文章<i class="close icon"></i></div>
+<div class="post_tip post_tip_close animated lightSpeedIn">点此关闭窗口<p>快捷键 ESC</p><i class="close icon"></i></div>
+<div class="post_tip post_tip_share animated lightSpeedIn">点此分享文章<i class="close icon"></i></div>
 </div>
-"""
+        """
+            1000
+            )
+
             $$("lib/sideshare.open")
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")

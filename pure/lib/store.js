@@ -2,7 +2,7 @@
 // Module export pattern from
 // https://github.com/umdjs/umd/blob/master/returnExports.js
 ;(function (root, factory) {
-    define('lib/store', factory);
+    window.store = factory()
 }(this, function (require, exports, module) {
 	// Store.js
 	var store = {},

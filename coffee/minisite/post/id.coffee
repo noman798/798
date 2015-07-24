@@ -1,4 +1,5 @@
 _POST_ID = undefined
+
 $.minisite.post.id = (id, scroll_to_reply=0)->
     id = id - 0
     if _POST_ID == id
@@ -134,6 +135,54 @@ _render = (post, scroll_to_reply)->
         }
         "PostModal"
         (elem)->
+
+            elem.before """
+<div>
+<style>
+.post_tip{
+z-index: 10000;
+position: fixed;
+font-size: 32px;
+right: 50px; 
+border: 5px solid #f40;
+padding: 14px 24px; 
+background: #f60; 
+font-weight: bold; 
+color: #fff;
+}
+.post_tip_close{
+top: 49px; 
+}
+.post_tip_close:before{
+border: 5px solid #f40;
+border-bottom: 0;
+border-left: 0;
+right: -15px;
+top: -15px;
+width: 22px;
+position: absolute;
+content: "";
+height: 21px;
+}
+.post_tip_share{
+bottom:126px;
+}
+.post_tip_share:before{
+border: 5px solid #f40;
+border-left: 0;
+border-top: 0;
+right: -15px;
+bottom: -15px;
+width: 22px;
+position: absolute;
+content: "";
+height: 21px;
+}
+</style>
+<div class="post_tip post_tip_close">点此关闭窗口</div>
+<div class="post_tip post_tip_share">点此分享文章</div>
+</div>
+"""
             $$("lib/sideshare.open")
             replyLi = elem.find('.replyLi')
             textarea = $ _textarea("postModelReply")

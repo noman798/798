@@ -3,7 +3,7 @@ $.lib.sideshare = {
         sideshare = $(".sideshare")
         if not sideshare.length
             title = encodeURIComponent(document.title)
-            href = encodeURIComponent(location.href)
+            href = encodeURIComponent(location.href+".html")
             
             $("body").append """<div class="sideshare">分<br/>享<div class="shareIcon"><a href="http://connect.qq.com/widget/shareqq/index.html?url=#{href}&desc=#{title}&site=#{location.host}"><i class="iconfont icon-qq"></i></a><a href="http://www.douban.com/share/service?url=#{href}&name=#{title}" target="_blank"><i class="iconfont icon-douban"></i></a><i class="iconfont icon-weixin"></i><a target="_blank" href="http://service.weibo.com/share/share.php?language=zh_cn&url=#{href}&title=#{title} // &content=utf-8""><i class="iconfont icon-weibo"></i></a></div></div>"""
 

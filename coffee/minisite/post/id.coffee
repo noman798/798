@@ -159,6 +159,20 @@ padding:0;
 margin-top:6px;
 font-size:22px;
 }
+.ui.dimmer  .post_tip_share .close{
+position: absolute;
+left: -37px;
+top: -50px;
+}
+.ui.dimmer  .post_tip_close .close{
+position: absolute;
+left: -37px;
+top: 96px;
+}
+.ui.dimmer  .post_tip .close:before{
+color:#f40;
+font-weight:bold;
+}
 .post_tip_close:before{
 border: 5px solid #f40;
 border-bottom: 0;
@@ -185,8 +199,8 @@ content: "";
 height: 21px;
 }
 </style>
-<div class="post_tip post_tip_close">点此关闭窗口<p>快捷键 ESC</p></div>
-<div class="post_tip post_tip_share">点此分享文章</div>
+<div class="post_tip post_tip_close">点此关闭窗口<p>快捷键 ESC</p><i class="close icon"></i></div>
+<div class="post_tip post_tip_share">点此分享文章<i class="close icon"></i></div>
 </div>
 """
             $$("lib/sideshare.open")

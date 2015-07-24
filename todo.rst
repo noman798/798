@@ -1,87 +1,3 @@
-python
-    leancloud
-
-
-/mnt/data        
-    ├── _sitemap
-    │   └── 556eb106e4b0925e00040e88
-    │       └── sitemap.xml
-    └── sitemap
-        └── r.io -> ../_sitemap/556eb106e4b0925e00040e88/
-
-    LIMIT = 900
-    
-
-    from os.path import join, abspath, islink, realpath, exist
-    from distutils.dir_util import mkpath
-    from config import SITEMAP
-    from collections import defaultdict
-    
-
-    R_SITEMAP_SINCE = "SitemapSince"
-
-    def mkdir_site(site_id):
-        islink
-        realdir = join(SITEMAP, "_sitemap",site_id)
-
-        os.symlink(src, dst)
-        #os.path.islink (is it a link?) and os.path.realpath (get ultimate pointed to path, regardless of whether it's a link).
-
-    def gen_sitemap(site_id, li):
-        path = join(SITEMAP,"_sitemap",site_id)
-        filelist = [
-            int(i.rsplit("/",1)[-1][:-4])
-            for i in
-            glob.glob(path+"/*.xml")
-        ]
-        filelist.sort()
-        if filelist
-            id = filelist[0]
-            if os.path.getsize(strPath) > 500kb
-                filename = id+1
-            else
-                filename = id 
-        else
-            filename = 1
-        if exist
-            追加
-        else 
-            创建
-        更新sitemap.xml 
-
-
-
-    def the_end():
-        for site_id,li in SITE_POST.iteritems() 
-            mkdir_site(site_id)
-            gen_sitemap(site_id, li)
- 
-             
-    SITE_POST = defaultdict(list) 
-    LAST_ID = (redis.get  R_SITEMAP_SINCE)
-
-    def update() 
-        q ID > since
-        q ID asc 正序
-        q limit LIMIT
-        r = q.find()
-        if r:
-            for i in r
-                SITE_POST[i.site.id].append(i) 
-            LAST_ID = r[-1].id 
-        if r.length >= LIMIT
-            update()
-        else
-            the_end() 
-            redis.set R_SITEMAP_SINCE, LAST_ID
-
-        SiteTagPost
-            ID
-            redis - ID
-        
-
-
-<link rel="canonical" href="http://www.seomoz.org/blog"> 
 
 http://zhanzhang.baidu.com/tools/ping
 
@@ -98,11 +14,6 @@ http://www.myjishu.com/?p=417
 
 #googlebot-mobile|googlebot-image|
 写单独的logo方便查看
-if (
-
-    $http_user_agent ~* "baiduspider|googlebot|360spider|qihoobot|mediapartners-google|adsbot-google|feedfetcher-google|yahoo! slurp|yahoo! slurp china|youdaobot|sosospider|sogou spider|sogou web spider|msnbot|ia_archiver|tomato bot|twitterbot|facebookexternalhit|yandex|yeti|gigabot|bingbot|developers\.google\.com"
-) {
-}
 
 if ($http_user_agent ~* "googlebot|yahoo|bingbot|baiduspider|youdaobot|yandex|yeti|gigabot|ia_archiver|facebookexternalhit|twitterbot") {            
 

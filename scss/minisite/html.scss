@@ -1,0 +1,117 @@
+
+
+body{
+margin:0;
+padding:0;
+font-family:Lato,'Hiragino Sans GB','Microsoft YaHei';
+}
+.phone{
+background:#fff;
+max-width:640px;
+margin:auto;
+}
+h1.logo{
+height: 40px; 
+padding: 0; margin: 0; text-align: left; line-height: 40px; margin-right: 15px; font-size: 22px; 
+.name{
+    font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
+    background: #4285F4;
+    color: #fff;
+    height: 40px;
+    float: left;
+    max-width:120px;
+    padding: 0 15px;
+    margin-left: 15px;
+    font-size: 21px;
+    z-index:2;
+    position:relative;
+}
+.slogo{
+    position: relative;
+    float: right;
+    font-size: 12px;
+    padding:0 6px;
+    z-index: 2;
+    margin-top: 12px;
+    background: #fff;
+    padding: 0;
+}
+&:after{
+    border-bottom: 2px solid #4285F4;
+    content: "";
+    width: 100%;
+    margin-top: 31px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+}
+}
+h1.title{
+text-align:center;
+margin:32px 15px 10px;
+line-height:24px;
+font-size:21px;
+}
+.head {
+    p.author{
+    text-align:center;
+    margin-top:5px;
+    height:21px;
+    font-size:12px;
+    span{
+        padding-left:20px;
+    }
+    }
+}
+.post_read{
+    img{
+        min-width:180px;
+    }
+    margin:0 15px;
+    blockquote{
+        margin-top:32px;
+    }
+    p,blockquote,ul,pre{
+        font-size:18px;
+        line-height:1.6;
+        margin-bottom:16px;
+    }
+    .replyLi{
+        .bar{
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 6px 0;
+            margin-top: 32px;
+            background: #06c;
+            color: #fff;
+            margin-bottom:16px;
+        }
+        padding-bottom:64px;
+        .C{
+            p{
+                font-size:16px;
+            }
+            .author{
+                text-align:right;
+                &:before{
+                    width: 27px;
+                    border-bottom: 1px solid #000;
+                    content: "";
+                    height: 1px;
+                    position: absolute;
+                    margin-left: -35px;
+                    margin-top: 12px;
+                }
+                padding-bottom:16px;
+            }
+            margin-bottom:16px;
+            border-bottom:1px dashed #ddd;
+        }    
+    }
+}
+hr{
+    border:none;
+    margin:32px 0;
+    border-bottom:1px dashed #ddd;
+}

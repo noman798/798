@@ -4,89 +4,18 @@ html
         link rel="stylesheet" href="/css/_base/_reset.css"
         link rel="stylesheet" href="/css/init.css"
         link rel="stylesheet" href="/css/minisite/post_read.css"
+        link rel="stylesheet" href="/css/minisite/html.css"
         meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-        -scss
-            body{
-                margin:0;
-                padding:0;
-                font-family:Lato,'Hiragino Sans GB','Microsoft YaHei';
-            }
-            .phone{
-                background:#fff;
-                max-width:640px;
-                margin:auto;
-            }
-            h1.logo{
-                height: 40px; 
-                padding: 0; margin: 0; text-align: left; line-height: 40px; margin-right: 15px; font-size: 22px; 
-                .name{
-                    font-family: 'Hammersmith One',Lato,'Hiragino Sans GB','Microsoft YaHei';
-                    background: #4285F4;
-                    color: #fff;
-                    height: 40px;
-                    float: left;
-                    max-width:120px;
-                    padding: 0 15px;
-                    margin-left: 15px;
-                    font-size: 21px;
-                    z-index:2;
-                    position:relative;
-                }
-                .slogo{
-                    position: relative;
-                    float: right;
-                    font-size: 12px;
-                    padding:0 6px;
-                    z-index: 2;
-                    margin-top: 12px;
-                    background: #fff;
-                    padding: 0;
-                }
-                &:after{
-                    border-bottom: 2px solid #4285F4;
-                    content: "";
-                    width: 100%;
-                    margin-top: 31px;
-                    position: absolute;
-                    left: 0;
-                    z-index: 1;
-                }
-            }
-            h1.title{
-                text-align:center;
-                margin:10px 15px;
-                line-height:24px;
-                font-size:21px;
-                margin-top:12px;
-            }
-            p.author{
-                text-align:center;
-                margin-top:5px;
-                height:21px;
-                font-size:12px;
-                span{
-                    padding-left:20px;
-                }
-            }
-            .post_read{
-                img{
-                    min-width:180px;
-                }
-                margin:0 15px;
-                font-size:18px;
-                line-height:1.5;
-                blockquote{
-                    margin-bottom:14px;
-                }
-            }
+        link rel="shortcut icon" type="image/x-icon" href="//dn-css7.qbox.me/tc.ico"
     body
         .phone
-            h1.logo 
-               .name  TECH2IPO
-               .slogo 「 创造 &amp; 见证 」
-            h1.title 天使汇 · 程序部 · 招人启事
-            p.author 楚狂
-                span 7-18
+            .head
+                h1.logo 
+                   .name  TECH2IPO
+                   .slogo 「 创造 &amp; 见证 」
+                h1.title 天使汇 · 程序部 · 招人启事
+                p.author 楚狂
+                    span 7-18
             .post_read
                 p 天使汇，
                     a shape="rect" href="http://angelcrunch.com" target="_blank" angelcrunch.com
@@ -163,4 +92,13 @@ html
                         p 冲锋的号角已经吹响
                             br 我们挥舞着战旗
                             br 向着漫天战火，扬帆启航
-                        
+
+            
+                .replyLi
+                    .bar 32 评论
+                    -for i in xrange(3)
+                        .C
+                            p 很好
+                            p 未来，联想将联合更多上下游合作伙伴，推动 FIDO 普及，让更多用户享受安全、便捷的在线支付服务，畅享技术创新为生活带来的革命性舒适体验。
+                            p.author
+                                Noman

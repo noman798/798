@@ -85,6 +85,12 @@
         }
     }
     .brief{
+        a{
+            color:#139;
+            &:hover{
+                color:#f40;
+            }
+        }
         p:first-child{
             margin-top:-11px;
         }

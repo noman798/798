@@ -44,6 +44,7 @@ module.exports = {
         "/lib/scrollbar/jquery.scrollbar.css",
         "/lib/headroom/headroom.css",
         "/lib/nprogress/nprogress.css",
+        "/lib/tageditor/jquery.tag-editor.css",
         "/css/init.css",
     ]
 

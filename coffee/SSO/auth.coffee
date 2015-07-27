@@ -177,58 +177,54 @@ $.SSO.auth = {
                         )
             }
     login: ->
-        require.async(
-            "lib/store"
-            ->
-                modal(
-                    __inline("/html/coffee/SSO/login.html")
-                    "green"
-                    "ssoAuthLogin"
-                    (elem)->
-                        error_tip = $.error_tip(elem)
-                        avalon.nextTick(
-                            ->
-                                elem.find('[name=account]').focus().select()
-                        )
-                        m = {
-                            o:{
-                                account:store.get('username') or ''
-                                password:""
-                            }
-                            submit:->
-                                o = V.ssoAuthLogin.o
-                                account = $.trim o.account
-                                if isNaN(account-0)
-                                    login = AV.User.logIn
-                                else
-                                    login = AV.User.logInWithMobilePhone
-                                
-                                error = {}
-                                if not account
-                                    error.account = ""
-                                if not o.password
-                                    error.password = ""
-                                if not error_tip.set error
-                                    AV.NProgress(login)(
-                                        account
-                                        o.password
-                                        {
-                                            success: (user)->
-                                                store.set('username', user.getEmail())
-                                                reload()
-                                            error: (user, _error) ->
-                                                if _error.code == 211
-                                                    error.account = "该账号不存在"
-                                                else if _error.code == 210
-                                                    mail = o.account
-                                                    mail = if mail.indexOf("@") > 0 then mail else ''
-                                                    error.password = """密码错误。忘记密码了？<a href="javascript:URL('-SSO/auth.password_set_mail', '#{mail}');void(0)">点此找回。</a>"""
-                                                error_tip.set error
-                                        }
-                                    )
-                                false
-                        }
+        modal(
+            __inline("/html/coffee/SSO/login.html")
+            "green"
+            "ssoAuthLogin"
+            (elem)->
+                error_tip = $.error_tip(elem)
+                avalon.nextTick(
+                    ->
+                        elem.find('[name=account]').focus().select()
                 )
+                m = {
+                    o:{
+                        account:store.get('username') or ''
+                        password:""
+                    }
+                    submit:->
+                        o = V.ssoAuthLogin.o
+                        account = $.trim o.account
+                        if isNaN(account-0)
+                            login = AV.User.logIn
+                        else
+                            login = AV.User.logInWithMobilePhone
+                        
+                        error = {}
+                        if not account
+                            error.account = ""
+                        if not o.password
+                            error.password = ""
+                        if not error_tip.set error
+                            AV.NProgress(login)(
+                                account
+                                o.password
+                                {
+                                    success: (user)->
+                                        store.set('username', user.getEmail())
+                                        reload()
+                                    error: (user, _error) ->
+                                        if _error.code == 211
+                                            error.account = "该账号不存在"
+                                        else if _error.code == 210
+                                            mail = o.account
+                                            mail = if mail.indexOf("@") > 0 then mail else ''
+                                            error.password = """密码错误。忘记密码了？<a href="javascript:URL('-SSO/auth.password_set_mail', '#{mail}');void(0)">点此找回。</a>"""
+                                        error_tip.set error
+                                }
+                            )
+                        false
+                }
         )
 
     password_set_mail: (mail)->

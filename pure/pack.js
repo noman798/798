@@ -4,6 +4,7 @@ module.exports = {
     "pkg/base.js":[
         "/lib/mod.js",
         "/lib/jquery.js",
+        "/lib/store.js",
         "/lib/headroom/headroom.js",
         "/lib/avalon.modern.shim.js",
         "/lib/nprogress/nprogress.js",

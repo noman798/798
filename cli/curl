@@ -1,0 +1,2 @@
+curl -L -A "Googlebot/2.1 (+http://www.google.com/bot.html)" http://coder.angelcrunch.com
+

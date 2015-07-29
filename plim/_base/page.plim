@@ -8,7 +8,6 @@ html lang="zh-CN"
         title _NGINX_HOST_
         meta http-equiv="X-UA-Compatible" content="IE=edge"
         script src="https://cdn1.lncld.net/static/js/av-mini-0.5.4.js"
-        link rel="shortcut" href=""
         meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
         meta name="x5-fullscreen" content="true"
         meta name="mobile-web-app-capable" content="yes"

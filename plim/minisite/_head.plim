@@ -10,4 +10,3 @@ div.headroom
             a.iconfont.icon-talk12 href="#"
                 span.unread 3
             a.iconfont.icon-search href="/search"
-            a.iconfont.icon-write href="javascript:URL('-minisite/bind');void(0)"

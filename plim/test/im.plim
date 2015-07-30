@@ -1,15 +1,31 @@
 
 -inherit /_base/page.plim
 
+script src="/lib/AV.push.js"
+
 -coffee
+    #AV.push._tool.getId ->
+    #       return 
     # 最简的示例代码，请换成自己的 appId 和 appKey
     appId = 'ky522fknrn8mu6gxalshtr6amh7uun96lw4i9io5weti8067'
     appKey = 'xjenlt7tz8kkm6f3g7o5xw7utaqcvzyz0hanxj2pajcwzkxd'
     push = AV.push(
       appId: appId
-      appKey: appKey)
+      appKey: appKey
+    )
+    window.push = push
+    console.log push
+
+    push.subscribe(['publish'], ->
+            console.log '订阅成功'
+    )
+
+
     # 发送一条推送，如果不传 channels 则是给所有 channel 发送消息
-    push.send { data: LeanCloud: 123 }, (result) ->
+    push.send { 
+        data: {LeanCloud: 123}
+        channels:['publish'] 
+      }, (result) ->
       if result
         console.log '推送成功发送'
       else

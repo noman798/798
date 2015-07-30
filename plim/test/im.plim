@@ -1,0 +1,30 @@
+
+-inherit /_base/page.plim
+
+-coffee
+    # 最简的示例代码，请换成自己的 appId 和 appKey
+    appId = 'ky522fknrn8mu6gxalshtr6amh7uun96lw4i9io5weti8067'
+    appKey = 'xjenlt7tz8kkm6f3g7o5xw7utaqcvzyz0hanxj2pajcwzkxd'
+    push = AV.push(
+      appId: appId
+      appKey: appKey)
+    # 发送一条推送，如果不传 channels 则是给所有 channel 发送消息
+    push.send { data: LeanCloud: 123 }, (result) ->
+      if result
+        console.log '推送成功发送'
+      else
+        console.log 'error'
+      return
+    # 如果想接收推送，需要调用 open 方法，开启和服务器的连接
+    push.open ->
+      console.log '连接服务器成功，可以接收推送'
+      return
+    # 监听推送消息
+    push.on 'message', (data) ->
+      console.log 'message'
+      console.log JSON.stringify(data)
+      return
+    # 监听网络异常，SDK 会在底层自动重新连接服务器
+    push.on 'reuse', ->
+      console.log '网络中断正在重试。。。'
+      return

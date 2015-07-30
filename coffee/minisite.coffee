@@ -2,7 +2,7 @@
 @require minisite/url
 @require minisite/init
 @require minisite/const
-@require /lib/AV.realtime.js
+@require /lib/AV.push.js
 @require /lib/store.js
 @require minisite/im
 ###

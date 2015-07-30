@@ -20,7 +20,7 @@ module.exports = {
         "/lib/qrcode.js",
         "/lib/tageditor/jquery.caret.min.js",
         "/lib/tageditor/jquery.tag-editor.js",
-        "/lib/AV.realtime.js",
+        "/lib/AV.push.js",
         "/modules/lib/jquery_ext.js",
         "/modules/lib/error_tip.js",
         "/modules/lib/async.js",

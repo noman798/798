@@ -82,11 +82,11 @@
 span.user
     span.name
     a.icon-close.iconfont href="javascript:void(0)" 
-a href="javascript:URL('-SSO/auth.info_update');void(0)" 基本信息
-    i.iconfont &#xe60d;
-a href="javascript:URL('-SSO/auth.password_update');void(0)" 修改密码 
-    i.iconfont &#xe60e;
 a href="javascript:URL('-minisite/bind');void(0)" 发布文章
     i.iconfont.icon-write
 a href="javascript:URL('-minisite/manage.my');void(0)" 内容管理 
     i.iconfont &#xe61f;
+a href="javascript:URL('-SSO/auth.info_update');void(0)" 基本信息
+    i.iconfont &#xe60d;
+a href="javascript:URL('-SSO/auth.password_update');void(0)" 修改密码 
+    i.iconfont &#xe60e;

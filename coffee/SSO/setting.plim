@@ -25,6 +25,9 @@
                 font-weight: normal;
                 margin-top: 1px;
             }
+            .icon-write{
+                font-size:23px;
+            }
             &:hover{
                 color:#fff;
                 border-color:#222;

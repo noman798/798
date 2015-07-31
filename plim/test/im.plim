@@ -4,7 +4,12 @@
 -block head
     =parent.head()
     link rel="stylesheet" href="/css/minisite/init.css"
-
+    -scss
+        #BODY > .Rbar{
+            .body.im{
+                text-align:left;
+            }
+        }
 .Rbar.toggle.ui.sidebar.left.visible.uncover.overlay
     .bg    
     .cover0
@@ -17,19 +22,21 @@
                 .vc2
                     .vc1
                         .vc0
-                            .body
-                                .channel 
-                                    .link 
-                                        p.now
-                                            a.now href="#" 提醒
-                                        p
-                                            a href="#"
-                                                span.focus 邱少云
-                                                    span.number 23
-                                        p
-                                            a href="#"
-                                                span.focus 雷锋
-                                                    span.number 3
-                                        p
-                                            a href="#"
-                                                span.focus 江湖一剑客
+                            .body.im
+                                .FC0
+                                    .FC1
+                                        .channel
+                                            .link 
+                                                p.now
+                                                    a.now href="#" 提醒
+                                                p
+                                                    a href="#"
+                                                        span.focus 邱少云
+                                                            span.number 23
+                                                p
+                                                    a href="#"
+                                                        span.focus 雷锋
+                                                            span.number 3
+                                                p
+                                                    a href="#"
+                                                        span.focus 江湖一剑客

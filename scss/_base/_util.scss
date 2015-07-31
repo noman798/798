@@ -30,3 +30,14 @@ margin:0 6px;
 .tr{
 text-align:right;
 }
+
+.FC0{
+    float:left;
+    position:relative;
+    left:50%;
+    .FC1{
+        position:relative;
+        right:50%;
+        float:left;
+    }
+}

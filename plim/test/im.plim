@@ -25,20 +25,24 @@
                                         .channel
                                             .link
 
-                                                p.now
+                                                p
                                                     a.now href="#"
                                                         i class="icon-gonggaonotice iconfont"
                                                         提醒
                                                 p
                                                     a href="#"
+                                                        i class="icon-chat iconfont"
+                                                        评论
+                                                        span.number 23
+                                                p
+                                                    a href="#"
                                                         i class="icon-man iconfont"
-                                                        span.focus 邱少云
-                                                            span.number 23
+                                                        邱少云
                                                 p
                                                     a href="#"
                                                         i class="icon-woman iconfont"
-                                                        span.focus 王菲
-                                                            span.number 3
+                                                        王菲
+                                                        span.number 3
                                                 p
                                                     a href="#"
                                                         i class="icon-man iconfont"

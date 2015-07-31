@@ -1,5 +1,23 @@
 
 -inherit /_base/page.plim
 
-p 33
-.Rbar.toggle.ui.sidebar sss
+.bg    
+.cover0
+.cover
+
+a.iconfont.icon-close.rbarClose href="javascript:void(0);"
+.Rbody
+   1 
+    .vc2
+        .vc1
+            .vc0
+                .body
+                    .channel 
+                        .link 
+                            p
+                                a href="#" 新闻资讯
+                                    span.plus +
+                            p
+                                a href="#"
+                                    span.focus 苹果发布会
+                                        span.number 23

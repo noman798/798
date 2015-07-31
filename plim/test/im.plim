@@ -28,6 +28,10 @@
                                                 p
                                                     a.now href="#"
                                                         i class="icon-gonggaonotice iconfont"
+                                                        公告
+                                                p
+                                                    a href="#"
+                                                        i class="icon-androidbulb iconfont"
                                                         提醒
                                                 p
                                                     a href="#"
@@ -47,3 +51,4 @@
                                                     a href="#"
                                                         i class="icon-man iconfont"
                                                         span.focus 江湖一剑客
+

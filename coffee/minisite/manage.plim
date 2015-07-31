@@ -32,6 +32,7 @@
                             option value='1' 审核通过
                             option value='2' 退回稿件
 
+                a.edit_txt ms-href="/edit/now.ID" target="_blank" 编辑正文
                 a.ui.button.blue href="javascript:void(0)" ms-click="lside.submit" 保存
 
         .lsidebg0

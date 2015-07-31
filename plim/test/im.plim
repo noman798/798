@@ -48,11 +48,11 @@
                                                     a href="#"
                                                         i class="icon-reply iconfont"
                                                         评论
-                                                    span.number 23
                                                 p
                                                     a href="#"
                                                         i class="icon-iconfontmember iconfont"
                                                         王万里、丘处机、秋香 等 12 人
+                                                    span.number 23
                                                 p
                                                     a href="#"
                                                         i class="icon-man iconfont"
@@ -66,6 +66,10 @@
                                                     a href="#"
                                                         i class="icon-man iconfont"
                                                         span.focus 江湖一剑客
+                                                p
+                                                    a href="#"
+                                                        i class="icon-iconfontmember iconfont"
+                                                        王万里、秋香 等 3 人
 
 .main.pusher.scrollbar-macosx
     .replybar

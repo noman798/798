@@ -52,7 +52,6 @@
                     cursor: pointer;
                     transform: scale(0.87);
                     display: inline-block;
-
                 }
                 &:hover{
                     .number {
@@ -63,6 +62,7 @@
                 a{
                     padding:1px 12px 1px 10px;
                     max-width: 226px;
+                    padding-right:3px;
                     display: inline-block;
                     overflow: hidden;
                     text-overflow: ellipsis;

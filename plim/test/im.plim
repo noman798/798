@@ -20,10 +20,16 @@
                             .body
                                 .channel 
                                     .link 
-                                        p
-                                            a href="#" 新闻资讯
-                                                span.plus +
+                                        p.now
+                                            a.now href="#" 提醒
                                         p
                                             a href="#"
-                                                span.focus 苹果发布会
+                                                span.focus 邱少云
                                                     span.number 23
+                                        p
+                                            a href="#"
+                                                span.focus 雷锋
+                                                    span.number 3
+                                        p
+                                            a href="#"
+                                                span.focus 江湖一剑客

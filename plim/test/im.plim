@@ -29,6 +29,8 @@
                                                     a href="#"
                                                         i class="icon-chat iconfont"
                                                         聊天室
+                                        .channel.hrline
+                                            .link
                                                 p
                                                     a.now href="#"
                                                         i class="icon-gonggaonotice iconfont"

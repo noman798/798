@@ -2,6 +2,11 @@
     font-size:22px;
     line-height:1.875;
 
+    embed{
+        display: block;
+        width: 100%;
+        min-height: 600px;
+    }
     blockquote{
         top:6px;
         p.L a span{

@@ -10,6 +10,8 @@
                 text-align:left;
             }
         }
+
+
 .Rbar.toggle.ui.sidebar.left.visible.uncover.overlay
     .bg    
     .cover0

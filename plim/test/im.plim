@@ -4,12 +4,7 @@
 -block head
     =parent.head()
     link rel="stylesheet" href="/css/minisite/init.css"
-    -scss
-        #BODY > .Rbar{
-            .body.im{
-                text-align:left;
-            }
-        }
+    link rel="stylesheet" href="/css/minisite/im.css"
 
 
 .Rbar.toggle.ui.sidebar.left.visible.uncover.overlay

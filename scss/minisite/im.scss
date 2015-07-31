@@ -40,17 +40,17 @@
                 margin:0;
                 .number {
                     background: rgba(55, 150, 0, 0.4);
-                    border-radius: 10px;
+                    border-radius: 6px;
                     color: #ccc9bf;
                     font-size: 12px;
                     font-weight: bold;
                     margin-left: -4px;
-                    padding: 2px 7px;
+                    padding: 1px 6px;
                     position: relative;
                     line-height: 17px;
                     top: -12px;
                     cursor: pointer;
-                    transform: scale(0.87);
+                    transform: scale(0.9);
                     display: inline-block;
                 }
                 &:hover{

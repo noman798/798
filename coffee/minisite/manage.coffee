@@ -12,7 +12,6 @@
                 已经发布
                 退回稿件
 
-
     红色代表待审核
     绿色代表已经发布 #59B122
 
@@ -91,6 +90,8 @@ _indox = (post_id, submit_bar, h1)->
                     [
                         {
                             submit_bar
+                            edit:->
+
                             pub:->
                                 alertify.confirm "勾选并保存文章将发布到 #{$.escape SITE.NAME} 首页并通过 RSS 向站外发布，发布之前请确认文章标题、摘要及标签正确。"
                             sub:->

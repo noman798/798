@@ -31,12 +31,15 @@
                                                         提醒
                                                 p
                                                     a href="#"
+                                                        i class="icon-man iconfont"
                                                         span.focus 邱少云
                                                             span.number 23
                                                 p
                                                     a href="#"
-                                                        span.focus 雷锋
+                                                        i class="icon-woman iconfont"
+                                                        span.focus 王菲
                                                             span.number 3
                                                 p
                                                     a href="#"
+                                                        i class="icon-man iconfont"
                                                         span.focus 江湖一剑客

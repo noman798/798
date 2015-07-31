@@ -1,13 +1,15 @@
 
 -inherit /_base/page.plim
 
+-block head
+    link rel="stylesheet" href="/css/minisite/init.css"
+
 .bg    
 .cover0
 .cover
 
 a.iconfont.icon-close.rbarClose href="javascript:void(0);"
 .Rbody
-   1 
     .vc2
         .vc1
             .vc0

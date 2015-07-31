@@ -5,23 +5,24 @@
     =parent.head()
     link rel="stylesheet" href="/css/minisite/init.css"
 
-.Rbar.toggle.ui.sidebar
+.Rbar.toggle.ui.sidebar.left.visible.uncover.overlay
     .bg    
     .cover0
     .cover
 
     a.iconfont.icon-close.rbarClose href="javascript:void(0);"
     .Rbody
-        .vc2
-            .vc1
-                .vc0
-                    .body
-                        .channel 
-                            .link 
-                                p
-                                    a href="#" 新闻资讯
-                                        span.plus +
-                                p
-                                    a href="#"
-                                        span.focus 苹果发布会
-                                            span.number 23
+        .frame
+            .vc2
+                .vc1
+                    .vc0
+                        .body
+                            .channel 
+                                .link 
+                                    p
+                                        a href="#" 新闻资讯
+                                            span.plus +
+                                    p
+                                        a href="#"
+                                            span.focus 苹果发布会
+                                                span.number 23

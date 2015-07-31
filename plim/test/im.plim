@@ -23,9 +23,12 @@
                                 .FC0
                                     .FC1
                                         .channel
-                                            .link 
+                                            .link
+
                                                 p.now
-                                                    a.now href="#" 提醒
+                                                    a.now href="#"
+                                                        i class="icon-gonggaonotice iconfont"
+                                                        提醒
                                                 p
                                                     a href="#"
                                                         span.focus 邱少云

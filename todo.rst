@@ -1,6 +1,5 @@
 http://zhanzhang.baidu.com/tools/ping
 
-
 http://ping.baidu.com/ping/RPC2
 http://blogsearch.google.com/ping/RPC2
 http://rpc.pingomatic.com/

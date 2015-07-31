@@ -26,6 +26,10 @@
                                             .link
 
                                                 p
+                                                    a href="#"
+                                                        i class="icon-chat iconfont"
+                                                        聊天室
+                                                p
                                                     a.now href="#"
                                                         i class="icon-gonggaonotice iconfont"
                                                         公告
@@ -35,7 +39,15 @@
                                                         提醒
                                                 p
                                                     a href="#"
+                                                        i class="icon-at iconfont"
+                                                        | @我
+                                                p
+                                                    a href="#"
                                                         i class="icon-chat iconfont"
+                                                        客服
+                                                p
+                                                    a href="#"
+                                                        i class="icon-reply iconfont"
                                                         评论
                                                         span.number 23
                                                 p

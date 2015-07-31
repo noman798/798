@@ -1,24 +1,58 @@
-
+#BODY > .main .replybar{
+    textarea{
+        outline:0;
+        width:100%;
+        resize:none;
+        border:0;
+        height:32px;
+        line-height:32px;
+        padding:7px 16px;
+        height:46px;
+        padding-left:57px;
+    }
+    .icon-yfadd{
+        position:absolute;
+        height: 46px;
+        width: 46px;
+        text-align: center;
+        line-height: 46px;
+        color: #ccc;
+        background: #fff;
+        border-right: 2px solid #ccc;
+        background: transparent;
+        display: block;
+        font-size: 22px;
+        font-weight: bold;
+        padding-left: 2px;
+    }
+    height:46px;
+    border-top:2px solid #ccc;
+    left:30%;
+    right:0;
+    bottom:0;
+    position:fixed;
+}
 #BODY > .Rbar{
     .scrollbar-macosx{
         .body.im{
             text-align:left;
-            .link p a {
-                .iconfont{
-                    margin-right: 9px;
-                    vertical-align: 1px;
-                }
+            .link p {
+                margin:0;
                 .number {
-                    background:rgba(55, 150, 0, 0.4);
-                    border-radius:10px;
-                    color:rgb(204, 201, 191);
-                    font-size:12px;
-                    font-weight:normal;
-                    margin-left:6px;
-                    padding:2px 7px;
-                    position:absolute;
-                    top:3px;
-                    line-height:17px;
+                    background: rgba(55, 150, 0, 0.4);
+                    border-radius: 10px;
+                    color: #ccc9bf;
+                    font-size: 12px;
+                    font-weight: normal;
+                    margin-left: -2px;
+                    padding: 2px 7px;
+                    position: relative;
+                    line-height: 17px;
+                    top: -12px;
+                    cursor: pointer;
+                    transform: scale(0.87);
+                    display: inline-block;
+
                 }
                 &:hover{
                     .number {
@@ -26,23 +60,35 @@
                         background:rgba(255, 100, 0, 0.8);
                     }
                 }
-                .icon-woman{
-                    font-size: 15px;
-                    vertical-align: 2px;
-                }
-                .icon-man{
-                   font-size: 13px;
-                   vertical-align: 2px;
-                }
-                .icon-reply{
-                   font-size: 13px;
-                   vertical-align: 2px;
-                }
-                .icon-chat{
-                    font-size:17px;
-                }
-                .icon-androidbulb{
-                   vertical-align: 2px;
+                a{
+                    padding:1px 12px 1px 10px;
+                    max-width: 226px;
+                    display: inline-block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    .iconfont{
+                        margin-right: 9px;
+                        vertical-align: 1px;
+                    }
+                    .icon-woman{
+                        font-size: 15px;
+                        vertical-align: 2px;
+                    }
+                    .icon-man{
+                       font-size: 13px;
+                       vertical-align: 2px;
+                    }
+                    .icon-reply{
+                       font-size: 13px;
+                       vertical-align: 2px;
+                    }
+                    .icon-chat{
+                        font-size:17px;
+                    }
+                    .icon-androidbulb{
+                       vertical-align: 2px;
+                    }
                 }
             }
         }

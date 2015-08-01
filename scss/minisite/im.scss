@@ -4,6 +4,7 @@
         font-size: 14px;
         color: #999;
         margin-top:19px;
+        margin-bottom:19px;
         &:after{
             position: absolute;
             content: "";
@@ -27,23 +28,18 @@
             margin-top:16px;
             .name{
                 font-size:12px;
+                margin-top:8px;
+                margin-left:20px;
                 margin-bottom:8px;
                 color:rgba(49,0,103,.6);
             }
             .txt{
                 p{
-                    font-size:22px;
+                    font-size:18px;
                     margin-bottom:4px;
                 }
                border-left:1px dashed rgba(49,0,103,.2);
                padding:0 16px;
-               float:left;
-               p:first-child{
-                margin-top:-7px;
-               }
-               p:last-child{
-                margin-bottom:-7px;
-               }
             }
             &.me {
                 .name{

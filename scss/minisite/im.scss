@@ -22,36 +22,32 @@
     .body{
         margin:10px 46px;
         .item{
-            max-width:632px;
+            max-width:740px;
             margin:auto;
             margin-top:16px;
             .name{
-                font-size:14px;
-                font-weight:bold;
+                font-size:12px;
                 margin-bottom:8px;
-                color:#603;
-            }
-            p{
-                margin-bottom:4px;
+                color:#666;
             }
             .txt{
-               font-size: 18px;
-               border-left:2px solid #603;
+                p{
+                    font-size:22px;
+                    margin-bottom:4px;
+                }
+               border-left:1px dashed rgba(49,0,103,.2);
                padding:0 16px;
                float:left;
                p:first-child{
-                margin-top:-2px;
+                margin-top:-7px;
                }
                p:last-child{
-                margin-bottom:-3px;
+                margin-bottom:-7px;
                }
             }
             &.me {
-                .name{
-                    color:#063;
-                }
                 .txt{
-                    border-left-color:#063;
+                    border-left-color:RGBA(0, 103, 49, .2);
                 }
             }
         }

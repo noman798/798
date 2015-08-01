@@ -1,4 +1,61 @@
-#BODY > .main{
+#BODY > .main.im{
+    .timesplit{
+        text-align: center;
+        font-size: 14px;
+        color: #999;
+        margin-top:24px;
+        &:after{
+            position: absolute;
+            content: "";
+            border-bottom: 1px dashed #ccc;
+            width: 100%;
+            left: 0;
+            margin-top: 12px;
+        }
+        span{
+            background: #F7F7F7;
+            z-index: 1;
+            padding: 0 12px;
+            position: relative;
+        }
+    }
+    .body{
+        margin:10px 46px;
+        .item{
+            max-width:632px;
+            margin:auto;
+            margin-top:16px;
+            .name{
+                font-size:14px;
+                font-weight:bold;
+                margin-bottom:8px;
+                color:#603;
+            }
+            p{
+                margin-bottom:4px;
+            }
+            .txt{
+               font-size: 18px;
+               border-left:2px solid #603;
+               padding:0 16px;
+               float:left;
+               p:first-child{
+                margin-top:-2px;
+               }
+               p:last-child{
+                margin-bottom:-3px;
+               }
+            }
+            &.me {
+                .name{
+                    color:#063;
+                }
+                .txt{
+                    border-left-color:#063;
+                }
+            }
+        }
+    }
     .topbar{
         background: #101022;
         text-align: center;

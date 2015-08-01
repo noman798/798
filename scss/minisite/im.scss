@@ -1,36 +1,47 @@
-#BODY > .main .replybar{
-    textarea{
-        outline:0;
-        width:100%;
-        resize:none;
-        border:0;
-        height:32px;
-        line-height:32px;
-        padding:7px 16px;
-        height:46px;
-        padding-left:57px;
-    }
-    .icon-yfadd{
-        position:absolute;
-        height: 46px;
-        width: 46px;
+#BODY > .main{
+    .topbar{
+        background:#101022;
         text-align: center;
-        line-height: 46px;
-        color: #ccc;
-        background: #fff;
-        border-right: 2px solid #ccc;
-        background: transparent;
-        display: block;
         font-size: 22px;
-        font-weight: bold;
-        padding-left: 2px;
+        color:rgba(255,255,255,.5);
+        padding-bottom: 12px;
+        padding-top: 9px;
     }
-    height:46px;
-    border-top:2px solid #ccc;
-    left:30%;
-    right:0;
-    bottom:0;
-    position:fixed;
+
+    .replybar{
+        textarea{
+            outline:0;
+            width:100%;
+            resize:none;
+            border:0;
+            height:32px;
+            line-height:32px;
+            padding:7px 16px;
+            height:46px;
+            padding-left:57px;
+        }
+        .icon-yfadd{
+            position:absolute;
+            height: 46px;
+            width: 46px;
+            text-align: center;
+            line-height: 46px;
+            color: #ccc;
+            background: #fff;
+            border-right: 2px solid #ccc;
+            background: transparent;
+            display: block;
+            font-size: 22px;
+            font-weight: bold;
+            padding-left: 2px;
+        }
+        height:46px;
+        border-top:2px solid #ccc;
+        left:30%;
+        right:0;
+        bottom:0;
+        position:fixed;
+    }
 }
 #BODY > .Rbar{
     .scrollbar-macosx{

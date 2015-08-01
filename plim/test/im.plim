@@ -51,7 +51,7 @@
                                                 p
                                                     a href="#"
                                                         i class="icon-iconfontmember iconfont"
-                                                        王万里、丘处机、秋香 等 12 人
+                                                        王万里、丘处机、秋香 (12)
                                                     span.number 23
                                                 p
                                                     a href="#"
@@ -69,9 +69,12 @@
                                                 p
                                                     a href="#"
                                                         i class="icon-iconfontmember iconfont"
-                                                        王万里、秋香 等 3 人
+                                                        王万里、秋香 (3)
 
 .main.pusher.scrollbar-macosx
+    .topbar
+        长石
+        .triangle
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"
         textarea placeholder="说点什么… …"

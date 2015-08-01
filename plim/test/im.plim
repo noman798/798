@@ -74,8 +74,17 @@
 .main.pusher.scrollbar-macosx
     .topbar
         .name
-            刘刘晓
+            及时雨宋江
             .triangle
+    .post_read
+        .item
+            .name 及时雨宋江
+            p 那军师有何妙计?
+        .item
+            .name 百无一用是书生 
+            p 哥哥莫慌, 且听我细细道来
+        .timesplit 昨天
+
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"
         textarea placeholder="说点什么… …"

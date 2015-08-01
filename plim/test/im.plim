@@ -84,6 +84,15 @@
             .name 百无一用是书生 
             p 哥哥莫慌, 且听我细细道来
         .timesplit 昨天
+        .item
+            .name 百无一用是书生 
+            p 树欲静而风不止,到底是风的错还是叶子的错 
+        .item
+            .name 百无一用是书生 
+            p 以我看来,是风的错,叶子想安安静静在树上待着,风却不理解叶子的本意 
+        .item
+            .name 及时雨宋江 
+            p 是的 
 
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"

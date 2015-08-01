@@ -3,13 +3,17 @@
         background: #101022;
         text-align: center;
         font-size: 22px;
-        padding-bottom: 12px;
-        padding-top: 9px;
+        height:66px;
         .name{
+            margin-top:12px;
             display:inline-block;
             color: rgba(255, 255, 255, 0.7);
             position:relative;
             cursor:pointer;
+            overflow:hidden;
+            max-width:300px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             padding-right:26px;
             .triangle{
                 cursor:pointer;

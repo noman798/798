@@ -6,19 +6,24 @@
         color:rgba(255,255,255,.7);
         padding-bottom: 12px;
         padding-top: 9px;
+        .name{
+            display:inline-block;
+            position:relative;
+            pointer:cursor;
+        }
     }
     .triangle{
+        pointer:cursor;
         width: 0;
         height: 0;
         border-style: solid dashed dashed;
         position: absolute;
-        vertical-align: -13px;
         margin-left: 10px;
         border-width: 5px;
         color: rgba(255, 255, 255, 0.7);
         border-color: rgba(255, 255, 255, 0.7) transparent transparent;
         right: -21px;
-        top: 21px;
+        top: 20px;    
     }
     .replybar{
         textarea{

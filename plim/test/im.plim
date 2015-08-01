@@ -73,8 +73,9 @@
 
 .main.pusher.scrollbar-macosx
     .topbar
-        长石
-        .triangle
+        .name
+            长石
+            .triangle
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"
         textarea placeholder="说点什么… …"

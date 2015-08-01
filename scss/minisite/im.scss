@@ -28,7 +28,7 @@
             .name{
                 font-size:12px;
                 margin-bottom:8px;
-                color:#666;
+                color:rgba(49,0,103,.6);
             }
             .txt{
                 p{
@@ -46,6 +46,9 @@
                }
             }
             &.me {
+                .name{
+                    color:rgba(49,0,103,.6);
+                }
                 .txt{
                     border-left-color:RGBA(0, 103, 49, .2);
                 }

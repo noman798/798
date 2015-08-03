@@ -11,7 +11,9 @@ NOTIFICATION_COUNT = 0
 ORIGINAL_TITLE = document.title
 
 Notification = window.Notification || window.mozNotification || window.webkitNotification
+
 _notification = (name, body, tag, icon)->
+    icon = "http://www.qjis.com/uploads/allimg/130122/1024245024-38.jpg"
     params = {body}
     if tag
         params.tag = tag

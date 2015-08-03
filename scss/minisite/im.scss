@@ -87,6 +87,7 @@
         }
     }
     .replybar{
+        z-index:200;
         transform:translateZ(0);
         background:#fff;
         border-top:2px solid #ccc;

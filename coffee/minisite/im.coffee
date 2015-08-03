@@ -1,6 +1,36 @@
 elem = $ __inline("/html/coffee/minisite/im.html")
 $('body').append elem
 
+Notification = window.Notification || window.mozNotification || window.webkitNotification
+
+notification = ->
+
+
+Notification.requestPermission(
+    (permission) ->
+        if permission
+            notification = (name, body)->
+                instance = new Notification(
+                    name, {
+                        body
+                    }
+                )
+
+)
+
+#instance.onclick = function () {
+#    // Something to do
+#};
+#instance.onerror = function () {
+#    // Something to do
+#};
+#instance.onshow = function () {
+#    // Something to do
+#};
+#instance.onclose = function () {
+#    // Something to do
+#};
+
 Rbar = $ elem[0]
 Rbar.scrollbar()
 
@@ -28,3 +58,8 @@ im_reply.focus ->
 im_reply.blur ->
     autosize.destroy(im_reply)
 
+setTimeout(
+    ->
+        notification("张沈鹏","<b>你知道吗?</b>你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?")
+    100
+)

@@ -6,6 +6,10 @@
 elem = $ __inline("/html/coffee/minisite/im.html")
 $('body').append elem
 
+notification = ->
+NOTIFICATION_COUNT = 0
+ORIGINAL_TITLE = document.title
+
 Notification = window.Notification || window.mozNotification || window.webkitNotification
 _notification = (name, body, tag, icon)->
     params = {body}
@@ -15,17 +19,23 @@ _notification = (name, body, tag, icon)->
         params.icon = icon
     #icon , tag (替换) ， body
      
-    window.instance = new Notification(
+    instance = new Notification(
         name
         params
     )
+
+    instance.onclick = ->
+        window.focus()
+        this.close()
+
     setTimeout(
         ->
             instance.close()
         5000
     )
+    NOTIFICATION_COUNT += 1
 
-notification = ->
+    document.title = "( #{NOTIFICATION_COUNT} ) #{ORIGINAL_TITLE}"
 
 if Notification
     Notification.requestPermission(
@@ -36,7 +46,10 @@ if Notification
                 $(document).on(
                     show: ->
                         notification = ->
+                        NOTIFICATION_COUNT = 0
+                        document.title = ORIGINAL_TITLE
                     hide: ->
+                        ORIGINAL_TITLE = document.title
                         notification = _notification
                 )
     )
@@ -81,8 +94,8 @@ im_reply.focus ->
 im_reply.blur ->
     autosize.destroy(im_reply)
 
-#setInterval(
-setTimeout(
+setInterval(
+#setTimeout(
     ->
         notification("张沈鹏","你知道吗?"+(new Date()), "121")
     3000

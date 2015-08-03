@@ -94,7 +94,7 @@ im_reply = main.find('#im_reply')
 im_reply.focus ->
     autosize(im_reply)
 im_reply.blur ->
-    if not $.trim(im_reply)
+    if not $.trim(im_reply.val())
         im_reply.val ''
         autosize.destroy(im_reply)
 

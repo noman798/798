@@ -1,10 +1,10 @@
 head = ->
     new Headroom(
-        $(".headroom.postLi")[0],
+        $(".headroom")[0],
         {
           "offset": 66,
           "tolerance": 1,
-          scroller : $("#BODY>.main.postLi")[0]
+          scroller : $("#BODY>.main")[0]
           "classes": {
             "initial": "animated",
             "pinned": "swingInX",

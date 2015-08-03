@@ -6,7 +6,6 @@
     link rel="stylesheet" href="/css/minisite/init.css"
     link rel="stylesheet" href="/css/minisite/im.css"
 
-
 .Rbar.toggle.ui.sidebar.left.visible.uncover.overlay
     .bg    
     .cover0
@@ -124,5 +123,6 @@
 
 
 
+scrip src="modules/minisite/im.js"
 
 

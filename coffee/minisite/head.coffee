@@ -14,6 +14,7 @@ new Headroom(
 $('.headroom .icon-search').click ->
     $.modal_alert '研发中，请稍后使用。。。'
     return false
+    ###
     $('#BODY').prepend(__inline("/html/coffee/minisite/search.html"))
     if AV.User.current()
         user=AV.User.current().getUsername()
@@ -52,3 +53,4 @@ $('.headroom .icon-search').click ->
             $('.overlay .searchbar .wrap').width(100)
         else
             $('.overlay .searchbar .wrap').width($('.Rbar').width())
+    ###

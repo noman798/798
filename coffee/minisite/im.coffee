@@ -76,7 +76,6 @@ main = $ elem[1]
 main.scrollbar()
 
 
-console.log main
 new Headroom(
     elem.find(".headroom")[0],
     {
@@ -90,20 +89,23 @@ new Headroom(
         }
 }).init()
 
-im_reply = main.find('#im_reply')
-im_reply.focus ->
-    autosize(im_reply)
-im_reply.blur ->
-    if not $.trim(im_reply.val())
+$ ->
+    im_reply = main.find('#im_reply')
+    im_reply.focus ->
+        autosize(im_reply)
+    im_reply.blur ->
+        if not $.trim(im_reply.val())
+            im_reply.val ''
+            autosize.destroy(im_reply)
+
+    _reply = ->
         im_reply.val ''
-        autosize.destroy(im_reply)
+        main.scrollTop(main.find(".body").height())
+        im_reply.blur()
 
-_reply = ->
-    im_reply.val ''
-
-main.find('.replybar .send').click(_reply)
-im_reply.ctrl_enter(_reply)
-
+    main.find('.replybar .send').click(_reply)
+    im_reply.ctrl_enter(_reply)
+    
 
 setInterval(
 #setTimeout(

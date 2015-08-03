@@ -97,17 +97,18 @@
             .item.me
                 .txt
                     p 是这样
-                .name 百无一用是书生 
-        .C 
-            .item
-                .txt
-                    p 对头，出发! 
-                .name 及时雨宋江 
-        .C
-            .item.me
-                .txt
-                    p Go Go Go
-                .name 百无一用是书生 
+                .name 百无一用是书生
+        -for i in xrange(11) 
+            .C 
+                .item
+                    .txt
+                        p 对头，出发! 
+                    .name 及时雨宋江 
+            .C
+                .item.me
+                    .txt
+                        p Go Go Go
+                    .name 百无一用是书生 
 
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"

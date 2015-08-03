@@ -5,24 +5,25 @@ Notification = window.Notification || window.mozNotification || window.webkitNot
 
 notification = ->
 
+if Notification
+    Notification.requestPermission(
+        (permission) ->
+            if permission == "granted"
+                notification = (name, body, icon)->
+                    params = {body}
+                    if icon
+                        params.icon = icon
+                    window.instance = new Notification(
+                        name
+                        params
+                    )
+                    setTimeout(
+                        ->
+                            instance.close()
+                        5000
+                    )
 
-Notification.requestPermission(
-    (permission) ->
-        if permission == "granted"
-            notification = (name, body, icon="")->
-                instance = new Notification(
-                    name, {
-                        body
-                        icon
-                    }
-                )
-                setTimeout(
-                    ->
-                        notification.cancel()
-                    5000
-                )
-
-)
+    )
 
 #instance.onclick = function () {
 #    // Something to do

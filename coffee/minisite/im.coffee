@@ -98,6 +98,13 @@ im_reply.blur ->
         im_reply.val ''
         autosize.destroy(im_reply)
 
+_reply = ->
+    im_reply.val ''
+
+main.find('.replybar .send').click(_reply)
+im_reply.ctrl_enter(_reply)
+
+
 setInterval(
 #setTimeout(
     ->

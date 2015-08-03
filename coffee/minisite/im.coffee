@@ -20,4 +20,6 @@ new Headroom(
             "pinned": "swingInX",
             "unpinned": "swingOutX"
         }
-    }).init()
+}).init()
+
+autosize main.find('#im_reply')

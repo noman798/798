@@ -99,6 +99,6 @@ im_reply.blur ->
 setInterval(
 #setTimeout(
     ->
-        notification("张沈鹏","你知道吗?"+(new Date()), "121")
+        notification("路人甲","你知道吗?", "121")
     3000
 )

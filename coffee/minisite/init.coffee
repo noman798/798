@@ -56,3 +56,5 @@ TIP.html(tip_html or _tip_html())
 require "minisite/site"
 $.fn.sidebar.settings.defaultTransition.mobile.left = 'overlay'
 $.fn.sidebar.settings.defaultTransition.mobile.right = 'overlay'
+
+

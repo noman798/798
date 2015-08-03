@@ -1,4 +1,4 @@
-div.headroom 
+.headroom.postLi 
     div.wrapper
         div.right
             span.tips

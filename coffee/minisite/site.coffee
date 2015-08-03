@@ -1,3 +1,20 @@
+head = ->
+    new Headroom(
+        $(".headroom.postLi")[0],
+        {
+          "offset": 66,
+          "tolerance": 1,
+          scroller : $("#BODY>.main")[0]
+          "classes": {
+            "initial": "animated",
+            "pinned": "swingInX",
+            "unpinned": "swingOutX"
+            }
+        }).init()
+
+    $('.headroom .icon-search').click ->
+        $.modal_alert '研发中，请稍后使用。。。'
+        return false
 
 $ ->
     AV.Cloud.run(
@@ -28,7 +45,6 @@ $ ->
             require.async(
                 [
                     'minisite/init'
-                    'minisite/head'
                     "minisite/Rbar"
                 ]
                 ->
@@ -39,6 +55,8 @@ $ ->
                             $('#BODY .Rbar .scrollbar-macosx').scrollbar()
                     )
                     RBAR.init()
+                    head()
+
                     if css_updated_at
                         fileref=document.createElement("link")
                         fileref.setAttribute("rel", "stylesheet")

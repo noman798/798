@@ -93,7 +93,12 @@
                 bottom: 7px;
                 right:2px;
                 color: transparent;
-                margin-right:46px;
+                margin-right:36px;
+                padding:0 10px;
+                display:none;
+                background:#fff;
+                height:46px;
+                line-height:46px;
             }
             b.send{
                 position:absolute;
@@ -111,10 +116,6 @@
                 float:right;
                 color:#ccc;
                 font-weight: normal;
-                &+.tip{
-                    display:none;
-                    background:#fff;
-                }
                 &:hover{
                     color:#00f!important;
                 }

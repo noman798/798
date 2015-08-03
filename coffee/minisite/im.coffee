@@ -1,12 +1,14 @@
 elem = $ __inline("/html/coffee/minisite/im.html")
 $('body').append elem
 
-main = elem.find('.main')
-main.scrollbar()
-
-Rbar = elem.find('.Rbar')
+Rbar = $ elem[0]
 Rbar.scrollbar()
 
+main = $ elem[1]
+main.scrollbar()
+
+
+console.log main
 new Headroom(
     elem.find(".headroom")[0],
     {

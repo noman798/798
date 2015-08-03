@@ -88,6 +88,45 @@
     }
     .replybar{
         transform:translateZ(0);
+            b.tip{
+                position: absolute;
+                bottom: 7px;
+                right:2px;
+                color: transparent;
+                margin-right:46px;
+            }
+            b.send{
+                position:absolute;
+                right:0;
+                bottom:0;
+                display:inline-block;
+                font-family:'iconfont';
+                font-size: 32px;
+                line-height: 46px;
+                height:46px;
+                width:46px;
+                display: inline-block;
+                cursor: pointer;
+                text-align: center;
+                float:right;
+                color:#ccc;
+                font-weight: normal;
+                &:hover{
+                    color:#00f!important;
+                }
+                &:hover + .tip{
+                    color:blue;
+                }
+            }
+            .textarea textarea:hover + label{
+                cursor:text;
+            }
+            .textarea textarea:hover + label b.send{
+                color: #6c0;
+            }
+            .textarea textarea.focus + label b.send{
+                color: #090;
+            }
         textarea{
             outline:0;
             width:100%;

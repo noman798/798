@@ -87,6 +87,7 @@
         }
     }
     .replybar{
+        transform:translateZ(0);
         textarea{
             outline:0;
             width:100%;

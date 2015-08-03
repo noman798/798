@@ -4,7 +4,7 @@ head = ->
         {
           "offset": 66,
           "tolerance": 1,
-          scroller : $("#BODY>.main")[0]
+          scroller : $("#BODY>.main.postLi")[0]
           "classes": {
             "initial": "animated",
             "pinned": "swingInX",

@@ -81,7 +81,8 @@ im_reply.focus ->
 im_reply.blur ->
     autosize.destroy(im_reply)
 
-setInterval(
+#setInterval(
+setTimeout(
     ->
         notification("张沈鹏","你知道吗?"+(new Date()), "121")
     3000

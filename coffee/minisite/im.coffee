@@ -1,3 +1,8 @@
+###
+@require "/lib/jquery-visibility.js"
+###
+
+
 elem = $ __inline("/html/coffee/minisite/im.html")
 $('body').append elem
 

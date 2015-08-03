@@ -112,8 +112,10 @@
 
     .replybar
         a.iconfont.icon-yfadd href="javascript:void(0)"
-        textarea placeholder="说点什么… …"
-
+        textarea#im_reply placeholder="说点什么… …"
+        label.C for="im_reply" 
+            b class="send iconfont icon-fly"
+            b.tip 快捷键 CTRL+ENTER
 
 
 

@@ -111,8 +111,9 @@
                 float:right;
                 color:#ccc;
                 font-weight: normal;
-                .tip{
+                &+.tip{
                     display:none;
+                    background:#fff;
                 }
                 &:hover{
                     color:#00f!important;
@@ -138,9 +139,8 @@
             border:0;
             height:32px;
             line-height:32px;
-            padding:7px 16px;
+            padding:7px 40px 7px 57px;
             height:46px;
-            padding-left:57px;
         }
         .icon-yfadd{
             position:absolute;

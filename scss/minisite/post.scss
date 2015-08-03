@@ -215,7 +215,7 @@
                 font-size: 42px;
                 line-height: 42px;
                 right:3px;
-                .tip{display:none}
+                &+.tip{display:none}
                 &:hover{
                     .tip{display:block}
                     color:#00f!important;

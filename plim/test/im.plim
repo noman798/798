@@ -123,6 +123,7 @@
 
 
 
-scrip src="modules/minisite/im.js"
+script 
+    require('minisite/im')
 
 

@@ -15,5 +15,4 @@ require [
     "minisite/const"
     "minisite/url",
     "minisite/init"
-    "minisite/im"
 ]

@@ -48,14 +48,13 @@ $ ->
                     "minisite/Rbar"
                 ]
                 ->
-                    $('link[rel=shortcut]').attr("href",'www.baidu.com')
                     RBAR.push(
                         renderRbar(SITE)
                         ->
-                            $('#BODY .Rbar .scrollbar-macosx').scrollbar()
+                            $('#RbarSite .scrollbar-macosx').scrollbar()
+                            head()
                     )
                     RBAR.init()
-                    head()
 
                     if css_updated_at
                         fileref=document.createElement("link")

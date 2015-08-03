@@ -98,7 +98,7 @@
             b.send{
                 position:absolute;
                 right:0;
-                bottom:0;
+                bottom:-1px;
                 display:inline-block;
                 font-family:'iconfont';
                 font-size: 32px;
@@ -111,10 +111,14 @@
                 float:right;
                 color:#ccc;
                 font-weight: normal;
+                .tip{
+                    display:none;
+                }
                 &:hover{
                     color:#00f!important;
                 }
                 &:hover + .tip{
+                    display:block;
                     color:blue;
                 }
             }

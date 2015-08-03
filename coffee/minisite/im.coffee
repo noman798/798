@@ -22,4 +22,9 @@ new Headroom(
         }
 }).init()
 
-autosize main.find('#im_reply')
+im_reply = main.find('#im_reply')
+im_reply.focus ->
+    autosize(im_reply)
+im_reply.blur ->
+    autosize.destroy(im_reply)
+

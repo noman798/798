@@ -151,6 +151,8 @@
           bottom: -9px;
           margin-top: -9px;
           position: relative;
+          max-height:300px;
+          overflow:auto!important;
         }
         .icon-yfadd{
             bottom:0;

@@ -9,10 +9,14 @@ if Notification
     Notification.requestPermission(
         (permission) ->
             if permission == "granted"
-                notification = (name, body, icon)->
+                notification = (name, body, tag, icon)->
                     params = {body}
+                    if tag
+                        params.tag = tag
                     if icon
                         params.icon = icon
+                    #icon , tag (替换) ， body
+                    
                     window.instance = new Notification(
                         name
                         params
@@ -67,6 +71,6 @@ im_reply.blur ->
 
 setTimeout(
     ->
-        notification("张沈鹏","<b>你知道吗?</b>你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?你知道吗?")
+        notification("张沈鹏","你知道吗?", "121")
     100
 )

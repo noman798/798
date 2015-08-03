@@ -42,7 +42,6 @@ $ ->
             if favicon
                 $('head').append("""<link rel="shortcut icon" type="image/x-icon" href="#{favicon}">""")
 
-            $('.Rbar .scrollbar-macosx').scrollbar()
             require.async(
                 [
                     'minisite/init'
@@ -52,6 +51,7 @@ $ ->
                     RBAR.push(
                         renderRbar(SITE)
                         ->
+                            $('#RbarSite .scrollbar-macosx').scrollbar()
                             head()
                     )
                     RBAR.init()

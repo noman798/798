@@ -88,6 +88,12 @@
     }
     .replybar{
         transform:translateZ(0);
+        background:#fff;
+        border-top:2px solid #ccc;
+        left:30%;
+        right:0;
+        bottom:0;
+        position:fixed;
             b.tip{
                 position: absolute;
                 bottom:0;
@@ -138,9 +144,8 @@
             width:100%;
             resize:none;
             border:0;
-            height:32px;
-            line-height:32px;
             padding:7px 40px 7px 57px;
+            line-height:32px;
             height:46px;
         }
         .icon-yfadd{
@@ -158,12 +163,6 @@
             font-weight: bold;
             padding-left: 2px;
         }
-        height:46px;
-        border-top:2px solid #ccc;
-        left:30%;
-        right:0;
-        bottom:0;
-        position:fixed;
     }
 }
 #BODY > .Rbar{

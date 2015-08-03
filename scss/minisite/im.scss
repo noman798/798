@@ -51,13 +51,12 @@
             }
         }
     }
-    .topbar{
+    .headroom{
         background: #101022;
         text-align: center;
         font-size: 22px;
         height:66px;
         .name{
-            margin-top:12px;
             display:inline-block;
             color: rgba(255, 255, 255, 0.7);
             position:relative;
@@ -77,7 +76,7 @@
                 border-width: 5px;
                 border-color: rgba(255, 255, 255, 0.7) transparent transparent;
                 right: 7px;
-                top: 20px;    
+                top: 10px;    
             }
             &:hover{
                 color:#fff;

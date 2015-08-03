@@ -146,14 +146,18 @@
             border:0;
             padding:7px 40px 7px 57px;
             line-height:32px;
-            height:46px;
+            height:44px;
+            bottom:0;
+            position:absolute;
         }
         .icon-yfadd{
+            bottom:0;
             position:absolute;
-            height: 46px;
-            width: 46px;
+            z-index:1;
+            height: 44px;
+            width: 44px;
             text-align: center;
-            line-height: 46px;
+            line-height: 44px;
             color: #ccc;
             background: #fff;
             border-right: 2px solid #ccc;

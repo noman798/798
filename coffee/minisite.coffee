@@ -3,7 +3,6 @@
 @require minisite/init
 @require minisite/const
 @require /lib/AV.push.js
-@require /lib/store.js
 ###
 
 

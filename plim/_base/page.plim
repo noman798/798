@@ -15,7 +15,7 @@ html lang="zh-CN"
 
         
         <!-- @require /lib/jquery.js -->
-        <!-- require /lib/store.js -->
+        <!-- @require /lib/store.js -->
         <!-- @require /lib/alertify.js -->
         <!-- @require /lib/marked.js -->
         <!-- @require /lib/autosize.js -->

@@ -72,41 +72,41 @@
     .body
         .C
             .item
-                .txt
+                .line
                     p 那军师有何妙计?
                 .name 及时雨宋江
         .C
             .item.me
-                .txt
+                .line
                     p 哥哥莫慌, 且听我细细道来
                 .name 百无一用是书生 
         .timesplit
             span 昨天
         .C
             .item.me
-                .txt
+                .line
                     p 树欲静而风不止,到底是风的错还是叶子的错 
                     p 宋江帮了晁盖,所以晁盖才多次说要将第一把交椅让给宋江,但越是如此,宋江越不能做不义之事,宋江取代晁盖的方式只能是让晁盖离开梁山舞台,这一点宋江和吴用等人都是心知肚明的。
                 .name 百无一用是书生 
         .C 
             .item
-                .txt
+                .line
                     p 吴用和宋江希望招安,但在招安方式上又有所不同,宋江急于招安实现天罡地煞理论,但吴用不同意宋江委曲求全地招安。
                 .name 及时雨宋江 
         .C
             .item.me
-                .txt
+                .line
                     p 是这样
                 .name 百无一用是书生
         -for i in xrange(11) 
             .C 
                 .item
-                    .txt
+                    .line
                         p 对头，出发! 
                     .name 及时雨宋江 
             .C
                 .item.me
-                    .txt
+                    .line
                         p Go Go Go
                     .name 百无一用是书生 
 

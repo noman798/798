@@ -99,6 +99,8 @@ $ ->
             autosize.destroy(im_reply)
 
     _reply = ->
+        current = AV.User.current()
+        main.find('.body').append """<div class="C"><div class="item"><div class="txt">#{$.txt2html(im_reply.val())}</div><div class="name">#{$.escape current.get('username')}</div></div></div>"""
         im_reply.val ''
         main.scrollTop(main.find(".body").height())
         im_reply.blur()

@@ -115,7 +115,7 @@ _im = (username)->
     _render_html = (cid, data)->
         switch cid
             when IM.CID.CHAT
-                return """<div class="C"><div class="item"><div class="txt">#{$.txt2html(data.txt)}</div><div class="name">#{$.escape data.username}</div></div></div>"""
+                return """<div class="C"><div class="item"><div class=line>#{$.txt2html(data.txt)}</div><div class="name">#{$.escape data.username}</div></div></div>"""
 
 
     $ ->

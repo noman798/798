@@ -33,7 +33,7 @@
                 margin-bottom:8px;
                 color:rgba(49,0,103,.6);
             }
-            .txt{
+            .line{
                 p{
                     font-size:18px;
                     margin-bottom:4px;
@@ -41,12 +41,16 @@
                 }
                border-left:1px dashed rgba(49,0,103,.2);
                padding:0 16px;
+               margin-top:20px;
+            }
+            .line:first-child{
+                margin-top:0
             }
             &.me {
                 .name{
                     color:rgba(0,103,49,.6);
                 }
-                .txt{
+                .line{
                     border-left-color:RGBA(0, 103, 49, .2);
                 }
             }

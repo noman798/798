@@ -2,16 +2,22 @@
 @require "/lib/jquery-visibility.js"
 ###
 
+
+IM = {
+    CID:
+        CHAT : 1000
+}
 $ ->
     current = AV.User.current()
     if current
-        _im(current)
+        _im(current.get('username'))
     else
         $$('SSO/auth.new_or_login')
 
-_im = (current)->
+_im = (username)->
     elem = $ __inline("/html/coffee/minisite/im.html")
     $('body').append elem
+
 
     notification = ->
     NOTIFICATION_COUNT = 0
@@ -81,7 +87,18 @@ _im = (current)->
 
     main = $ elem[1]
     main.scrollbar()
+    _scroll_down = ->
+        main.scrollTop(main.find(".body").height())
 
+    _scroll_down()
+
+    _render = (cid, data)->
+        main.find('.body').append _render_html(cid, data)
+    
+    _render_html = (cid, data)->
+        switch cid
+            when IM.CID.CHAT
+                return """<div class="C"><div class="item"><div class="txt">#{$.txt2html(data.txt)}</div><div class="name">#{$.escape data.username}</div></div></div>"""
 
     new Headroom(
         elem.find(".headroom")[0],
@@ -106,10 +123,14 @@ _im = (current)->
                 autosize.destroy(im_reply)
 
         _reply = ->
-            main.find('.body').append """<div class="C"><div class="item"><div class="txt">#{$.txt2html(im_reply.val())}</div><div class="name">#{$.escape current.get('username')}</div></div></div>"""
+            _render IM.CID.CHAT, {
+                txt:im_reply.val().replace(/(\n|\r)+$/gm,"")
+                username
+            }
+
             im_reply.val ''
-            main.scrollTop(main.find(".body").height())
             im_reply.blur()
+            _scroll_down()
 
         main.find('.replybar .send').click(_reply)
         im_reply.ctrl_enter(_reply)

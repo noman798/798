@@ -7,6 +7,9 @@ IM = {
     CID:
         CHAT : 1000
 }
+
+
+
 $ ->
     current = AV.User.current()
     if current
@@ -83,9 +86,22 @@ _im = (username)->
 #};
 
     Rbar = $ elem[0]
-    Rbar.scrollbar()
-
     main = $ elem[1]
+
+    Rbar.scrollbar()
+    new Headroom(
+        Rbar.find(".headroom")[0],
+        {
+            offset: 66
+            tolerance: 1
+            scroller : main[0]
+            classes: {
+                "initial": "animated",
+                "pinned": "swingInX",
+                "unpinned": "swingOutX"
+            }
+    }).init()
+
     main.scrollbar()
     _scroll_down = ->
         main.scrollTop(main.find(".body").height())
@@ -100,18 +116,6 @@ _im = (username)->
             when IM.CID.CHAT
                 return """<div class="C"><div class="item"><div class="txt">#{$.txt2html(data.txt)}</div><div class="name">#{$.escape data.username}</div></div></div>"""
 
-    new Headroom(
-        elem.find(".headroom")[0],
-        {
-            offset: 66
-            tolerance: 1
-            scroller : main[0]
-            classes: {
-                "initial": "animated",
-                "pinned": "swingInX",
-                "unpinned": "swingOutX"
-            }
-    }).init()
 
     $ ->
         im_reply = main.find('#im_reply')

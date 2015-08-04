@@ -124,7 +124,7 @@ _im = (username)->
 
         _reply = ->
             _render IM.CID.CHAT, {
-                txt:im_reply.val().replace(/(\n|\r)+$/gm,"")
+                txt:im_reply.val().replace(/(\t| |\n|\r)+$/gm,"")
                 username
             }
 

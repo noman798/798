@@ -86,11 +86,13 @@ _im = (username)->
 #};
 
     Rbar = $ elem[0]
-    main = $ elem[1]
-
     Rbar.scrollbar()
+
+    main = $ elem[1]
+    main.scrollbar()
+
     new Headroom(
-        Rbar.find(".headroom")[0],
+        main.find(".headroom")[0],
         {
             offset: 66
             tolerance: 1
@@ -102,7 +104,6 @@ _im = (username)->
             }
     }).init()
 
-    main.scrollbar()
     _scroll_down = ->
         main.scrollTop(main.find(".body").height())
 
